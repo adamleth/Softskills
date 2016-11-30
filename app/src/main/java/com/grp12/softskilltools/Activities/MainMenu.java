@@ -188,6 +188,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         return true;
     }
 
+
     public static class MyPreferenceFragment extends PreferenceFragment
     {
 

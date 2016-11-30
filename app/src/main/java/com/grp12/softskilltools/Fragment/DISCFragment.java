@@ -48,11 +48,14 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         B25 = (Button) myView.findViewById(R.id.button15);
         Next = (Button) myView.findViewById(R.id.button4);
         Next.setOnClickListener(this);
-        test.initialize();
+        test = StoreFragment.getInstance().getDisc();
         q1 = 0;
         q2 = 0;
         currentQuestion1 = test.QUEUELOGIC();
+        question1.setText(currentQuestion1.getQuestion());
         currentQuestion2 = test.QUEUELOGIC();
+        question2.setText(currentQuestion2.getQuestion());
+
 
 
 

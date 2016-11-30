@@ -14,12 +14,13 @@ public abstract class AbstractItem {
     protected User owner;
     private String productName, description;
 
-    public AbstractItem(double cost, boolean isUsed, String productName, String description){
+    public AbstractItem(double cost, boolean isUsed, String productName, String description, testType type){
         this.cost = cost;
         this.isUsed = isUsed;
         this.owner = null;
         this.productName = productName;
         this.description = description;
+        this.type = type;
 
     }
     public testType getTestType(){

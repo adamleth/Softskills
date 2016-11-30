@@ -65,15 +65,15 @@ public class StoreFragment extends Fragment{
             switch (ItemDefinition.testType[i]) {
 
                 case DISC:
-                    items[i] = new DISC(ItemDefinition.TESTPrice_DATA[i],false,ItemDefinition.TESTName_DATA[i],ItemDefinition.TESTDescription_DATA[i]);
+                    items[i] = new DISC(ItemDefinition.TESTPrice_DATA[i],false,ItemDefinition.TESTName_DATA[i],ItemDefinition.TESTDescription_DATA[i], ItemDefinition.testType[i]);
                     break;
 
                 case BELBIN:
-                    items[i] = new BELBIN(ItemDefinition.TESTPrice_DATA[i],false, ItemDefinition.TESTName_DATA[i],ItemDefinition.TESTDescription_DATA[i]);
+                    items[i] = new BELBIN(ItemDefinition.TESTPrice_DATA[i],false, ItemDefinition.TESTName_DATA[i],ItemDefinition.TESTDescription_DATA[i],ItemDefinition.testType[i]);
                     break;
 
                 case THREESIXTY:
-                    items[i] = new THREESIXTY(ItemDefinition.TESTPrice_DATA[i],false, ItemDefinition.TESTName_DATA[i],ItemDefinition.TESTDescription_DATA[i]);
+                    items[i] = new THREESIXTY(ItemDefinition.TESTPrice_DATA[i],false, ItemDefinition.TESTName_DATA[i],ItemDefinition.TESTDescription_DATA[i],ItemDefinition.testType[i]);
                     break;
             }
         }
@@ -86,6 +86,9 @@ public class StoreFragment extends Fragment{
 
         ArrayList<AbstractItem> products = new ArrayList<>(Arrays.asList(items));
         return products;
+    }
+    public DISC getDisc(){
+        return (DISC)items[0];
     }
 
 }

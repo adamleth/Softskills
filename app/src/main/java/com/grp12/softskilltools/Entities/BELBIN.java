@@ -12,8 +12,8 @@ public class BELBIN extends AbstractItem {
     private int PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP;
     public static Question[] questions;
 
-    public BELBIN(double cost, boolean isUsed, String productName, String description) {
-        super(cost, isUsed, productName, description);
+    public BELBIN(double cost, boolean isUsed, String productName, String description, testType type) {
+        super(cost, isUsed, productName, description, type);
         initialize();
     }
 

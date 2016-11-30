@@ -1,5 +1,6 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +12,6 @@ import android.widget.GridView;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
-import com.grp12.softskilltools.Entities.Safe;
 import com.grp12.softskilltools.Util.TestProgressAdaptor;
 
 import java.util.ArrayList;
@@ -26,6 +26,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     private List<AbstractItem> tests;
     public GridView grid;
     private static SafeFragment sSafeFragment;
+    public AbstractItem tempItem;
     View myView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,9 +45,14 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         tests = MainMenu.getInstance().getUser().getSafe();
     }
 
-    public void startTest(AbstractItem test){
-        switch (test.getTestType()) {
+    public void startTest(AbstractItem item){
+        switch (item.getTestType()) {
             case DISC:
+                DISCFragment nextFrag= new DISCFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.article_fragment, nextFrag,null)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case BELBIN:
                 break;
@@ -54,14 +60,16 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                 break;
         }
     }
-
+    public AbstractItem getTempItem(){return tempItem;}
     public static SafeFragment getInstance() {
         return sSafeFragment;
     }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        AbstractItem item = tests.get(position);
         System.out.println(position);
+        tempItem = tests.get(position);
+        startTest(tempItem);
     }
+
+
 }

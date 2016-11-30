@@ -12,10 +12,11 @@ public class DISC extends AbstractItem {
     private int Complete;
     private final int totalQuestions = 72;
     public static Question[] questions;
+    Question nextQuestion;
 
 
-    public DISC(double cost, boolean isUsed, String productName, String description ) {
-        super(cost, isUsed, productName, description);
+    public DISC(double cost, boolean isUsed, String productName, String description, testType type ) {
+        super(cost, isUsed, productName, description, type);
         Dom = 0;
         Inf = 0;
         Sta = 0;
@@ -80,7 +81,7 @@ public class DISC extends AbstractItem {
     public Question QUEUELOGIC(){
         /**Get next question from questions**/
 
-        Question nextQuestion;
+
 
             nextQuestion = questions[0];
             if (nextQuestion.getAnswered() == false) {
@@ -88,12 +89,12 @@ public class DISC extends AbstractItem {
                 for (int i = 0; i < (questions.length - 1); i++) {
                     questions[i] = questions[i + 1];
                 }
-                questions[questions.length - 1] = nextQuestion;
+                nextQuestion = questions[questions.length - 1];
                 return nextQuestion;
+
             }
-            isUsed = true;
-            //Lav et resultat
-            return null;
+
+        return nextQuestion;
         }
 
     public void setScore(Question question,int score){
