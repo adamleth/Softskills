@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.galgespil.stvhendeop.menuapp.R;
@@ -20,7 +21,7 @@ import java.util.List;
  * Created by mathiaslarsen on 14/11/2016.
  */
 
-public class SafeFragment extends Fragment {
+public class SafeFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private List<AbstractItem> tests;
     public GridView grid;
@@ -32,9 +33,9 @@ public class SafeFragment extends Fragment {
         grid = (GridView) myView.findViewById(R.id.GridView);
         initialize();
         grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
+        grid.setOnItemClickListener(this);
         sSafeFragment = this;
         return myView;
-
 
     }
 
@@ -56,5 +57,11 @@ public class SafeFragment extends Fragment {
 
     public static SafeFragment getInstance() {
         return sSafeFragment;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        AbstractItem item = tests.get(position);
+        System.out.println(position);
     }
 }

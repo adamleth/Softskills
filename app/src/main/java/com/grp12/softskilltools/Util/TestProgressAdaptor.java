@@ -19,7 +19,7 @@ import java.util.List;
  * Created by mathiaslarsen on 22/11/2016.
  */
 
-public class TestProgressAdaptor extends BaseAdapter implements View.OnClickListener {
+public class TestProgressAdaptor extends BaseAdapter {
 
     private static List<AbstractItem> products;
     private LayoutInflater mInflater;
@@ -66,14 +66,6 @@ public class TestProgressAdaptor extends BaseAdapter implements View.OnClickList
 
 
         return convertView;
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        View parent = (View)v.getParent();
-        AbstractItem item = products.get(SafeFragment.getInstance().grid.getPositionForView(parent));
-        System.out.println(SafeFragment.getInstance().grid.getPositionForView(parent));
     }
 
     static class ViewHolder{
