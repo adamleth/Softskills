@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <CheckBoxPreference
+        android:title="Notifikationer"
+        android:summary="Ønsker du at modtage notofikationer fra os?"
+        android:key="notifications"
+        android:defaultValue="false" >
+        </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:title="Random indstilling 1"
+        android:summary="Random ind til random indstilling 1"
+        android:key="random1"
+        android:defaultValue="false">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:title="Random indstilling 2"
+        android:summary="Random ind til random indstilling 2"
+        android:key="random2"
+        android:defaultValue="false">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:title="Administrativ menu"
+        android:summary="Aktiver administrativ menu, for at kunne sende invitationer og følge op på resultater"
+        android:key="administrativ"
+        android:defaultValue="false">
+    </CheckBoxPreference>
+
+    <PreferenceCategory
+        android:title="Teknisk support"
+        android:summary="For hjælp vedrørende problemer med appen, og eller køb, klik her.">
+
+
+
+    </PreferenceCategory>
+</PreferenceScreen>

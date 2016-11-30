@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/grp1" android:checkableBehavior="single" >
+    <item android:id="@+id/navigation_test"
+        android:title="Udfyld profil"
+        android:icon="@mipmap/ic_person_white_24dp"/>
+    </group>
+
+    <group android:id="@+id/grp2" android:checkableBehavior="single" >
+    <item android:id="@+id/navigation_store"
+        android:title="Køb profil"
+        android:icon="@mipmap/ic_local_grocery_store_white_24dp"/>
+    </group>
+
+    <group android:id="@+id/grp3" android:checkableBehavior="single" >
+    <item android:id="@+id/navigation_results"
+        android:title="Resultater"
+        android:icon="@mipmap/ic_timeline_white_24dp"/>
+    </group>
+
+
+
+    <group android:id="@+id/submenu" android:checkableBehavior="single">
+        <item android:title="Administrativ menu">
+        <menu>
+    <group android:id="@+id/grp4" android:checkableBehavior="single" >
+    <item android:id="@+id/navigation_remind"
+        android:title="Opfølgning"
+        android:icon="@mipmap/ic_supervisor_account_white_24dp"/>
+    </group>
+
+    <group android:id="@+id/grp5" android:checkableBehavior="single" >
+        <item android:id="@+id/navigation_group_result"
+            android:title="Resultater"
+            android:icon="@mipmap/ic_supervisor_account_white_24dp"/>
+    </group>
+
+    <group android:id="@+id/grp6" android:checkableBehavior="single" >
+        <item android:id="@+id/navigation_invite"
+            android:title="Inviter"
+            android:icon="@mipmap/ic_supervisor_account_white_24dp" />
+    </group>
+
+
+    <group android:id="@+id/grp7" android:checkableBehavior="single" >
+    <item android:id="@+id/navigation_settings"
+        android:title="Indstillinger"
+        android:icon="@mipmap/ic_settings_white_24dp"/>
+    </group>
+
+    <group android:id="@+id/grp8" android:checkableBehavior="single" >
+    <item android:id="@+id/navigation_logout"
+        android:title="Log Ud"
+        android:icon="@mipmap/ic_power_settings_new_white_24dp" />
+    </group>
+            </menu>
+        </item>
+    </group>
+
+</menu>

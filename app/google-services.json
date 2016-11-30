@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "769015085687",
+    "firebase_url": "https://softskill-tools.firebaseio.com",
+    "project_id": "softskill-tools",
+    "storage_bucket": "softskill-tools.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769015085687:android:7a7f1a652dfecbbf",
+        "android_client_info": {
+          "package_name": "com.grp12.softskilltools"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769015085687-2ni6tjtnj4tq6ai20fickni3ofmoalgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUq2d-CNwonAGG0-5A97VwIeg_xIZ5Gok"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
