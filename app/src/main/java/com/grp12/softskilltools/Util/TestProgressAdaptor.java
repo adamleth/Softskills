@@ -68,6 +68,7 @@ public class TestProgressAdaptor extends BaseAdapter implements View.OnClickList
         return convertView;
     }
 
+
     @Override
     public void onClick(View v) {
         View parent = (View)v.getParent();
