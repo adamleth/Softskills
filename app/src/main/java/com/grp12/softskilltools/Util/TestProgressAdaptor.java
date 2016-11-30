@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.grp12.softskilltools.Entities.AbstractItem;
+import com.grp12.softskilltools.Fragment.SafeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
  * Created by mathiaslarsen on 22/11/2016.
  */
 
-public class TestProgressAdaptor extends BaseAdapter {
+public class TestProgressAdaptor extends BaseAdapter implements View.OnClickListener {
 
     private static List<AbstractItem> products;
     private LayoutInflater mInflater;
@@ -65,6 +66,13 @@ public class TestProgressAdaptor extends BaseAdapter {
 
 
         return convertView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        View parent = (View)v.getParent();
+        AbstractItem item = products.get(SafeFragment.getInstance().grid.getPositionForView(parent));
+        System.out.println(SafeFragment.getInstance().grid.getPositionForView(parent));
     }
 
     static class ViewHolder{

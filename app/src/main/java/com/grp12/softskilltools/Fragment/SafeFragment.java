@@ -23,7 +23,8 @@ import java.util.List;
 public class SafeFragment extends Fragment {
 
     private List<AbstractItem> tests;
-    private GridView grid;
+    public GridView grid;
+    private static SafeFragment sSafeFragment;
     View myView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class SafeFragment extends Fragment {
         grid = (GridView) myView.findViewById(R.id.GridView);
         initialize();
         grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
+        sSafeFragment = this;
         return myView;
 
 
@@ -41,10 +43,18 @@ public class SafeFragment extends Fragment {
         tests = MainMenu.getInstance().getUser().getSafe();
     }
 
-    public void update(){
-
+    public void startTest(AbstractItem test){
+        switch (test.getTestType()) {
+            case DISC:
+                break;
+            case BELBIN:
+                break;
+            case THREESIXTY:
+                break;
+        }
     }
 
-
-
+    public static SafeFragment getInstance() {
+        return sSafeFragment;
+    }
 }
