@@ -51,10 +51,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         test = StoreFragment.getInstance().getDisc();
         q1 = 0;
         q2 = 0;
-        currentQuestion1 = test.QUEUELOGIC();
-        question1.setText(currentQuestion1.getQuestion());
-        currentQuestion2 = test.QUEUELOGIC();
-        question2.setText(currentQuestion2.getQuestion());
+        loadQuestion(currentQuestion1,question1);
+        loadQuestion(currentQuestion2,question2);
 
 
 

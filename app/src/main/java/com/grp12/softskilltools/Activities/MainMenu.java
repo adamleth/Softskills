@@ -164,7 +164,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
             case R.id.navigation_settings:
-                Intent i = new Intent(this, PrefFragment.class);
+                Intent i = new Intent(this, DISCFragment.class);
                 startActivity(i);
                 break;
             case R.id.navigation_store:

@@ -83,18 +83,21 @@ public class DISC extends AbstractItem {
 
 
 
-            nextQuestion = questions[0];
+            this.nextQuestion = questions[0];
             if (nextQuestion.getAnswered() == false) {
                 //ACTION
                 for (int i = 0; i < (questions.length - 1); i++) {
                     questions[i] = questions[i + 1];
                 }
-                nextQuestion = questions[questions.length - 1];
-                return nextQuestion;
+
+
 
             }
+        else{
+                return null;
+                }
 
-        return nextQuestion;
+            return nextQuestion;
         }
 
     public void setScore(Question question,int score){
