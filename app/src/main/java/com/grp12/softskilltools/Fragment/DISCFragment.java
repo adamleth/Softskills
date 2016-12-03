@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
+import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.Question;
 
@@ -19,21 +20,37 @@ import com.grp12.softskilltools.Entities.Question;
 
 public class DISCFragment extends Fragment implements View.OnClickListener {
 
-    TextView question1,question2, alert;
+
     Button B10,B11,B12,B13,B14,B15,B20,B21,B22,B23,B24,B25,Next;
     DISC test;
-    Question currentQuestion1, currentQuestion2;
+    private Question currentQuestion1, currentQuestion2;
     boolean finished = false;
     private int q1,q2;
+    viewHolder holder;
 
 
     View myView;
+    private Question current;
+
+    public DISCFragment() {
+
+        test = (DISC)SafeFragment.getInstance().getTempItem();
+        q1 = 0;
+        q2 = 0;
+        holder = new viewHolder();
+        this.currentQuestion1 = null;
+        this.currentQuestion2 = null;
+
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_disc_test, container, false);
-        question1 = (TextView) myView.findViewById(R.id.textView6);
-        question2 = (TextView) myView.findViewById(R.id.textView7);
-        alert = (TextView) myView.findViewById(R.id.Alert);
+
+        holder.question1 = (TextView) myView.findViewById(R.id.textView6);
+        holder.question2 = (TextView) myView.findViewById(R.id.textView7);
+        holder.alert = (TextView) myView.findViewById(R.id.Alert);
         B10 = (Button) myView.findViewById(R.id.button14);
         B11 = (Button) myView.findViewById(R.id.button13);
         B12 = (Button) myView.findViewById(R.id.button12);
@@ -47,12 +64,24 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         B24 = (Button) myView.findViewById(R.id.button16);
         B25 = (Button) myView.findViewById(R.id.button15);
         Next = (Button) myView.findViewById(R.id.button4);
+        B10.setOnClickListener(this);
+        B11.setOnClickListener(this);
+        B12.setOnClickListener(this);
+        B13.setOnClickListener(this);
+        B14.setOnClickListener(this);
+        B15.setOnClickListener(this);
+        B20.setOnClickListener(this);
+        B21.setOnClickListener(this);
+        B22.setOnClickListener(this);
+        B23.setOnClickListener(this);
+        B24.setOnClickListener(this);
+        B25.setOnClickListener(this);
         Next.setOnClickListener(this);
-        test = StoreFragment.getInstance().getDisc();
-        q1 = 0;
-        q2 = 0;
-        loadQuestion(currentQuestion1,question1);
-        loadQuestion(currentQuestion2,question2);
+        this.currentQuestion1 = loadQuestion(this.currentQuestion1,holder.question1);
+        this.currentQuestion2 = loadQuestion(this.currentQuestion2,holder.question2);
+
+
+
 
 
 
@@ -66,22 +95,31 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
             test.setQuestionAnswered(currentQuestion2);
             test.setScore(currentQuestion1,q1);
             test.setScore(currentQuestion2,q2);
-            loadQuestion(currentQuestion1,question1);
-            loadQuestion(currentQuestion2,question2);
-            alert.setVisibility(View.GONE);
+            loadQuestion(currentQuestion1,holder.question1);
+            loadQuestion(currentQuestion2,holder.question2);
+            holder.alert.setVisibility(View.GONE);
         }
         else{
-            alert.setVisibility(View.VISIBLE);
+            holder.alert.setVisibility(View.VISIBLE);
         }
     }
-    public void loadQuestion(Question current, TextView placeHolder){
+
+    public Question loadQuestion(Question current, TextView placeHolder){
+        this.current = current;
         current = test.QUEUELOGIC();
-        if (current==null){
+        if (current.getAnswered() == true){
             Next.setText("Se resultat");
             finished = true;
+            MainMenu.getInstance().getUser().addToResults(test);
         }
-        placeHolder.setText(current.getQuestion());
+        else {
+            placeHolder.setText(current.getQuestion());
 
+        }
+        return current;
+    }
+    static class viewHolder{
+        TextView question1,question2, alert;
     }
 
 
@@ -140,6 +178,10 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
                 if (finished==false){
                     next();
                 }
+                else{
+
+                }
+
                 //Gå til resultat
                 break;
         }

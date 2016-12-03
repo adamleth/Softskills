@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.galgespil.stvhendeop.menuapp.R;
+import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
 
 import java.util.ArrayList;
@@ -23,21 +24,21 @@ public class ResultListFragment extends Fragment{
     private ListView results;
     private List<AbstractItem> testResults;
     View myView;
+    public ResultListFragment(){
+        initialize();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_resultlist, container, false);
-        initialize();
+
         results = (ListView) myView.findViewById(R.id.Results);
         return myView;
     }
 
     public void initialize(){
-        testResults = new ArrayList<>();
+        testResults = MainMenu.getInstance().getUser().getResults();
 
     }
 
-    public void addToResults(AbstractItem result){
-        testResults.add(result);
-    }
 
 }

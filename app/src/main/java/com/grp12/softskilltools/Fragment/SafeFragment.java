@@ -27,6 +27,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     public GridView grid;
     private static SafeFragment sSafeFragment;
     public AbstractItem tempItem;
+    public int position;
     View myView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,9 +46,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         tests = MainMenu.getInstance().getUser().getSafe();
     }
 
-    public void startTest(AbstractItem item){
+    public void startTest(AbstractItem item, int position){
         switch (item.getTestType()) {
             case DISC:
+                this.position = position;
                 DISCFragment nextFrag= new DISCFragment();
                 this.getFragmentManager().beginTransaction()
                         .replace(R.id.article_fragment, nextFrag,null)
@@ -68,7 +70,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         System.out.println(position);
         tempItem = tests.get(position);
-        startTest(tempItem);
+        startTest(tempItem, position);
     }
 
 

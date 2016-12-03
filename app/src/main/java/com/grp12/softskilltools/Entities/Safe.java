@@ -11,7 +11,8 @@ import java.util.List;
 
 public class Safe {
 
-    public List<AbstractItem> abstractItems;
+    public List<AbstractItem> unusedItems;
+    public List<AbstractItem> usedItems;
     private AbstractItem item;
     private User owner;
 
@@ -22,37 +23,49 @@ public class Safe {
 
     public void Initialize(User user){
         this.owner = user;
-        abstractItems = new ArrayList<>();
+        unusedItems = new ArrayList<>();
 
     }
 
     public boolean addToSafe(AbstractItem item, int qty){
-         int value = abstractItems.size();
+         int value = unusedItems.size();
 
         for (int i = 0; i < qty; i++) {
-            abstractItems.add(item);
+            unusedItems.add(item);
         }
 
-        if (abstractItems.size()==value){
+        if (unusedItems.size()==value){
             return false;
 
         }
         return true;
     }
-    public List<AbstractItem> getItems(){
-        return abstractItems;
+    public boolean addToResults(AbstractItem item){
+        int value = usedItems.size();
+            usedItems.add(item);
+        if (usedItems.size()==value){
+            return false;
+
+        }
+        return true;
+    }
+    public List<AbstractItem> getSafe(){
+        return unusedItems;
+    }
+    public List<AbstractItem> getResults(){
+        return usedItems;
     }
     public boolean isEmpty(){
-        if (abstractItems.isEmpty()){
+        if (unusedItems.isEmpty()){
             return true;
         }
         return false;
     }
 
     public boolean removeItemFromSafe(AbstractItem item){
-        int value = abstractItems.size();
-               abstractItems.remove(item);
-        if (abstractItems.size()==value){
+        int value = unusedItems.size();
+        unusedItems.remove(item);
+        if (unusedItems.size()==value){
             return false;
         }
         return true;

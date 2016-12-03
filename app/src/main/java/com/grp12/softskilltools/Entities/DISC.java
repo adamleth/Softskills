@@ -89,6 +89,7 @@ public class DISC extends AbstractItem {
                 for (int i = 0; i < (questions.length - 1); i++) {
                     questions[i] = questions[i + 1];
                 }
+                questions[questions.length-1] = this.nextQuestion;
 
 
 
@@ -119,9 +120,9 @@ public class DISC extends AbstractItem {
     }
 
     public void setQuestionAnswered(Question question){
-        int questionNo = getQuestionNumber(question);
-        questions[questionNo-1].setAnswered(true);
-        calculateCompletion(totalQuestions,questionNo);
+        int position = getQuestionPosition(question);
+        questions[position].setAnswered(true);
+        calculateCompletion(totalQuestions,question.getQuestionNo());
     }
     public int getCompletion(){
 
@@ -131,7 +132,7 @@ public class DISC extends AbstractItem {
         int result = currentQuestionNo/totalQuestions*100;
         this.Complete = result;
     }
-    public int getQuestionNumber(Question question){
+    public int getQuestionPosition(Question question){
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
             if(question == questions[i])

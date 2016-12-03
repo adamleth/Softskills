@@ -15,12 +15,14 @@ public class User {
     private Safe safe;
 
 
+
     public User(String name,String surName,String email, String phone){
         this.name = name;
         this.surName = surName;
         this.email = email;
         this.phone = phone;
         this.safe = new Safe(this);
+
     }
 
     public void setName(String newName, String newSurName){
@@ -45,9 +47,11 @@ public class User {
     public String getPhone(){
         return this.phone;
     }
-    public List<AbstractItem> getSafe(){ return safe.getItems();}
+    public List<AbstractItem> getSafe(){ return safe.getSafe();}
+    public List<AbstractItem> getResults(){ return safe.getResults();}
     public void addToSafe(AbstractItem item, int qty){
         safe.addToSafe(item,qty);
     }
+    public void addToResults(AbstractItem item) {safe.addToResults(item);}
 
 }
