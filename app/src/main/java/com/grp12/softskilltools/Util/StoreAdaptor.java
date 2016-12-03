@@ -52,6 +52,7 @@ public class StoreAdaptor extends BaseAdapter implements View.OnClickListener {
         return arg0;
     }
 
+
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if(convertView == null){
