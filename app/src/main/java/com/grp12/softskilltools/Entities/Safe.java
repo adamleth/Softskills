@@ -24,6 +24,7 @@ public class Safe {
     public void Initialize(User user){
         this.owner = user;
         unusedItems = new ArrayList<>();
+        usedItems = new ArrayList<>();
 
     }
 
@@ -43,6 +44,7 @@ public class Safe {
     public boolean addToResults(AbstractItem item){
         int value = usedItems.size();
             usedItems.add(item);
+            removeItemFromSafe(item);
         if (usedItems.size()==value){
             return false;
 

@@ -107,10 +107,11 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     public Question loadQuestion(Question current, TextView placeHolder){
         this.current = current;
         current = test.QUEUELOGIC();
-        if (current.getAnswered() == true){
+        if (current == null){
             Next.setText("Se resultat");
             finished = true;
             MainMenu.getInstance().getUser().addToResults(test);
+
         }
         else {
             placeHolder.setText(current.getQuestion());
@@ -179,10 +180,12 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
                     next();
                 }
                 else{
-
+                    ResultListFragment nextFrag= new ResultListFragment();
+                    this.getFragmentManager().beginTransaction()
+                            .replace(R.id.article_fragment, nextFrag,null)
+                            .addToBackStack(null)
+                            .commit();
                 }
-
-                //Gå til resultat
                 break;
         }
     }
