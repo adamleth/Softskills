@@ -186,6 +186,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
                             .addToBackStack(null)
                             .commit();
                 }
+
                 break;
         }
     }
