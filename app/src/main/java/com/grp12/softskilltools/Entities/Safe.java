@@ -9,7 +9,7 @@ import java.util.List;
  * Created by mathiaslarsen on 18/11/2016.
  */
 
-class Safe {
+public class Safe {
 
     private List<AbstractItem> unusedItems;
     private List<AbstractItem> usedItems;
@@ -41,6 +41,7 @@ class Safe {
         int value = usedItems.size();
             usedItems.add(item);
             removeItemFromSafe(item);
+
         return usedItems.size() != value;
     }
     List<AbstractItem> getSafe(){
