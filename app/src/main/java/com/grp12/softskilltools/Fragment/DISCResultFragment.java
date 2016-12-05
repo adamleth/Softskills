@@ -29,11 +29,12 @@ public class DISCResultFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_disc_result, container, false);
         result = (PieChart) myView.findViewById(pieChart);
-        data();
+        //data();
+        //Testresultater skap parses direkte fra listresultfragment, via en putextra funktion. På denne måde sendes data direkte til dette framgent, og loader med det samme.
         return myView;
     }
 
-    public void data() {
+    public void data(float f1, float f2, float f3, float f4) {
 
 
 
@@ -41,10 +42,10 @@ public class DISCResultFragment extends Fragment {
 
         List<PieEntry> entries = new ArrayList<>();
 
-        entries.add(new PieEntry(18.5f, "Dom"));
-        entries.add(new PieEntry(26.7f, "Inf"));
-        entries.add(new PieEntry(24.0f, "Sta"));
-        entries.add(new PieEntry(30.8f, "Com"));
+        entries.add(new PieEntry(f1, "Dom"));
+        entries.add(new PieEntry(f2, "Inf"));
+        entries.add(new PieEntry(f3, "Sta"));
+        entries.add(new PieEntry(f4, "Com"));
 
 
         PieDataSet set = new PieDataSet(entries, "DISC profil resultat");

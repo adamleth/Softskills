@@ -177,7 +177,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.button4:
-                if (finished==false){
+                if (!finished){
                     next();
                 }
                 else{

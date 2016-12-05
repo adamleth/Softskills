@@ -11,7 +11,7 @@ public class DISC extends AbstractItem {
     private boolean isUsed;
     private int Complete;
     private final int totalQuestions = 72;
-    public static Question[] questions;
+    private static Question[] questions;
     Question nextQuestion;
 
 
@@ -32,7 +32,7 @@ public class DISC extends AbstractItem {
         return Dom;
     }
 
-    public void setDom(int dom) {
+    private void setDom(int dom) {
 
         this.Dom += dom;
     }
@@ -42,7 +42,7 @@ public class DISC extends AbstractItem {
         return Inf;
     }
 
-    public void setInf(int inf) {
+    private void setInf(int inf) {
 
         this.Inf += inf;
     }
@@ -52,7 +52,7 @@ public class DISC extends AbstractItem {
         return Sta;
     }
 
-    public void setSta(int sta) {
+    private void setSta(int sta) {
 
         this.Sta += sta;
     }
@@ -71,7 +71,7 @@ public class DISC extends AbstractItem {
 
 
     /**DISC TEST LOGIC BEGIN**/
-    public void initialize(){
+    private void initialize(){
         questions = new Question[totalQuestions];
         for (int i = 0; i < totalQuestions; i++){
             questions[i] = new Question(DISC_Data.DISCWord_Data[i],DISC_Data.QuestionNo_DATA[i],DISC_Data.DISCTYPE_Data[i]);
@@ -84,7 +84,7 @@ public class DISC extends AbstractItem {
 
 
             this.nextQuestion = questions[0];
-            if (nextQuestion.getAnswered() == false) {
+            if (!nextQuestion.getAnswered()) {
                 //ACTION
                 for (int i = 0; i < (questions.length - 1); i++) {
                     questions[i] = questions[i + 1];
@@ -128,11 +128,11 @@ public class DISC extends AbstractItem {
 
         return Complete;
     }
-    public void calculateCompletion(int totalQuestions, int currentQuestionNo ){
+    private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
         int result = currentQuestionNo/totalQuestions*100;
         this.Complete = result;
     }
-    public int getQuestionPosition(Question question){
+    private int getQuestionPosition(Question question){
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
             if(question == questions[i])
