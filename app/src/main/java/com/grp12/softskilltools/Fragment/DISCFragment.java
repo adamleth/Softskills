@@ -91,6 +91,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
     public void next(){
         if (q1 + q2 == 5){
+            q1 = 0;
+            q2 = 0;
             test.setQuestionAnswered(currentQuestion1);
             test.setQuestionAnswered(currentQuestion2);
             test.setScore(currentQuestion1,q1);
@@ -110,7 +112,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         if (current == null){
             Next.setText("Se resultat");
             finished = true;
-            MainMenu.getInstance().getUser().addToResults(test);
+
 
         }
         else {
@@ -177,10 +179,11 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.button4:
-                if (finished==false){
+                if (!finished){
                     next();
                 }
                 else{
+                    MainMenu.getInstance().getUser().addToResults(test);
                     ResultListFragment nextFrag= new ResultListFragment();
                     this.getFragmentManager().beginTransaction()
                             .replace(R.id.article_fragment, nextFrag,null)

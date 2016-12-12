@@ -25,7 +25,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
 
     private List<AbstractItem> tests;
     public GridView grid;
-    private static SafeFragment sSafeFragment;
+    protected static SafeFragment sSafeFragment;
     public AbstractItem tempItem;
     public int position;
     View myView;

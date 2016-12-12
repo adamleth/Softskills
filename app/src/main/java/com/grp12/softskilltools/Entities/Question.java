@@ -8,17 +8,17 @@ public class Question {
 
     private String question;
     private int questionNo;
-    public boolean answered;
+    private boolean answered;
     public enum questionType {Dom,Inf,Sta,Com,PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP};
-    public questionType type;
+    private questionType type;
 
-    public Question(String question,int questionNo, questionType type){
+    Question(String question, int questionNo, questionType type){
         this.questionNo = questionNo;
         this.question = question;
         this.type = type;
     }
 
-    public int getQuestionNo(){
+    int getQuestionNo(){
         return questionNo;
     }
     public void setQuestionNo(int No) {this.questionNo = No;}
@@ -26,13 +26,13 @@ public class Question {
         return question;
     }
     public void setQuestion(String question) {this.question=question;}
-    public void setAnswered(boolean answer){
+    void setAnswered(boolean answer){
         this.answered=answer;
     }
-    public boolean getAnswered(){
+    boolean getAnswered(){
         return answered;
     }
     public void setType(questionType type) {this.type = type;}
-    public questionType getType() {return type;}
+    questionType getType() {return type;}
 
 }

@@ -11,65 +11,52 @@ import java.util.List;
 
 public class Safe {
 
-    public List<AbstractItem> unusedItems;
-    public List<AbstractItem> usedItems;
+    private List<AbstractItem> unusedItems;
+    private List<AbstractItem> usedItems;
     private AbstractItem item;
     private User owner;
 
-    public Safe(User owner){
+    Safe(User owner){
         Initialize(owner);
     }
 
 
-    public void Initialize(User user){
+    private void Initialize(User user){
         this.owner = user;
         unusedItems = new ArrayList<>();
         usedItems = new ArrayList<>();
 
     }
 
-    public boolean addToSafe(AbstractItem item, int qty){
+    boolean addToSafe(AbstractItem item, int qty){
          int value = unusedItems.size();
 
         for (int i = 0; i < qty; i++) {
             unusedItems.add(item);
         }
 
-        if (unusedItems.size()==value){
-            return false;
-
-        }
-        return true;
+        return unusedItems.size() != value;
     }
-    public boolean addToResults(AbstractItem item){
+    boolean addToResults(AbstractItem item){
         int value = usedItems.size();
             usedItems.add(item);
             removeItemFromSafe(item);
-        if (usedItems.size()==value){
-            return false;
 
-        }
-        return true;
+        return usedItems.size() != value;
     }
-    public List<AbstractItem> getSafe(){
+    List<AbstractItem> getSafe(){
         return unusedItems;
     }
-    public List<AbstractItem> getResults(){
+    List<AbstractItem> getResults(){
         return usedItems;
     }
     public boolean isEmpty(){
-        if (unusedItems.isEmpty()){
-            return true;
-        }
-        return false;
+        return unusedItems.isEmpty();
     }
 
-    public boolean removeItemFromSafe(AbstractItem item){
+    private boolean removeItemFromSafe(AbstractItem item){
         int value = unusedItems.size();
         unusedItems.remove(item);
-        if (unusedItems.size()==value){
-            return false;
-        }
-        return true;
+        return unusedItems.size() != value;
     }
 }
