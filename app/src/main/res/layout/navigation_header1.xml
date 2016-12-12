@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="70dp"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/header"
     >
 
     <LinearLayout
@@ -54,7 +54,8 @@
                         android:id="@+id/NavHeaderName"
                         android:gravity="center_vertical"
                         android:textStyle="bold"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginTop="20dp"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -69,7 +70,8 @@
                         android:layout_height="match_parent"
                         android:id="@+id/NavHeaderEmail"
                         android:gravity="center_vertical"
-                        android:layout_marginBottom="18dp" />
+                        android:layout_marginBottom="18dp"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
