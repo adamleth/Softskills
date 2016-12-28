@@ -21,6 +21,11 @@ import android.widget.TextView;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.User;
 import com.grp12.softskilltools.Fragment.DISCFragment;
@@ -49,6 +54,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
     private static MainMenu sMainMenu;
+    DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mConditionDataRef = mRootDataRef.child("users");
 
 
 
@@ -67,8 +74,21 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         TextView nav_email = (TextView)hView.findViewById(R.id.NavHeaderEmail);
         Intent PromptIntent = getIntent();
         String email = PromptIntent.getStringExtra("UserEmail");
-        createUser(email);
-        nav_user.setText("Testbruger");
+        mConditionDataRef = mRootDataRef.child("users").child(email.replace('.',';'));
+        mConditionDataRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        createUser(email,"name","lastName","phone");
+        nav_user.setText(user.getName()+" "+ user.getSurName());
         nav_email.setText(user.getEmail());
 
 
@@ -115,8 +135,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     };
 
 }
-    public void createUser(String email){
-        this.user = new User("Test","Bruger",email,"Phone" );
+    public void createUser(String email, String name, String lastName, String phone){
+        this.user = new User(name,lastName,email,phone );
     }
 
     public static MainMenu getInstance() {

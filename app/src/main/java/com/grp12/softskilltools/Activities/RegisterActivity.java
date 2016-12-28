@@ -16,6 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by mathiaslarsen on 13/11/2016.
@@ -23,16 +28,19 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText forNavn;
-    EditText efterNavn;
-    EditText email;
-    EditText kodeord;
-    EditText telefon;
+    private EditText forNavn;
+    private EditText efterNavn;
+    private EditText email;
+    private EditText kodeord;
+    private EditText telefon;
     Button knap;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
     private FirebaseUser mUser;
+    DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mConditionDataRef = mRootDataRef.child("users");
+    Map<String, String> userData = new HashMap<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,16 +62,23 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void createAccount(String email, String password) {
+    private void createAccount(String eMail, String password) {
         Log.d(TAG, "createAccount:" + email);
         if (!validateForm()) {
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(eMail, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        userData.put("Name",forNavn.getText().toString());
+                        userData.put("lastName",efterNavn.getText().toString());
+                        userData.put("phone", telefon.getText().toString());
+                        userData.put("mail", email.getText().toString());
+                        mConditionDataRef = mRootDataRef.child("Users").child(email.getText().toString().replace('.',';'));
+                        mConditionDataRef.setValue(userData);
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
                         knap.setText("Konto oprettet!");
 
