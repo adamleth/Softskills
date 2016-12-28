@@ -11,6 +11,7 @@ public class BELBIN extends AbstractItem {
     private final int totalQuestions = 70;
     private int PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP;
     public static Question[] questions;
+    Question nextQuestion;
 
     public BELBIN(double cost, boolean isUsed, String productName, String description, testType type) {
         super(cost, isUsed, productName, description, type);
@@ -103,6 +104,30 @@ public class BELBIN extends AbstractItem {
             questions[i] = new Question(BELBIN_Data.BelbinWord_Data[i],BELBIN_Data.QuestionNo_DATA[i],BELBIN_Data.BELBINTYPE_Data[i]);
         }
     }
+
+    public Question QUEUELOGIC(){
+        /**Get next question from questions**/
+
+
+
+        this.nextQuestion = questions[0];
+        if (!nextQuestion.getAnswered()) {
+            //ACTION
+            for (int i = 0; i < (questions.length - 1); i++) {
+                questions[i] = questions[i + 1];
+            }
+            questions[questions.length-1] = this.nextQuestion;
+
+
+
+        }
+        else{
+            return null;
+        }
+
+        return nextQuestion;
+    }
+
 
     public void setScore(Question question,int score){
         switch(question.getType()){
