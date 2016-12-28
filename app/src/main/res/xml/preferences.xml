@@ -1,41 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-    <CheckBoxPreference
-        android:title="Notifikationer"
-        android:summary="Ønsker du at modtage notofikationer fra os?"
-        android:key="notifications"
-        android:defaultValue="false" >
-        </CheckBoxPreference>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <CheckBoxPreference
-        android:title="Random indstilling 1"
-        android:summary="Random ind til random indstilling 1"
-        android:key="random1"
-        android:defaultValue="false">
-    </CheckBoxPreference>
-
+        android:key="brugPosVedStart"
+        android:title="Brug stedbestemmelse ved start"
+        android:summary="Vis vejrudsigt for aktuel position ved opstart"
+        android:defaultValue="true" />
     <CheckBoxPreference
-        android:title="Random indstilling 2"
-        android:summary="Random ind til random indstilling 2"
-        android:key="random2"
-        android:defaultValue="false">
-    </CheckBoxPreference>
+        android:key="ventPåPos"
+        android:title="Vent på stedbestemmelse"
+        android:summaryOn="Vent på en frisk positionsbestemmelse"
+        android:summaryOff="Bruge seneste position til vejrudsigt"
+        android:defaultValue="false" />
+    <EditTextPreference
+        android:key="foretrukkenPostNr"
+        android:title="Foretrukken postnummer"
+        android:summary="Dit foretrukne postnummer"
+        android:defaultValue="" />
+    <!--       android:password="true" -->
 
-    <CheckBoxPreference
-        android:title="Administrativ menu"
-        android:summary="Aktiver administrativ menu, for at kunne sende invitationer og følge op på resultater"
-        android:key="administrativ"
-        android:defaultValue="false">
-    </CheckBoxPreference>
-
-    <PreferenceCategory
-        android:title="Teknisk support"
-        android:summary="For hjælp vedrørende problemer med appen, og eller køb, klik her.">
-
-
-
-    </PreferenceCategory>
+    <PreferenceScreen
+        android:key="underskaerm"
+        android:title="En underskærm">
+        <CheckBoxPreference
+            android:key="indst1"
+            android:title="Indstilling 1" />
+        <CheckBoxPreference
+            android:key="indst2"
+            android:title="Indstilling 2" />
+    </PreferenceScreen>
 </PreferenceScreen>

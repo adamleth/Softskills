@@ -1,9 +1,10 @@
 package com.grp12.softskilltools.Fragment;
 
+
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.preference.PreferenceManager;
+import android.view.View;
 
 import com.galgespil.stvhendeop.menuapp.R;
 
@@ -11,32 +12,21 @@ import com.galgespil.stvhendeop.menuapp.R;
 /**
  * Created by mathiaslarsen on 07/11/2016.
  */
-public class PrefFragment extends PreferenceActivity {
+public class PrefFragment extends FragmentActivity implements View.OnClickListener{
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-
-
-
-        }
-
-        public static class MyPreferenceFragment extends PreferenceFragment
-        {
-
-            private Toolbar mToolbar;
-            @Override
-            public void onCreate(final Bundle savedInstanceState)
-            {
-                super.onCreate(savedInstanceState);
-
-
-                addPreferencesFromResource(R.xml.preferences);
-
-            }
-        }
 
     }
+
+
+    @Override
+    public void onClick(View v) {
+
+    }
+}
+
