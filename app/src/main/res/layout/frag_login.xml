@@ -34,7 +34,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/logo_burned"
-                    android:id="@+id/imageView4" />
+                    android:id="@+id/imageView4"
+                    android:visibility="invisible" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -52,12 +53,14 @@
                 android:orientation="vertical"
                 android:layout_weight="3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/LinearLayout1">
 
                 <ViewFlipper
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:id="@+id/viewflipper">
 
                     <TextView
                         android:text="Velkommen til SoftSkills! Vi kan hjælpe dig, med at teste din personlighed."
@@ -114,7 +117,8 @@
                     android:layout_height="match_parent"
                     android:id="@+id/button3"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                    android:background="@drawable/button_primary_solid" />
+                    android:background="@drawable/button_primary_solid"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <LinearLayout
@@ -129,7 +133,8 @@
                     android:layout_height="match_parent"
                     android:id="@+id/button2"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                    android:background="@drawable/button_secondary_solid" />
+                    android:background="@drawable/button_secondary_solid"
+                    android:visibility="invisible" />
             </LinearLayout>
 
         </LinearLayout>
