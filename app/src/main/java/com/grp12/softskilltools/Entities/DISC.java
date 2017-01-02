@@ -21,7 +21,7 @@ public class DISC extends AbstractItem {
         Inf = 0;
         Sta = 0;
         Com = 0;
-        this.Complete = getCompletion();
+        this.Complete =  getCompletion();
 
         initialize();
 
