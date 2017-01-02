@@ -78,8 +78,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         B24.setOnClickListener(this);
         B25.setOnClickListener(this);
         Next.setOnClickListener(this);
-        this.currentQuestion1 = loadQuestion(this.currentQuestion1,holder.question1);
-        this.currentQuestion2 = loadQuestion(this.currentQuestion2,holder.question2);
+        this.currentQuestion1 = loadQuestion(holder.question1);
+        this.currentQuestion2 = loadQuestion(holder.question2);
 
 
 
@@ -92,36 +92,39 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
     public void next(){
         if (q1 + q2 == 5){
+            update(currentQuestion1,q1);
+            update(currentQuestion2,q2);
+            currentQuestion1 = loadQuestion(holder.question1);
+            currentQuestion2 = loadQuestion(holder.question2);
+            holder.alert.setVisibility(View.GONE);
             q1 = 0;
             q2 = 0;
-            test.setQuestionAnswered(currentQuestion1);
-            test.setQuestionAnswered(currentQuestion2);
-            test.setScore(currentQuestion1,q1);
-            test.setScore(currentQuestion2,q2);
-            loadQuestion(currentQuestion1,holder.question1);
-            loadQuestion(currentQuestion2,holder.question2);
-            holder.alert.setVisibility(View.GONE);
         }
         else{
             holder.alert.setVisibility(View.VISIBLE);
         }
     }
+    public void update(Question question, int score){
+        test.setQuestionAnswered(question);
+        test.setScore(question,score);
+    }
 
-    public Question loadQuestion(Question current, TextView placeHolder){
-        this.current = current;
+    public Question loadQuestion(TextView placeHolder) {
         current = test.QUEUELOGIC();
-        if (current == null){
-            Next.setText("Se resultat");
-            finished = true;
+            if (current == null) {
+                Next.setText("Se resultat");
+                finished = true;
 
 
-        }
-        else {
-            placeHolder.setText(current.getQuestion());
+            } else {
+                placeHolder.setText(current.getQuestion());
 
-        }
+            }
+
         return current;
     }
+
+
     static class viewHolder{
         TextView question1,question2, alert;
     }
@@ -181,7 +184,10 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
             case R.id.button4:
                 if (!finished){
+                    System.out.println(currentQuestion1.toString());
+                    System.out.println(currentQuestion2.toString());
                     next();
+
                 }
                 else{
                     MainMenu.getInstance().getUser().addToResults(test);

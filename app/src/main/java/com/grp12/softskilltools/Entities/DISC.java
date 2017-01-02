@@ -98,6 +98,7 @@ public class DISC extends AbstractItem {
                 return null;
                 }
 
+        System.out.println(Inf + " "+ Com + " " +Sta + " " +Dom);
             return nextQuestion;
         }
 
@@ -122,7 +123,7 @@ public class DISC extends AbstractItem {
     public void setQuestionAnswered(Question question){
         int position = getQuestionPosition(question);
         questions[position].setAnswered(true);
-        calculateCompletion(totalQuestions,question.getQuestionNo());
+        //calculateCompletion(totalQuestions,question.getQuestionNo());
     }
     public int getCompletion(){
 

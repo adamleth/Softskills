@@ -10,7 +10,7 @@ public class Question {
     private int questionNo;
     private boolean answered;
     public enum questionType {Dom,Inf,Sta,Com,PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP};
-    private questionType type;
+    public questionType type;
 
     Question(String question, int questionNo, questionType type){
         this.questionNo = questionNo;
@@ -35,4 +35,13 @@ public class Question {
     public void setType(questionType type) {this.type = type;}
     questionType getType() {return type;}
 
+    @Override
+    public String toString() {
+        return "Question{" +
+                "question='" + question + '\'' +
+                ", questionNo=" + questionNo +
+                ", answered=" + answered +
+                ", type=" + type +
+                '}';
+    }
 }
