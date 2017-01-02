@@ -4,7 +4,7 @@ import com.grp12.softskilltools.resources.BELBIN_Data;
 
 
 /**
- * Created by mathiaslarsen on 18/11/2016.
+ * Created by Mathiaslarsen on 18/11/2016.
  */
 
 public class BELBIN extends AbstractItem {
