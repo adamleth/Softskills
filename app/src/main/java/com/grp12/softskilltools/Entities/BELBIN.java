@@ -10,11 +10,23 @@ import com.grp12.softskilltools.resources.BELBIN_Data;
 public class BELBIN extends AbstractItem {
     private final int totalQuestions = 70;
     private int PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP;
+    private int Complete;
     public static Question[] questions;
     Question nextQuestion;
 
     public BELBIN(double cost, boolean isUsed, String productName, String description, testType type) {
         super(cost, isUsed, productName, description, type);
+        PL = 0;
+        RI = 0;
+        CO = 0;
+        SH = 0;
+        ME = 0;
+        TW = 0;
+        IMP = 0;
+        CF = 0;
+        SP = 0;
+        DROP = 0;
+        this.Complete = getCompletion();
         initialize();
     }
 
@@ -169,11 +181,28 @@ public class BELBIN extends AbstractItem {
     public void setQuestionAnswered(Question question){
         int questionNo = getQuestionNumber(question);
         questions[questionNo-1].setAnswered(true);
+        calculateCompletion(totalQuestions,question.getQuestionNo());
     }
     public int getCompletion(int totalQuestions, int currentQuestionNo ){
-        int result = currentQuestionNo/totalQuestions*100;
-        return result;
+
+        return Complete;
     }
+
+    private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
+        int result = currentQuestionNo/totalQuestions*100;
+        this.Complete = result;
+    }
+
+    private int getQuestionPosition(Question question){
+        int number  = 0;
+        for(int i = 0; i < totalQuestions; i++){
+            if(question == questions[i])
+                number = i;
+        }
+        return number;
+
+    }
+
     public int getQuestionNumber(Question question){
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
