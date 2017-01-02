@@ -1,12 +1,13 @@
 package com.grp12.softskilltools.Entities;
 
 
+import java.io.Serializable;
 
 /**
  * Created by mathiaslarsen on 18/11/2016.
  */
 
-public abstract class AbstractItem {
+public abstract class AbstractItem implements Serializable {
     public double cost;
     public enum testType{DISC,BELBIN,THREESIXTY};
     public boolean isUsed;

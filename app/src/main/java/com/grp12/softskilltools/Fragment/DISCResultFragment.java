@@ -11,6 +11,8 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.grp12.softskilltools.Entities.AbstractItem;
+import com.grp12.softskilltools.Entities.DISC;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +26,19 @@ import static com.galgespil.stvhendeop.menuapp.R.id.pieChart;
 public class DISCResultFragment extends Fragment {
 
     PieChart result;
+    DISC temp;
+    Bundle bundle;
     View myView;
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_disc_result, container, false);
         result = (PieChart) myView.findViewById(pieChart);
-        //data();
+        bundle = getArguments();
+        this.temp =(DISC) bundle.getSerializable("Item");
+        data(temp.getDom(),temp.getInf(),temp.getSta(),temp.getCom());
         //Testresultater skap parses direkte fra listresultfragment, via en putextra funktion. På denne måde sendes data direkte til dette framgent, og loader med det samme.
         return myView;
     }
