@@ -31,9 +31,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ListView
+            <ExpandableListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+            <Button
+                android:text="Afslut test"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/button27"
+                android:background="@drawable/button_primary_solid" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

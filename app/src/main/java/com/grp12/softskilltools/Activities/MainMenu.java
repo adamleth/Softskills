@@ -78,6 +78,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         TextView nav_email = (TextView)hView.findViewById(R.id.NavHeaderEmail);
         Intent PromptIntent = getIntent();
         String email = PromptIntent.getStringExtra("UserEmail");
+        createUser(email,name,lastName,phone);
         DatabaseReference mConditionRef = mRootDataRef.child("Users").child(email.replace(".",";"));
         mConditionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -96,7 +97,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
-        createUser(email,name,lastName,phone);
+
         nav_user.setText(user.getName()+" "+ user.getSurName());
         nav_email.setText(user.getEmail());
 

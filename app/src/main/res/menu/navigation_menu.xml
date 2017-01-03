@@ -15,7 +15,7 @@
 
     <group android:id="@+id/grp3" android:checkableBehavior="single" >
     <item android:id="@+id/navigation_results"
-        android:title="Resultater"
+        android:title="Mine Resultater"
         android:icon="@mipmap/ic_timeline_white_24dp"/>
     </group>
 
@@ -32,7 +32,7 @@
 
     <group android:id="@+id/grp5" android:checkableBehavior="single" >
         <item android:id="@+id/navigation_group_result"
-            android:title="Resultater"
+            android:title="Gruppe Resultater"
             android:icon="@mipmap/ic_supervisor_account_white_24dp"/>
     </group>
 
