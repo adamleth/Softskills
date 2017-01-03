@@ -20,10 +20,12 @@ import android.widget.TextView;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.grp12.softskilltools.Entities.User;
 import com.grp12.softskilltools.Fragment.SafeFragment;
@@ -32,6 +34,11 @@ import com.grp12.softskilltools.Fragment.RemindFragment;
 import com.grp12.softskilltools.Fragment.ResultListFragment;
 import com.grp12.softskilltools.Fragment.StoreFragment;
 import com.grp12.softskilltools.Fragment.PrefFragment;
+
+import java.util.IllegalFormatException;
+import java.util.IllegalFormatFlagsException;
+import java.util.IllegalFormatWidthException;
+import java.util.Map;
 
 /**
  * Created by mathiaslarsen on 13/11/2016.
@@ -47,11 +54,12 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private ImageView Iuser;
     private FirebaseAuth mAuth;
     private User user;
+    String name,lastName,phone;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
     private static MainMenu sMainMenu;
     DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mConditionDataRef = mRootDataRef.child("users");
+
 
 
 
@@ -70,11 +78,16 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         TextView nav_email = (TextView)hView.findViewById(R.id.NavHeaderEmail);
         Intent PromptIntent = getIntent();
         String email = PromptIntent.getStringExtra("UserEmail");
-        mConditionDataRef = mRootDataRef.child("users").child(email.replace('.',';'));
-        mConditionDataRef.addValueEventListener(new ValueEventListener() {
+        DatabaseReference mConditionRef = mRootDataRef.child("Users").child(email.replace(".",";"));
+        mConditionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                System.out.println(dataSnapshot);
+                Map<String, Object> newPost = (Map<String, Object>) dataSnapshot.getValue();
+                System.out.println("Fornavn: " + newPost.get("Name"));
+                System.out.println("Efternavn: " + newPost.get("lastName"));
+                System.out.println("Telefon: " + newPost.get("phone"));
+
+
             }
 
             @Override
@@ -83,7 +96,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
-        createUser(email,"name","lastName","phone");
+        createUser(email,name,lastName,phone);
         nav_user.setText(user.getName()+" "+ user.getSurName());
         nav_email.setText(user.getEmail());
 
@@ -192,6 +205,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
             case R.id.navigation_logout:
                 signOut();
+
 
                 break;
 
