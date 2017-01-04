@@ -84,6 +84,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map<String, Object> newPost = (Map<String, Object>) dataSnapshot.getValue();
+                String text = dataSnapshot.getValue(String.class);
+                System.out.println(text);
                 System.out.println("Fornavn: " + newPost.get("Name"));
                 System.out.println("Efternavn: " + newPost.get("lastName"));
                 System.out.println("Telefon: " + newPost.get("phone"));
