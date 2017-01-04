@@ -19,7 +19,7 @@ public class BelbinAdaptor {
 
     public class Belbin_adaptor extends BaseAdapter {
 
-        private static ArrayList<Question> questions;
+        private ArrayList<Question> questions;
         private LayoutInflater mInflater;
 
         @Override

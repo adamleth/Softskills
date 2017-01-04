@@ -19,7 +19,7 @@ import org.eazegraph.lib.charts.PieChart;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.galgespil.stvhendeop.menuapp.R.id.pieChart;
+
 
 /**
  * Created by mathiaslarsen on 27/11/2016.
@@ -39,7 +39,7 @@ public class DISCResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_disc_result, container, false);
-        mPieChart = (PieChart) view.findViewById(R.id.pieChart);
+        mPieChart = (PieChart) view.findViewById(R.id.piechart);
 
         bundle = getArguments();
         this.temp =(DISC) bundle.getSerializable("Item");
@@ -49,11 +49,17 @@ public class DISCResultFragment extends Fragment {
     }
 
 
-    private void loadData(int dom, int inf,int sta,int com) {
-        mPieChart.addPieSlice(new PieModel("Freetime", dom, Color.parseColor("#FE6DA8")));
-        mPieChart.addPieSlice(new PieModel("Sleep", inf, Color.parseColor("#56B7F1")));
-        mPieChart.addPieSlice(new PieModel("Work", sta, Color.parseColor("#CDA67F")));
-        mPieChart.addPieSlice(new PieModel("Eating", com, Color.parseColor("#FED70E")));
+    private void loadData(int dom, int inf, int sta, int com) {
+        int perDom = (int) (0.55*dom);
+        int perInf = (int) (0.55*inf);
+        int perSta = (int) (0.55*sta);
+        int perCom = (int) (0.55*com);
+        System.out.println(dom + " " + inf + " " + sta + " " + com);
+        System.out.println(perDom + " " + perInf + " " + perSta + " " + perCom);
+        mPieChart.addPieSlice(new PieModel("Dominant", perDom, Color.parseColor("#FE6DA8")));
+        mPieChart.addPieSlice(new PieModel("Influencial", perInf, Color.parseColor("#56B7F1")));
+        mPieChart.addPieSlice(new PieModel("Stabile", perSta, Color.parseColor("#CDA67F")));
+        mPieChart.addPieSlice(new PieModel("Compliant", perCom, Color.parseColor("#FED70E")));
 
         mPieChart.setOnItemFocusChangedListener(new IOnItemFocusChangedListener() {
             @Override
