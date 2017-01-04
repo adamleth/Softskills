@@ -17,8 +17,8 @@ public class ItemDefinition {
             "ThreeSixty"
 };
     public static final String [] TESTDescription_DATA = {
-            "DISC test beskrivelse. Kan en beskrivelse være kort? NEEIGH!",
-            "BELBIN test beskrivelse. Lad os bare give hver beskrivelse 60 tegn. ",
+            "DISC test beskrivelse. Kan en beskrivelse være kort?",
+            "BELBIN test beskrivelse. Lad os bare give hver beskrivelse 60 tegn.",
             "360-graders test beskrivelse, som er meget lang og irriterende"
 
     };
