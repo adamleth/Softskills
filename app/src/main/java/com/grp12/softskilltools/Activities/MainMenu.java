@@ -79,16 +79,18 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         Intent PromptIntent = getIntent();
         String email = PromptIntent.getStringExtra("UserEmail");
 
-        DatabaseReference mConditionRef = mRootDataRef.child("Users").child(email.replace(".",";"));
+        DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replace(".",";"));
         mConditionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, String> newPost = (Map<String, String>) dataSnapshot.getValue();
-                info = newPost;
-                System.out.println("Fornavn: " + newPost.get("Name"));
-                System.out.println("Efternavn: " + newPost.get("lastName"));
-                System.out.println("Telefon: " + newPost.get("phone"));
-                nav_user.setText(info.get("Name")+" "+ info.get("lastName"));
+                User newUser = dataSnapshot.getValue(User.class);
+                Log.d("Data",  "val="+newUser);
+                //Map<String, String> newPost = (Map<String, String>) dataSnapshot.getValue();
+                //info = newPost;
+                //System.out.println("Fornavn: " + newPost.get("Name"));
+                //System.out.println("Efternavn: " + newPost.get("lastName"));
+                //System.out.println("Telefon: " + newPost.get("phone"));
+
 
             }
 
@@ -99,7 +101,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         });
 
         createUser(email,info.get("Name"),info.get("lastName"),info.get("phone"));
-
+        nav_user.setText(info.get("Name")+" "+ info.get("lastName"));
         nav_email.setText(user.getEmail());
 
 

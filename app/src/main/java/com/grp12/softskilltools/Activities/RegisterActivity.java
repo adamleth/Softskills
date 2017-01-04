@@ -74,14 +74,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        userData.put("Name",forNavn.getText().toString());
-                        userData.put("lastName",efterNavn.getText().toString());
-                        userData.put("phone", telefon.getText().toString());
-                        userData.put("mail", email.getText().toString());
-                        mConditionDataRef = mRootDataRef.child("Users").child(email.getText().toString().replace('.',';'));
-                        mConditionDataRef.setValue(userData);
                         User user = new User(forNavn.getText().toString(),efterNavn.getText().toString(),email.getText().toString(),telefon.getText().toString());
                         System.out.println(user.getName());
+                        mConditionDataRef = mRootDataRef.child("Brugere").child(email.getText().toString().replace('.',';'));
+                        mConditionDataRef.setValue(user);
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
                         knap.setText("Konto oprettet!");
 
