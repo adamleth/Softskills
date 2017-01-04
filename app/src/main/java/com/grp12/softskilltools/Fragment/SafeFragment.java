@@ -47,9 +47,9 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     }
 
     public void startTest(AbstractItem item, int position){
+        this.position = position;
         switch (item.getTestType()) {
             case DISC:
-                this.position = position;
                 DISCFragment nextFrag= new DISCFragment();
                 this.getFragmentManager().beginTransaction()
                         .replace(R.id.article_fragment, nextFrag,null)
@@ -57,6 +57,11 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                         .commit();
                 break;
             case BELBIN:
+                BELBINFragment belbinFrag= new BELBINFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.article_fragment, belbinFrag,null)
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case THREESIXTY:
                 break;
