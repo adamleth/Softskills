@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by IbnMichael on 04/01/17.
  */
 
-public class Belbin_adaptor {
+public class BelbinAdaptor {
 
 
     public class Belbin_adaptor extends BaseAdapter {
