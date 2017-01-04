@@ -111,16 +111,24 @@ public class BELBIN extends AbstractItem {
     }
 
     public void initialize(){
+
+        /*********************************************
+         * This method will	initialize the questions *
+         *********************************************/
+
         questions = new Question[totalQuestions];
         for (int i = 0; i < totalQuestions; i++){
             questions[i] = new Question(BELBIN_Data.BelbinWord_Data[i],BELBIN_Data.QuestionNo_DATA[i],BELBIN_Data.BELBINTYPE_Data[i]);
         }
     }
 
+
+
     public Question QUEUELOGIC(){
-        /**Get next question from questions**/
 
-
+        /**********************************************************************
+         * This method will get the next question from the stack of questions *
+         **********************************************************************/
 
         this.nextQuestion = questions[0];
         if (!nextQuestion.getAnswered()) {
@@ -129,8 +137,6 @@ public class BELBIN extends AbstractItem {
                 questions[i] = questions[i + 1];
             }
             questions[questions.length-1] = this.nextQuestion;
-
-
 
         }
         else{
@@ -142,6 +148,11 @@ public class BELBIN extends AbstractItem {
 
 
     public void setScore(Question question,int score){
+
+        /**********************************************************
+         * This method will set the score depending on the answer *
+         **********************************************************/
+
         switch(question.getType()){
 
             case PL:
@@ -179,21 +190,41 @@ public class BELBIN extends AbstractItem {
     }
 
     public void setQuestionAnswered(Question question){
+
+        /*************************************************
+         * This method will	set the question as answered *
+         *************************************************/
+
         int questionNo = getQuestionNumber(question);
         questions[questionNo-1].setAnswered(true);
         calculateCompletion(totalQuestions,question.getQuestionNo());
     }
     public int getCompletion(int totalQuestions, int currentQuestionNo ){
 
+        /***************************************************
+         * This method will	check if the test is completed *
+         ***************************************************/
+
         return Complete;
     }
 
     private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
+
+        /*************************************************************
+         * This method will	calculate if the result is in line with the
+         * current question number and the total amount of questions *
+         *************************************************************/
+
         int result = currentQuestionNo/totalQuestions*100;
         this.Complete = result;
     }
 
     private int getQuestionPosition(Question question){
+
+        /*********************************************************
+         * This method will	check for the position of a question *
+         *********************************************************/
+
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
             if(question == questions[i])
@@ -204,6 +235,11 @@ public class BELBIN extends AbstractItem {
     }
 
     public int getQuestionNumber(Question question){
+
+        /**************************************************
+         * This method will	get the number of a questions *
+         **************************************************/
+
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
             if(question == questions[i])

@@ -99,7 +99,11 @@ public class BELBIN_Data {
             "Er jeg tilbøjelig til at føle, at jeg spilder tiden og kunne klare det bedre selv.",
             "Tøver jeg med at udtrykke mine personlige synspunkter over for vanskelige eller ‘stærke’ folk."
 
-};
+            /************************************************************************
+           		* The above are all the questions belonging to the Belbin-test *
+             ***********************************************************************/
+
+    };
     public static final Question.questionType[] BELBINTYPE_Data = {
             Question.questionType.RI,
             Question.questionType.DROP,
@@ -171,6 +175,7 @@ public class BELBIN_Data {
             Question.questionType.DROP,
             Question.questionType.SP,
             Question.questionType.TW,
+
 
     };
 
