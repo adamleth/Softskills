@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
 
@@ -30,6 +31,10 @@ public class DISCResultFragment extends Fragment {
     private PieChart mPieChart;
     DISC temp;
     Bundle bundle;
+    TextView textDom;
+    TextView textInf;
+    TextView textSta;
+    TextView textCom;
 
     public DISCResultFragment(){
 
@@ -40,7 +45,10 @@ public class DISCResultFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_disc_result, container, false);
         mPieChart = (PieChart) view.findViewById(R.id.piechart);
-
+        textDom = (TextView) view.findViewById(R.id.domText);
+        textInf = (TextView) view.findViewById(R.id.infText);
+        textSta = (TextView) view.findViewById(R.id.staText);
+        textCom = (TextView) view.findViewById(R.id.comText);
         bundle = getArguments();
         this.temp =(DISC) bundle.getSerializable("Item");
         loadData(temp.getDom(),temp.getInf(),temp.getSta(),temp.getCom());
@@ -57,7 +65,7 @@ public class DISCResultFragment extends Fragment {
         System.out.println(dom + " " + inf + " " + sta + " " + com);
         System.out.println(perDom + " " + perInf + " " + perSta + " " + perCom);
         mPieChart.addPieSlice(new PieModel("Dominant", perDom, Color.parseColor("#FE6DA8")));
-        mPieChart.addPieSlice(new PieModel("Influencial", perInf, Color.parseColor("#56B7F1")));
+        mPieChart.addPieSlice(new PieModel("Influential", perInf, Color.parseColor("#56B7F1")));
         mPieChart.addPieSlice(new PieModel("Stabile", perSta, Color.parseColor("#CDA67F")));
         mPieChart.addPieSlice(new PieModel("Compliant", perCom, Color.parseColor("#FED70E")));
 
@@ -67,5 +75,13 @@ public class DISCResultFragment extends Fragment {
 //                Log.d("PieChart", "Position: " + _Position);
             }
         });
+
+        textDom.setText(dom + " (" + perDom + "%)");
+        textInf.setText(inf + " (" + perInf + "%)");
+        textSta.setText(sta + " (" + perSta + "%)");
+        textCom.setText(com + " (" + perCom + "%)");
+
     }
+
+
 }
