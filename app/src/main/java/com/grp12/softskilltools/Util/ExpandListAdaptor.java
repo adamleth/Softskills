@@ -12,16 +12,17 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Entities.Child;
 import com.grp12.softskilltools.Entities.Group;
 
-public class ExpandListAdapter extends BaseExpandableListAdapter {
+public class ExpandListAdaptor extends BaseExpandableListAdapter {
 
     private Context context;
     private ArrayList<Group> groups;
 
 
-    public ExpandListAdapter(Context context, ArrayList<Group> groups) {
+    public ExpandListAdaptor(Context context, ArrayList<Group> groups) {
         this.context = context;
         this.groups = groups;
     }
@@ -47,9 +48,9 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) context
                     .getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.child_item, null);
+            convertView = infalInflater.inflate(R.layout.child_layout, null);
         }
-        TextView tv = (TextView) convertView.findViewById(R.id.country_name);
+        TextView tv = (TextView) convertView.findViewById(R.id.child);
         tv.setText(child.getQuestion().toString());
 
         return convertView;
@@ -86,9 +87,9 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater inf = (LayoutInflater) context
                     .getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            convertView = inf.inflate(R.layout.group_item, null);
+            convertView = inf.inflate(R.layout.parent_layout, null);
         }
-        TextView tv = (TextView) convertView.findViewById(R.id.group_name);
+        TextView tv = (TextView) convertView.findViewById(R.id.parent);
         tv.setText(group.getCategory());
         return convertView;
     }
