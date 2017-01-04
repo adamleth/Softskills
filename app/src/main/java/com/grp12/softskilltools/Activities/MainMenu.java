@@ -35,6 +35,7 @@ import com.grp12.softskilltools.Fragment.ResultListFragment;
 import com.grp12.softskilltools.Fragment.StoreFragment;
 import com.grp12.softskilltools.Fragment.PrefFragment;
 
+import java.util.HashMap;
 import java.util.IllegalFormatException;
 import java.util.IllegalFormatFlagsException;
 import java.util.IllegalFormatWidthException;
@@ -48,19 +49,18 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private Toolbar mToolbar;
+    public Toolbar mToolbar;
     private NavigationView navView;
     private FragmentManager fragmentManager;
     private ImageView Iuser;
     private FirebaseAuth mAuth;
     private User user;
     String name,lastName,phone;
+    Map <String, String> info = new HashMap<>();
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
     private static MainMenu sMainMenu;
     DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
-
-
 
 
 
@@ -74,21 +74,21 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         View hView =  navigationView.getHeaderView(0);
-        TextView nav_user = (TextView)hView.findViewById(R.id.NavHeaderName);
+        final TextView nav_user = (TextView)hView.findViewById(R.id.NavHeaderName);
         TextView nav_email = (TextView)hView.findViewById(R.id.NavHeaderEmail);
         Intent PromptIntent = getIntent();
         String email = PromptIntent.getStringExtra("UserEmail");
-        createUser(email,name,lastName,phone);
+
         DatabaseReference mConditionRef = mRootDataRef.child("Users").child(email.replace(".",";"));
-        mConditionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        mConditionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, Object> newPost = (Map<String, Object>) dataSnapshot.getValue();
-
+                Map<String, String> newPost = (Map<String, String>) dataSnapshot.getValue();
+                info = newPost;
                 System.out.println("Fornavn: " + newPost.get("Name"));
                 System.out.println("Efternavn: " + newPost.get("lastName"));
                 System.out.println("Telefon: " + newPost.get("phone"));
-
+                nav_user.setText(info.get("Name")+" "+ info.get("lastName"));
 
             }
 
@@ -98,8 +98,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
+        createUser(email,info.get("Name"),info.get("lastName"),info.get("phone"));
 
-        nav_user.setText(user.getName()+" "+ user.getSurName());
         nav_email.setText(user.getEmail());
 
 

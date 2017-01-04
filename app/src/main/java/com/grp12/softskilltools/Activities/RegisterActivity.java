@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.grp12.softskilltools.Entities.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -79,6 +80,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         userData.put("mail", email.getText().toString());
                         mConditionDataRef = mRootDataRef.child("Users").child(email.getText().toString().replace('.',';'));
                         mConditionDataRef.setValue(userData);
+                        User user = new User(forNavn.getText().toString(),efterNavn.getText().toString(),email.getText().toString(),telefon.getText().toString());
+                        System.out.println(user.getName());
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
                         knap.setText("Konto oprettet!");
 
