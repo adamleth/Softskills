@@ -70,8 +70,13 @@ public class DISC extends AbstractItem {
 
 
 
-    /**DISC TEST LOGIC BEGIN**/
+
     private void initialize(){
+
+        /**********************************************
+         * This method will	begin the DISC-test logic *
+         **********************************************/
+
         questions = new Question[totalQuestions];
         for (int i = 0; i < totalQuestions; i++){
             questions[i] = new Question(DISC_Data.DISCWord_Data[i],DISC_Data.QuestionNo_DATA[i],DISC_Data.DISCTYPE_Data[i]);
@@ -79,8 +84,10 @@ public class DISC extends AbstractItem {
     }
 
     public Question QUEUELOGIC(){
-        /**Get next question from questions**/
 
+        /*************************************************************
+         * This method will	get the next question from the questions *
+         *************************************************************/
 
 
             this.nextQuestion = questions[0];
@@ -103,6 +110,11 @@ public class DISC extends AbstractItem {
         }
 
     public void setScore(Question question,int score){
+
+        /**********************************
+         * This method will	set the score *
+         *********************************/
+
     switch(question.getType()){
 
         case Com:
@@ -121,19 +133,38 @@ public class DISC extends AbstractItem {
     }
 
     public void setQuestionAnswered(Question question){
+
+        /**********************************************************
+         * This method will	set the answered question as answered *
+         **********************************************************/
+
         int position = getQuestionPosition(question);
         questions[position].setAnswered(true);
         //calculateCompletion(totalQuestions,question.getQuestionNo());
     }
     public int getCompletion(){
 
+        /***************************************
+         * This method will	get the completion *
+         ***************************************/
+
         return Complete;
     }
     private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
+
+        /**************************************************
+         * This method will	calculate the completion *
+         **************************************************/
+
         int result = currentQuestionNo/totalQuestions*100;
         this.Complete = result;
     }
     private int getQuestionPosition(Question question){
+
+        /*********************************************************
+         * This method will	check for the position of a question *
+         *********************************************************/
+
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
             if(question == questions[i])
@@ -143,7 +174,9 @@ public class DISC extends AbstractItem {
 
     }
 
-    /**DISC TEST LOGIC END**/
+    /****************************
+     * The DISC-test logic ends *
+     ****************************/
 
     @Override
     public String toString() {

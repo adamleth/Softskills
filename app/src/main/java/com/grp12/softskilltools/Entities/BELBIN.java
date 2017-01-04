@@ -247,6 +247,9 @@ public class BELBIN extends AbstractItem {
         }
         return number;
 
+        /****************************
+         * The Belbin-test logic ends *
+         ****************************/
     }
 
     @Override
