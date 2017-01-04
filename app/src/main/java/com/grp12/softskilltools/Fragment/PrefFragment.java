@@ -28,5 +28,9 @@ public class PrefFragment extends FragmentActivity implements View.OnClickListen
     public void onClick(View v) {
 
     }
+
+    //public void setVisiblity () {
+
+    //}
 }
 
