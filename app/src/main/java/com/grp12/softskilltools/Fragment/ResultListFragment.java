@@ -66,6 +66,7 @@ public class ResultListFragment extends Fragment implements AdapterView.OnItemCl
                         .replace(R.id.article_fragment, nextFrag,null)
                         .addToBackStack(null)
                         .commit();
+                        MainMenu.getInstance().mToolbar.setTitle("DISC RESULTAT");
                 break;
             case BELBIN:
 
