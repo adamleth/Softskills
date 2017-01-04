@@ -113,7 +113,7 @@ public class BELBIN extends AbstractItem {
     public void initialize(){
 
         /*********************************************
-         * This method will	initialize the questions *
+         * The Belbin-test logic begins *
          *********************************************/
 
         questions = new Question[totalQuestions];
