@@ -64,10 +64,10 @@ public class DISCResultFragment extends Fragment {
         int perCom = (int) (0.55*com);
         System.out.println(dom + " " + inf + " " + sta + " " + com);
         System.out.println(perDom + " " + perInf + " " + perSta + " " + perCom);
-        mPieChart.addPieSlice(new PieModel("Dominant", perDom, Color.parseColor("#FE6DA8")));
-        mPieChart.addPieSlice(new PieModel("Influential", perInf, Color.parseColor("#56B7F1")));
-        mPieChart.addPieSlice(new PieModel("Stabile", perSta, Color.parseColor("#CDA67F")));
-        mPieChart.addPieSlice(new PieModel("Compliant", perCom, Color.parseColor("#FED70E")));
+        mPieChart.addPieSlice(new PieModel("Dominant", perDom, Color.parseColor("#e94848")));
+        mPieChart.addPieSlice(new PieModel("Influential", perInf, Color.parseColor("#ed7c21")));
+        mPieChart.addPieSlice(new PieModel("Stable", perSta, Color.parseColor("#67c34f")));
+        mPieChart.addPieSlice(new PieModel("Compliant", perCom, Color.parseColor("#5384b7")));
 
         mPieChart.setOnItemFocusChangedListener(new IOnItemFocusChangedListener() {
             @Override
