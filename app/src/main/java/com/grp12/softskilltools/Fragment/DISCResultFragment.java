@@ -19,7 +19,7 @@ import org.eazegraph.lib.charts.PieChart;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.galgespil.stvhendeop.menuapp.R.id.pieChart;
+
 
 /**
  * Created by mathiaslarsen on 27/11/2016.
@@ -39,7 +39,7 @@ public class DISCResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_disc_result, container, false);
-        mPieChart = (PieChart) view.findViewById(R.id.pieChart);
+        mPieChart = (PieChart) view.findViewById(R.id.piechart);
 
         bundle = getArguments();
         this.temp =(DISC) bundle.getSerializable("Item");
