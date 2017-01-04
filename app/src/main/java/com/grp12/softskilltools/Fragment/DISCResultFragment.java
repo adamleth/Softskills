@@ -10,13 +10,18 @@ import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.grp12.softskilltools.Entities.AbstractItem;
 import com.grp12.softskilltools.Entities.DISC;
+import com.grp12.softskilltools.Entities.User;
 
 import org.eazegraph.lib.communication.IOnItemFocusChangedListener;
 import org.eazegraph.lib.models.PieModel;
 import org.eazegraph.lib.charts.PieChart;
 
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +41,9 @@ public class DISCResultFragment extends Fragment {
     TextView textSta;
     TextView textCom;
 
-    public DISCResultFragment(){
+
+
+    public DISCResultFragment() {
 
     }
 
@@ -50,20 +57,18 @@ public class DISCResultFragment extends Fragment {
         textSta = (TextView) view.findViewById(R.id.staText);
         textCom = (TextView) view.findViewById(R.id.comText);
         bundle = getArguments();
-        this.temp =(DISC) bundle.getSerializable("Item");
-        loadData(temp.getDom(),temp.getInf(),temp.getSta(),temp.getCom());
+        this.temp = (DISC) bundle.getSerializable("Item");
+        loadData(temp.getDom(), temp.getInf(), temp.getSta(), temp.getCom());
         //Testresultater skap parses direkte fra listresultfragment, via en putextra funktion. På denne måde sendes data direkte til dette framgent, og loader med det samme.
         return view;
     }
 
-
     private void loadData(int dom, int inf, int sta, int com) {
-        int perDom = (int) (0.55*dom);
-        int perInf = (int) (0.55*inf);
-        int perSta = (int) (0.55*sta);
-        int perCom = (int) (0.55*com);
-        System.out.println(dom + " " + inf + " " + sta + " " + com);
-        System.out.println(perDom + " " + perInf + " " + perSta + " " + perCom);
+        int perDom = (int) (0.55 * dom);
+        int perInf = (int) (0.55 * inf);
+        int perSta = (int) (0.55 * sta);
+        int perCom = (int) (0.55 * com);
+
         mPieChart.addPieSlice(new PieModel("Dominant", perDom, Color.parseColor("#e94848")));
         mPieChart.addPieSlice(new PieModel("Influential", perInf, Color.parseColor("#ed7c21")));
         mPieChart.addPieSlice(new PieModel("Stable", perSta, Color.parseColor("#67c34f")));
@@ -83,5 +88,5 @@ public class DISCResultFragment extends Fragment {
 
     }
 
+ }
 
-}
