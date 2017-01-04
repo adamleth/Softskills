@@ -1,11 +1,14 @@
 package com.grp12.softskilltools.Util;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.grp12.softskilltools.Entities.Question;
+
+import java.util.ArrayList;
 
 /**
  * Created by IbnMichael on 04/01/17.

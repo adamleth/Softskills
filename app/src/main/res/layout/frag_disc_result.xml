@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,10 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.github.mikephil.charting.charts.PieChart
+        <org.eazegraph.lib.charts.PieChart
+            android:id="@+id/piechart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/pieChart"></com.github.mikephil.charting.charts.PieChart>
+            android:padding="10dp"
+            app:egLegendTextSize="18sp"
+            app:egUsePieRotation="true"
+            app:egValueTextSize="36sp"
+            app:egAutoCenter="true"
+            app:egOpenClockwise="false"
+            app:egInnerValueUnit="%"/>
     </LinearLayout>
 
     <LinearLayout
