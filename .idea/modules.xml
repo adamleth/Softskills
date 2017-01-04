@@ -3,6 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SoftSkills.iml" filepath="$PROJECT_DIR$/SoftSkills.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/Softskills.iml" filepath="$PROJECT_DIR$/Softskills.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Softskills.iml" filepath="$PROJECT_DIR$/Softskills.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+>>>>>>> Forsøg på at hente data fra Firebase
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
