@@ -55,7 +55,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private ImageView Iuser;
     private FirebaseAuth mAuth;
     private User user;
-    String name,lastName,phone;
     Map <String, String> info = new HashMap<>();
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
@@ -75,22 +74,21 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         View hView =  navigationView.getHeaderView(0);
         final TextView nav_user = (TextView)hView.findViewById(R.id.NavHeaderName);
-        TextView nav_email = (TextView)hView.findViewById(R.id.NavHeaderEmail);
+        final TextView nav_email = (TextView)hView.findViewById(R.id.NavHeaderEmail);
         Intent PromptIntent = getIntent();
-        String email = PromptIntent.getStringExtra("UserEmail");
-
+        final String email = PromptIntent.getStringExtra("UserEmail");
+        createUser(email,info.get("Name"),info.get("lastName"),info.get("phone"));
         DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replace(".",";"));
         mConditionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User newUser = dataSnapshot.getValue(User.class);
                 Log.d("Data",  "val="+newUser);
-                //Map<String, String> newPost = (Map<String, String>) dataSnapshot.getValue();
-                //info = newPost;
-                //System.out.println("Fornavn: " + newPost.get("Name"));
-                //System.out.println("Efternavn: " + newPost.get("lastName"));
-                //System.out.println("Telefon: " + newPost.get("phone"));
 
+                user = newUser;
+                System.out.println("Indeni "+user.getName());
+                nav_user.setText(user.getName()+" "+ user.getSurName());
+                nav_email.setText(user.getEmail());
 
             }
 
@@ -100,9 +98,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
-        createUser(email,info.get("Name"),info.get("lastName"),info.get("phone"));
-        nav_user.setText(info.get("Name")+" "+ info.get("lastName"));
-        nav_email.setText(user.getEmail());
+
+
 
 
         mToolbar = (Toolbar) findViewById(R.id.nav_action);
