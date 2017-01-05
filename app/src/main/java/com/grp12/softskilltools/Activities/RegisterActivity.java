@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.grp12.softskilltools.Entities.AbstractItem;
+import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.User;
 
 import java.util.HashMap;
@@ -75,11 +77,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         User user = new User(forNavn.getText().toString(),efterNavn.getText().toString(),email.getText().toString(),telefon.getText().toString());
+                        user.addToSafe(new DISC(0,false,"DISC","test", AbstractItem.testType.DISC),1);
                         System.out.println(user.getName());
                         mConditionDataRef = mRootDataRef.child("Brugere").child(email.getText().toString().replace('.',';'));
                         mConditionDataRef.setValue(user);
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+                        //mUser.sendEmailVerification();
                         knap.setText("Konto oprettet!");
+
+
 
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the

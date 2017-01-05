@@ -21,6 +21,11 @@ public class Safe {
     }
 
 
+    public Safe(){
+        unusedItems = new ArrayList<>();
+        usedItems = new ArrayList<>();
+    }
+
     private void Initialize(User user){
         this.owner = user;
         unusedItems = new ArrayList<>();

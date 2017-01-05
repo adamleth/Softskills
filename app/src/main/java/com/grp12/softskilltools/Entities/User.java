@@ -12,7 +12,7 @@ public class User {
     public String surName;
     public String email;
     public String phone;
-    private Safe safe;
+    public Safe safe;
 
 
 
@@ -86,15 +86,20 @@ public class User {
 
         return this.phone;
     }
-    public List<AbstractItem> getSafe() {
+    public List<AbstractItem> retrieveSafeObjects() {
 
         /*********************************
          * This method gets and the safe *
          *********************************/
 
         return safe.getSafe();}
+    public Safe getSafe(){
+        return safe;
+    }
 
-
+    public void setSafe(Safe safe){
+        this.safe = safe;
+    }
     public List<AbstractItem> getResults(){
 
         /******************************************

@@ -85,7 +85,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 User newUser = dataSnapshot.getValue(User.class);
                 Log.d("Data",  "val="+newUser);
 
-                //user = newUser;
+                user = newUser;
                 System.out.println("Indeni "+user.getName());
                 nav_user.setText(newUser.getName()+" "+ newUser.getSurName());
                 nav_email.setText(newUser.getEmail());

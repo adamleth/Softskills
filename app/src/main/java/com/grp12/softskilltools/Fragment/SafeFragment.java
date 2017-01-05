@@ -1,6 +1,5 @@
 package com.grp12.softskilltools.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -43,7 +42,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
 
     public void initialize() {
         tests = new ArrayList<>();
-        tests = MainMenu.getInstance().getUser().getSafe();
+        tests = MainMenu.getInstance().getUser().retrieveSafeObjects();
     }
 
     public void startTest(AbstractItem item, int position){
