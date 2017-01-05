@@ -117,7 +117,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
         B105 = (Button) myView.findViewById(R.id.button135);B106 = (Button) myView.findViewById(R.id.button134);
         B107 = (Button) myView.findViewById(R.id.button133);B108 = (Button) myView.findViewById(R.id.button132);
         B109 = (Button) myView.findViewById(R.id.button131);B110 = (Button) myView.findViewById(R.id.button141);
-        ACTION = (Button) myView.findViewById(R.id.button27);
+        ACTION = (Button) myView.findViewById(R.id.button27);ACTION.setOnClickListener(this);
 
         this.currentQuestion1 = loadQuestion(holder.question1);this.currentQuestion2 = loadQuestion(holder.question2);
         this.currentQuestion3 = loadQuestion(holder.question3);this.currentQuestion4 = loadQuestion(holder.question4);
@@ -135,7 +135,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
     }
 
     public void next(){
-        if (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 == 10){
+        //if (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 == 10){
             update(currentQuestion1,q1);
             update(currentQuestion2,q2);
             update(currentQuestion3,q3);
@@ -159,7 +159,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             q1 = 0;q2 = 0;q3 = 0;q4 = 0;q5 = 0;
             q6 = 0;q7 = 0;q8 = 0;q9 = 0;q10 = 0;
 
-        }
+       // }
     }
 
     public void update(Question question, int score){
@@ -192,7 +192,17 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
 
+            case R.id.button27:
+                if (!finished){
+                    System.out.println(currentQuestion1.toString());
+                    System.out.println(currentQuestion2.toString());
+                    next();
+
+                }
+                break;
+        }
     }
 }
 
