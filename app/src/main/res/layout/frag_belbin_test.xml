@@ -1194,10 +1194,11 @@
             android:layout_weight="10">
 
             <Button
-                android:text="Afslut test"
+                android:text="Næste"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/button27"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 android:background="@drawable/button_primary_solid" />
 
         </LinearLayout>
