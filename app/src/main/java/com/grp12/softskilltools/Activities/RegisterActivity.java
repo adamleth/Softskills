@@ -7,7 +7,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.galgespil.stvhendeop.menuapp.R;
@@ -21,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.grp12.softskilltools.Entities.AbstractItem;
 import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.User;
+import com.grp12.softskilltools.Util.AnimationUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,19 +35,19 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText forNavn;
-    private EditText efterNavn;
-    private EditText email;
-    private EditText kodeord;
-    private EditText telefon;
+    private EditText forNavn, efterNavn,email,kodeord,telefon,fødselsår;
+    private TextView tekst;
+    private ImageView logo;
     Button knap;
+    CheckBox checkbox;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
     private FirebaseUser mUser;
     DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mConditionDataRef = mRootDataRef.child("users");
-    Map<String, String> userData = new HashMap<>();
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,17 +55,34 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_register);
 
-
+        logo = (ImageView) findViewById(R.id.imageView);
         email = (EditText) findViewById(R.id.editText3);
         kodeord = (EditText) findViewById(R.id.editText4);
         forNavn = (EditText) findViewById(R.id.editText2);
         efterNavn = (EditText) findViewById(R.id.editText);
         telefon = (EditText) findViewById(R.id.editText6);
+        fødselsår = (EditText) findViewById(R.id.editText5);
+        tekst = (TextView) findViewById(R.id.textView2);
+        checkbox = (CheckBox) findViewById(R.id.checkBox);
+        knap = (Button) findViewById(R.id.button);
+        knap.setOnClickListener(this);
+
+
+        AnimationUtil.popOut(logo,800);
+        AnimationUtil.enterLeft(email,700);
+        AnimationUtil.enterRight(kodeord,700);
+        AnimationUtil.enterBottom(forNavn,600);
+        AnimationUtil.enterBottom(efterNavn,600);
+        AnimationUtil.enterLeft(fødselsår,400);
+        AnimationUtil.enterRight(telefon,400);
+        AnimationUtil.enterLeft(checkbox,300);
+        AnimationUtil.enterRight(tekst,300);
+        AnimationUtil.enterBottom(knap,300);
+
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        knap = (Button) findViewById(R.id.button);
-        knap.setOnClickListener(this);
+
 
     }
 

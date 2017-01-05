@@ -21,7 +21,8 @@
             android:id="@+id/imageView"
             android:src="@drawable/logo_burned"
             android:layout_weight="1.6"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -46,7 +47,8 @@
                     android:background="@drawable/textedit_custom"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:visibility="invisible" />
 
                 <EditText
                     android:layout_width="fill_parent"
@@ -59,7 +61,8 @@
                     android:background="@drawable/textedit_custom"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <EditText
@@ -72,7 +75,8 @@
                 android:layout_weight="1.05"
                 android:background="@drawable/textedit_custom"
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:visibility="invisible" />
 
             <EditText
                 android:layout_width="fill_parent"
@@ -84,7 +88,8 @@
                 android:layout_weight="1.05"
                 android:background="@drawable/textedit_custom"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:visibility="invisible" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -103,7 +108,8 @@
                     android:background="@drawable/textedit_custom"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:visibility="invisible" />
 
                 <EditText
                     android:layout_width="fill_parent"
@@ -116,7 +122,8 @@
                     android:background="@drawable/textedit_custom"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp" />
+                    android:layout_marginTop="5dp"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <LinearLayout
@@ -140,7 +147,8 @@
                         android:scaleX="0.4"
                         android:scaleY="0.4"
                         android:checked="false"
-                        android:layout_marginLeft="4dp" />
+                        android:layout_marginLeft="4dp"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <TextView
@@ -150,7 +158,8 @@
                     android:id="@+id/textView2"
                     android:gravity="center_vertical|center_horizontal"
                     android:layout_weight="1"
-                    android:layout_marginRight="20dp" />
+                    android:layout_marginRight="20dp"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <Button
@@ -162,7 +171,8 @@
                 android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:visibility="invisible" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public Button login, register;
     ImageView logo;
-    ViewFlipper welcome;
+    TextView welcome;
 
 
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_login);
 
-
+        welcome = (TextView) findViewById(R.id.textView10);
         login = (Button) findViewById(R.id.button3);
         register = (Button) findViewById(R.id.button2);
         logo = (ImageView) findViewById(R.id.imageView4);
@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register.setOnClickListener(this);
 
 
-        AnimationUtil.enterTop(logo,300);
-        AnimationUtil.popOut(logo,300);
-        AnimationUtil.enterLeft(login,500);
-        AnimationUtil.enterRight(register,600);
+        AnimationUtil.popOut(logo,700);
+        AnimationUtil.popOut(welcome,400);
+        AnimationUtil.enterLeft(login,300);
+        AnimationUtil.enterRight(register,300);
     }
 
 
