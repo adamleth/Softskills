@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SoftSkills.iml" filepath="$PROJECT_DIR$/SoftSkills.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Softskills.iml" filepath="$PROJECT_DIR$/Softskills.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
