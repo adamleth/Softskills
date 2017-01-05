@@ -26,7 +26,7 @@ public class BELBIN extends AbstractItem {
         CF = 0;
         SP = 0;
         DROP = 0;
-        this.Complete = getCompletion();
+        this.Complete = 0;
         initialize();
     }
 
@@ -189,6 +189,15 @@ public class BELBIN extends AbstractItem {
         }
     }
 
+
+    public int getCompletion(){
+
+        /***************************************
+         * This method will	get the completion *
+         ***************************************/
+
+        return Complete;
+    }
     public void setQuestionAnswered(Question question){
 
         /*************************************************
@@ -199,14 +208,7 @@ public class BELBIN extends AbstractItem {
         questions[questionNo-1].setAnswered(true);
         calculateCompletion(totalQuestions,question.getQuestionNo());
     }
-    public int getCompletion(int totalQuestions, int currentQuestionNo ){
 
-        /***************************************************
-         * This method will	check if the test is completed *
-         ***************************************************/
-
-        return Complete;
-    }
 
     private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
 
