@@ -22,24 +22,24 @@
 
 
     <group android:id="@+id/submenu" android:checkableBehavior="single">
-        <item android:title="Administrativ menu">
+        <item android:title="Administrativ menu" >
         <menu>
     <group android:id="@+id/grp4" android:checkableBehavior="single" >
     <item android:id="@+id/navigation_remind"
         android:title="Opfølgning"
-        android:icon="@mipmap/ic_supervisor_account_white_24dp"/>
+        android:icon="@mipmap/ic_done_all_white_24dp"/>
     </group>
 
     <group android:id="@+id/grp5" android:checkableBehavior="single" >
         <item android:id="@+id/navigation_group_result"
             android:title="Gruppe Resultater"
-            android:icon="@mipmap/ic_supervisor_account_white_24dp"/>
+            android:icon="@mipmap/ic_subject_white_24dp"/>
     </group>
 
     <group android:id="@+id/grp6" android:checkableBehavior="single" >
         <item android:id="@+id/navigation_invite"
             android:title="Inviter"
-            android:icon="@mipmap/ic_supervisor_account_white_24dp" />
+            android:icon="@mipmap/ic_group_add_white_24dp" />
     </group>
 
 
