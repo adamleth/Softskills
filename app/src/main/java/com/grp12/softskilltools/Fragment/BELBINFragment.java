@@ -117,7 +117,141 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
         B105 = (Button) myView.findViewById(R.id.button135);B106 = (Button) myView.findViewById(R.id.button134);
         B107 = (Button) myView.findViewById(R.id.button133);B108 = (Button) myView.findViewById(R.id.button132);
         B109 = (Button) myView.findViewById(R.id.button131);B110 = (Button) myView.findViewById(R.id.button141);
+
+        B1.setOnClickListener(this);
+        B2.setOnClickListener(this);
+        B3.setOnClickListener(this);
+        B4.setOnClickListener(this);
+        B5.setOnClickListener(this);
+        B6.setOnClickListener(this);
+        B7.setOnClickListener(this);
+        B8.setOnClickListener(this);
+        B9.setOnClickListener(this);
+        B10.setOnClickListener(this);
+        B11.setOnClickListener(this);
+        B12.setOnClickListener(this);
+        B13.setOnClickListener(this);
+        B14.setOnClickListener(this);
+        B15.setOnClickListener(this);
+        B16.setOnClickListener(this);
+        B17.setOnClickListener(this);
+        B18.setOnClickListener(this);
+        B19.setOnClickListener(this);
+        B20.setOnClickListener(this);
+        B21.setOnClickListener(this);
+        B22.setOnClickListener(this);
+        B23.setOnClickListener(this);
+        B24.setOnClickListener(this);
+        B25.setOnClickListener(this);
+        B26.setOnClickListener(this);
+        B27.setOnClickListener(this);
+        B28.setOnClickListener(this);
+        B29.setOnClickListener(this);
+        B30.setOnClickListener(this);
+        B31.setOnClickListener(this);
+        B32.setOnClickListener(this);
+        B33.setOnClickListener(this);
+        B34.setOnClickListener(this);
+        B35.setOnClickListener(this);
+        B36.setOnClickListener(this);
+        B37.setOnClickListener(this);
+        B38.setOnClickListener(this);
+        B39.setOnClickListener(this);
+        B40.setOnClickListener(this);
+        B41.setOnClickListener(this);
+        B42.setOnClickListener(this);
+        B43.setOnClickListener(this);
+        B44.setOnClickListener(this);
+        B45.setOnClickListener(this);
+        B46.setOnClickListener(this);
+        B47.setOnClickListener(this);
+        B48.setOnClickListener(this);
+        B49.setOnClickListener(this);
+        B50.setOnClickListener(this);
+        B51.setOnClickListener(this);
+        B52.setOnClickListener(this);
+        B53.setOnClickListener(this);
+        B54.setOnClickListener(this);
+        B55.setOnClickListener(this);
+        B56.setOnClickListener(this);
+        B57.setOnClickListener(this);
+        B58.setOnClickListener(this);
+        B59.setOnClickListener(this);
+        B60.setOnClickListener(this);
+        B61.setOnClickListener(this);
+        B62.setOnClickListener(this);
+        B63.setOnClickListener(this);
+        B64.setOnClickListener(this);
+        B65.setOnClickListener(this);
+        B66.setOnClickListener(this);
+        B67.setOnClickListener(this);
+        B68.setOnClickListener(this);
+        B69.setOnClickListener(this);
+        B70.setOnClickListener(this);
+        B71.setOnClickListener(this);
+        B72.setOnClickListener(this);
+        B73.setOnClickListener(this);
+        B74.setOnClickListener(this);
+        B75.setOnClickListener(this);
+        B76.setOnClickListener(this);
+        B77.setOnClickListener(this);
+        B78.setOnClickListener(this);
+        B79.setOnClickListener(this);
+        B80.setOnClickListener(this);
+        B81.setOnClickListener(this);
+        B82.setOnClickListener(this);
+        B83.setOnClickListener(this);
+        B84.setOnClickListener(this);
+        B85.setOnClickListener(this);
+        B86.setOnClickListener(this);
+        B87.setOnClickListener(this);
+        B88.setOnClickListener(this);
+        B89.setOnClickListener(this);
+        B90.setOnClickListener(this);
+        B91.setOnClickListener(this);
+        B92.setOnClickListener(this);
+        B93.setOnClickListener(this);
+        B94.setOnClickListener(this);
+        B95.setOnClickListener(this);
+        B96.setOnClickListener(this);
+        B97.setOnClickListener(this);
+        B98.setOnClickListener(this);
+        B99.setOnClickListener(this);
+        B100.setOnClickListener(this);
+        B101.setOnClickListener(this);
+        B102.setOnClickListener(this);
+        B103.setOnClickListener(this);
+        B104.setOnClickListener(this);
+        B105.setOnClickListener(this);
+        B106.setOnClickListener(this);
+        B107.setOnClickListener(this);
+        B108.setOnClickListener(this);
+        B109.setOnClickListener(this);
+        B110.setOnClickListener(this);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         ACTION = (Button) myView.findViewById(R.id.button27);ACTION.setOnClickListener(this);
+
 
         this.currentQuestion1 = loadQuestion(holder.question1);this.currentQuestion2 = loadQuestion(holder.question2);
         this.currentQuestion3 = loadQuestion(holder.question3);this.currentQuestion4 = loadQuestion(holder.question4);
