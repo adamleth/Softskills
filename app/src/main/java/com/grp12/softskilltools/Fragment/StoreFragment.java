@@ -27,9 +27,9 @@ import java.util.Arrays;
  * Created by mathiaslarsen on 16/11/2016.
  */
 
-public class StoreFragment extends Fragment{
+public class StoreFragment extends Fragment {
 
-    public StoreFragment(){
+    public StoreFragment() {
 
     }
 
@@ -39,6 +39,11 @@ public class StoreFragment extends Fragment{
     public ListView lv;
     private static StoreFragment sStoreFragment;
     @Override
+
+    /***************************************************
+     * This method initializes all the screen elements *
+     ***************************************************/
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_store, container, false);
         initialize();
@@ -49,16 +54,32 @@ public class StoreFragment extends Fragment{
         return myView;
     }
 
+    /*************************************************
+     * This method adds a bought test to the profile *
+     *************************************************/
 
-    public void addToBasket(AbstractItem item, int qty, User user){
+    public void addToBasket(AbstractItem item, int qty, User user) {
+
         user.addToSafe(item, qty);
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
     }
-    public User getUser(){
+
+    /*****************************
+     * This method gets the user *
+     *****************************/
+
+    public User getUser() {
+
         return MainMenu.getInstance().getUser();
+
     }
 
+    /**********************************************
+     * This method begins the logic of this class *
+     **********************************************/
+
     public void initialize() {
+
         items = new AbstractItem[Store_items];
 
         for (int i = 0; i < Store_items; i++) {
@@ -79,15 +100,31 @@ public class StoreFragment extends Fragment{
         }
     }
 
+    /***************************************************
+     * This method makes a reference to another object *
+     ***************************************************/
+
     public static StoreFragment getInstance() {
+
         return sStoreFragment;
     }
-    public ArrayList<AbstractItem> getProducts(){
+
+    /*********************************
+     * This method gets the products *
+     *********************************/
+
+    public ArrayList<AbstractItem> getProducts() {
 
         ArrayList<AbstractItem> products = new ArrayList<>(Arrays.asList(items));
         return products;
     }
+
+    /*****************************
+     * This method gets the Disc *
+     *****************************/
+
     public DISC getDisc(){
+
         return (DISC)items[0];
     }
 
