@@ -20,6 +20,10 @@ public class BELBIN_Data {
 
     };
 
+           /****************************************************************
+            * The below are all the questions belonging to the Belbin-test *
+            ****************************************************************/
+
     public static final String [] BelbinWord_Data = {
 
             "Jeg tror, jeg hurtigt kan se og udnytte nye muligheder.",
@@ -99,9 +103,6 @@ public class BELBIN_Data {
             "Er jeg tilbøjelig til at føle, at jeg spilder tiden og kunne klare det bedre selv.",
             "Tøver jeg med at udtrykke mine personlige synspunkter over for vanskelige eller ‘stærke’ folk."
 
-            /************************************************************************
-           		* The above are all the questions belonging to the Belbin-test *
-             ***********************************************************************/
 
     };
     public static final Question.questionType[] BELBINTYPE_Data = {
