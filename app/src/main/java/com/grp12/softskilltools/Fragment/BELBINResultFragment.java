@@ -85,9 +85,6 @@ public class BELBINResultFragment extends Fragment {
         spider.setData(data);
 
 
-
-
-
     }
 
     private void loadData(int PL, int RI, int CO, int SH, int ME, int TW, int IMP, int CF, int SP, int DROP) {
@@ -106,6 +103,3 @@ public class BELBINResultFragment extends Fragment {
 
 
 }
-
-
-
