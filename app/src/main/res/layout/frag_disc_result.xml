@@ -45,20 +45,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="#e94848"
+                    android:id="@+id/imageView6"
+                    android:layout_weight="2.5" />
+
                 <TextView
                     android:text="Dominant:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
+                    android:layout_weight="1.8"
                     android:textStyle="normal|bold"
-                    android:textSize="16dp" />
+                    android:textSize="20dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/domText"
-                    android:layout_weight="1" />
+                    android:textSize="20dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical" />
             </LinearLayout>
         </LinearLayout>
 
@@ -73,19 +84,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="#ed7c21"
+                    android:id="@+id/imageView7"
+                    android:layout_weight="2.5" />
+
                 <TextView
                     android:text="Influential:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textView26"
-                    android:layout_weight="3"
-                    android:textSize="16dp"
-                    android:textStyle="normal|bold" />
+                    android:layout_weight="1.8"
+                    android:textStyle="normal|bold"
+                    android:gravity="center_vertical"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textSize="20dp"
                     android:id="@+id/infText"
                     android:layout_weight="1" />
             </LinearLayout>
@@ -102,20 +123,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="#67c34f"
+                    android:id="@+id/imageView8"
+                    android:layout_weight="2.5" />
+
                 <TextView
                     android:text="Stabile:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textView28"
-                    android:layout_weight="3"
-                    android:textSize="16dp"
-                    android:textStyle="normal|bold" />
+                    android:layout_weight="1.8"
+                    android:textStyle="normal|bold"
+                    android:textSize="20dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/staText"
+                    android:textSize="20dp"
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
@@ -131,20 +162,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="#5384b7"
+                    android:id="@+id/imageView9"
+                    android:layout_weight="2.5" />
+
                 <TextView
                     android:text="Compliant:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textView30"
-                    android:layout_weight="3"
+                    android:layout_weight="1.8"
                     android:textStyle="normal|bold"
-                    android:textSize="16dp" />
+                    android:textSize="20dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp" />
 
                 <TextView
                     android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/comText"
+                    android:textSize="20dp"
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
