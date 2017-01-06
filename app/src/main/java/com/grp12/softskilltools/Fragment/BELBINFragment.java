@@ -675,6 +675,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
                     next();
 
                 } else {
+                    test.setFinishedDate();
                     MainMenu.getInstance().getUser().addToResults(test);
                     ResultListFragment nextFrag = new ResultListFragment();
                     this.getFragmentManager().beginTransaction()

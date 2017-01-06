@@ -2,6 +2,8 @@ package com.grp12.softskilltools.Entities;
 
 import com.grp12.softskilltools.resources.DISC_Data;
 
+import java.util.Date;
+
 /**
  * Created by mathiaslarsen on 18/11/2016.
  */
@@ -12,6 +14,7 @@ public class DISC extends AbstractItem {
     private int Complete;
     private final int totalQuestions = 72;
     private static Question[] questions;
+
     Question nextQuestion;
 
 
@@ -26,6 +29,7 @@ public class DISC extends AbstractItem {
         initialize();
 
     }
+
 
     public int getDom() {
 

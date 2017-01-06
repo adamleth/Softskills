@@ -214,12 +214,13 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
                     System.out.println(currentQuestion1.toString());
                     System.out.println(currentQuestion2.toString());
+                    test.setFinishedDate();
                     next();
 
                 }
 
                 else {
-
+                    test.setFinishedDate();
                     MainMenu.getInstance().getUser().addToResults(test);
                     ResultListFragment nextFrag= new ResultListFragment();
                     this.getFragmentManager().beginTransaction()

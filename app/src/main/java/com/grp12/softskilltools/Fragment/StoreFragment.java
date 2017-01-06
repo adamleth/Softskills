@@ -59,7 +59,7 @@ public class StoreFragment extends Fragment {
      *************************************************/
 
     public void addToBasket(AbstractItem item, int qty, User user) {
-
+        item.setOwner(user);
         user.addToSafe(item, qty);
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
     }

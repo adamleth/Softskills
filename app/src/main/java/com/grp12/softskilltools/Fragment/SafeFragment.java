@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
@@ -26,6 +27,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     private List<AbstractItem> tests;
     public GridView grid;
     Button vejledning, hjælp;
+    TextView ingenProfiler;
     protected static SafeFragment sSafeFragment;
     public AbstractItem tempItem;
     public int position;
@@ -35,6 +37,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         myView = inflater.inflate(R.layout.frag_active_tests, container, false);
         grid = (GridView) myView.findViewById(R.id.GridView);
         hjælp = (Button) myView.findViewById(R.id.button53);
+        ingenProfiler = (TextView) myView.findViewById(R.id.textView8);
         initialize();
         grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
         grid.setOnItemClickListener(this);
@@ -49,6 +52,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         tests = MainMenu.getInstance().getUser().retrieveSafeObjects();
         if (tests.isEmpty()==true){
             hjælp.setVisibility(View.VISIBLE);
+            ingenProfiler.setVisibility(View.VISIBLE);
             hjælp.setOnClickListener(this);
         }
     }

@@ -2,6 +2,10 @@ package com.grp12.softskilltools.Entities;
 
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by mathiaslarsen on 18/11/2016.
@@ -14,6 +18,7 @@ public abstract class AbstractItem implements Serializable {
     protected testType type;
     protected User owner;
     private String productName, description;
+    private Date finishedDate, expirationDate;
 
     public AbstractItem(double cost, boolean isUsed, String productName, String description, testType type){
         this.cost = cost;
@@ -22,6 +27,8 @@ public abstract class AbstractItem implements Serializable {
         this.productName = productName;
         this.description = description;
         this.type = type;
+        this.finishedDate = null;
+        this.expirationDate = null;
 
     }
 
@@ -70,6 +77,17 @@ public abstract class AbstractItem implements Serializable {
         this.productName = name;
     }
 
+
+    public void setFinishedDate(){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        this.finishedDate = date;
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, 60);
+        this.expirationDate = c.getTime();
+    }
+
     /****************************************
      * This method sets the price of a test *
      ****************************************/
@@ -114,6 +132,22 @@ public abstract class AbstractItem implements Serializable {
 
         return 1;
 
+    }
+
+    public Date getFinishedDate(){
+        return finishedDate;
+    }
+
+    public String getFinishedDateAsString(){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(this.finishedDate);
+            }
+    public Date getExpirationDate(){
+        return expirationDate;
+    }
+    public String getExpirationDateAsString(){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(this.expirationDate);
     }
 
 
