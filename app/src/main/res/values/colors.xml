@@ -9,5 +9,9 @@
     <color name="field">#f3f3f3</color>
     <color name="menu">#e3e3e3</color>
     <color name="header">#303030</color>
+    <color name="Dominant">#e94848</color>
+    <color name="Influential">#ed7c21</color>
+    <color name="Stable">#67c34f</color>
+    <color name="Compliant">#5384b7</color>
 
 </resources>

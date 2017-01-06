@@ -48,7 +48,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="#e94848"
+                    app:srcCompat="@color/Dominant"
                     android:id="@+id/imageView6"
                     android:layout_weight="2.5" />
 
@@ -87,7 +87,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="#ed7c21"
+                    app:srcCompat="@color/Influential"
                     android:id="@+id/imageView7"
                     android:layout_weight="2.5" />
 
@@ -126,7 +126,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="#67c34f"
+                    app:srcCompat="@color/Stable"
                     android:id="@+id/imageView8"
                     android:layout_weight="2.5" />
 
@@ -165,7 +165,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:srcCompat="#5384b7"
+                    app:srcCompat="@color/Compliant"
                     android:id="@+id/imageView9"
                     android:layout_weight="2.5" />
 
