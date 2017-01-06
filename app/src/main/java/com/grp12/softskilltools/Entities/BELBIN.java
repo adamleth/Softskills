@@ -146,12 +146,11 @@ public class BELBIN extends AbstractItem {
         return nextQuestion;
     }
 
+    /**********************************************************
+     * This method will set the score depending on the answer *
+     **********************************************************/
 
     public void setScore(Question question,int score){
-
-        /**********************************************************
-         * This method will set the score depending on the answer *
-         **********************************************************/
 
         switch(question.getType()){
 
@@ -189,43 +188,42 @@ public class BELBIN extends AbstractItem {
         }
     }
 
+    /***************************************
+     * This method will	get the completion *
+     ***************************************/
 
     public int getCompletion(){
 
-        /***************************************
-         * This method will	get the completion *
-         ***************************************/
-
         return Complete;
     }
-    public void setQuestionAnswered(Question question){
 
-        /*************************************************
-         * This method will	set the question as answered *
-         *************************************************/
+    /*************************************************
+     * This method will	set the question as answered *
+     *************************************************/
+
+    public void setQuestionAnswered(Question question){
 
         int questionNo = getQuestionNumber(question);
         questions[questionNo-1].setAnswered(true);
         calculateCompletion(totalQuestions,question.getQuestionNo());
     }
 
+    /*************************************************************
+     * This method will	calculate if the result is in line with the
+     * current question number and the total amount of questions *
+     *************************************************************/
 
-    private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
-
-        /*************************************************************
-         * This method will	calculate if the result is in line with the
-         * current question number and the total amount of questions *
-         *************************************************************/
+    private void calculateCompletion(int totalQuestions, int currentQuestionNo ) {
 
         int result = currentQuestionNo/totalQuestions*100;
         this.Complete = result;
     }
 
-    private int getQuestionPosition(Question question){
+    /*********************************************************
+     * This method will	check for the position of a question *
+     *********************************************************/
 
-        /*********************************************************
-         * This method will	check for the position of a question *
-         *********************************************************/
+    private int getQuestionPosition(Question question){
 
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
@@ -236,11 +234,11 @@ public class BELBIN extends AbstractItem {
 
     }
 
-    public int getQuestionNumber(Question question){
+    /**************************************************
+     * This method will	get the number of a questions *
+     **************************************************/
 
-        /**************************************************
-         * This method will	get the number of a questions *
-         **************************************************/
+    public int getQuestionNumber(Question question){
 
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
