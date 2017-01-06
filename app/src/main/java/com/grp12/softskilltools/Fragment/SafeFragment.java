@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.galgespil.stvhendeop.menuapp.R;
@@ -20,10 +21,11 @@ import java.util.List;
  * Created by mathiaslarsen on 14/11/2016.
  */
 
-public class SafeFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class SafeFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     private List<AbstractItem> tests;
     public GridView grid;
+    Button vejledning, hjælp;
     protected static SafeFragment sSafeFragment;
     public AbstractItem tempItem;
     public int position;
@@ -32,9 +34,11 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_active_tests, container, false);
         grid = (GridView) myView.findViewById(R.id.GridView);
+        hjælp = (Button) myView.findViewById(R.id.button53);
         initialize();
         grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
         grid.setOnItemClickListener(this);
+
         sSafeFragment = this;
         return myView;
 
@@ -43,6 +47,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     public void initialize() {
         tests = new ArrayList<>();
         tests = MainMenu.getInstance().getUser().retrieveSafeObjects();
+        if (tests.isEmpty()==true){
+            hjælp.setVisibility(View.VISIBLE);
+            hjælp.setOnClickListener(this);
+        }
     }
 
     public void startTest(AbstractItem item, int position){
@@ -78,4 +86,16 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button53:
+                StoreFragment nextFrag= new StoreFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.article_fragment, nextFrag,null)
+                        .addToBackStack(null)
+                        .commit();
+                break;
+        }
+    }
 }
