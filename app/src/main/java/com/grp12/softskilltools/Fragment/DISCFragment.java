@@ -31,6 +31,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
 
     View myView;
+
     private Question current;
 
     public DISCFragment() {
@@ -44,6 +45,10 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
 
     }
+
+    /***************************************************
+     * This method initializes all the screen elements *
+     ***************************************************/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -81,17 +86,17 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         this.currentQuestion1 = loadQuestion(holder.question1);
         this.currentQuestion2 = loadQuestion(holder.question2);
 
-
-
-
-
-
-
         return myView;
     }
 
-    public void next(){
-        if (q1 + q2 == 5){
+    /******************************************************
+     * This method changes the view and updates the score *
+     ******************************************************/
+
+    public void next() {
+
+        if (q1 + q2 == 5) {
+
             update(currentQuestion1,q1);
             update(currentQuestion2,q2);
             currentQuestion1 = loadQuestion(holder.question1);
@@ -100,23 +105,39 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
             q1 = 0;
             q2 = 0;
         }
+
         else{
             holder.alert.setVisibility(View.VISIBLE);
         }
     }
-    public void update(Question question, int score){
+
+    /**********************************************
+     * This method updates the question and score *
+     **********************************************/
+
+    public void update(Question question, int score) {
+
         test.setQuestionAnswered(question);
         test.setScore(question,score);
     }
 
+    /***************************************
+     * This method loads the next question *
+     ***************************************/
+
     public Question loadQuestion(TextView placeHolder) {
+
         current = test.QUEUELOGIC();
+
             if (current == null) {
+
                 Next.setText("Se resultat");
+
                 finished = true;
 
 
             } else {
+
                 placeHolder.setText(current.getQuestion());
 
             }
@@ -125,14 +146,19 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    static class viewHolder{
+    static class viewHolder {
         TextView question1,question2, alert;
     }
 
+    /***********************************************************
+     * This method handles the values on the different buttons *
+     ***********************************************************/
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+
+        switch (v.getId()) {
+
             case R.id.button14:
                 q1 = 0;
                 q2 = 5;
@@ -183,13 +209,17 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.button4:
-                if (!finished){
+
+                if (!finished) {
+
                     System.out.println(currentQuestion1.toString());
                     System.out.println(currentQuestion2.toString());
                     next();
 
                 }
-                else{
+
+                else {
+
                     MainMenu.getInstance().getUser().addToResults(test);
                     ResultListFragment nextFrag= new ResultListFragment();
                     this.getFragmentManager().beginTransaction()

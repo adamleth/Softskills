@@ -12,19 +12,17 @@ public class Question {
     public enum questionType {Dom,Inf,Sta,Com,PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP};
     public questionType type;
 
-
-    Question(String question, int questionNo, questionType type) {
-
+    Question(String question, int questionNo, questionType type){
         this.questionNo = questionNo;
         this.question = question;
         this.type = type;
     }
 
-    int getQuestionNo() {
+    int getQuestionNo(){
         return questionNo;
     }
     public void setQuestionNo(int No) {this.questionNo = No;}
-    public String getQuestion() {
+    public String getQuestion(){
         return question;
     }
     public void setQuestion(String question) {this.question=question;}
