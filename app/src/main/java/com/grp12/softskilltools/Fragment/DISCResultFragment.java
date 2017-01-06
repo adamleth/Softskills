@@ -47,6 +47,9 @@ public class DISCResultFragment extends Fragment {
 
     }
 
+    /**********************************************************
+     * This method initializes whatever that is on the screen *
+     **********************************************************/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,6 +66,10 @@ public class DISCResultFragment extends Fragment {
         return view;
     }
 
+    /******************************
+     * This method loads the data *
+     ******************************/
+
     private void loadData(int dom, int inf, int sta, int com) {
         int perDom = (int) (0.55 * dom);
         int perInf = (int) (0.55 * inf);
@@ -75,6 +82,7 @@ public class DISCResultFragment extends Fragment {
         mPieChart.addPieSlice(new PieModel("Compliant", perCom, Color.parseColor("#5384b7")));
 
         mPieChart.setOnItemFocusChangedListener(new IOnItemFocusChangedListener() {
+
             @Override
             public void onItemFocusChanged(int _Position) {
 //                Log.d("PieChart", "Position: " + _Position);
