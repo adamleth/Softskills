@@ -170,7 +170,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
     }
 
     public void next(){
-        //if (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 == 10){
+        if (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 == 10){
             update(currentQuestion1,q1);
             update(currentQuestion2,q2);
             update(currentQuestion3,q3);
@@ -193,7 +193,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             currentQuestion10 = loadQuestion(holder.question10);
             resetScores();
 
-       // }
+        }
     }
 
     public void update(Question question, int score){

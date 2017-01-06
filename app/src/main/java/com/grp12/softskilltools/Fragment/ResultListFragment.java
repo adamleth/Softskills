@@ -59,16 +59,24 @@ public class ResultListFragment extends Fragment implements AdapterView.OnItemCl
         Bundle bundle = new Bundle();
         switch (tempItem.getTestType()){
             case DISC:
-                DISCResultFragment nextFrag= new DISCResultFragment();
+                DISCResultFragment discFrag= new DISCResultFragment();
+                bundle.putSerializable("Item",tempItem);
+                discFrag.setArguments(bundle);
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.article_fragment, discFrag,null)
+                        .addToBackStack(null)
+                        .commit();
+                        MainMenu.getInstance().mToolbar.setTitle("DISC RESULTAT");
+                break;
+            case BELBIN:
+                BELBINResultFragment nextFrag= new BELBINResultFragment();
                 bundle.putSerializable("Item",tempItem);
                 nextFrag.setArguments(bundle);
                 this.getFragmentManager().beginTransaction()
                         .replace(R.id.article_fragment, nextFrag,null)
                         .addToBackStack(null)
                         .commit();
-                        MainMenu.getInstance().mToolbar.setTitle("DISC RESULTAT");
-                break;
-            case BELBIN:
+                MainMenu.getInstance().mToolbar.setTitle("BELBIN RESULTAT");
 
                 break;
             case THREESIXTY:
