@@ -1266,7 +1266,7 @@
                                 android:backgroundTint="?android:attr/colorButtonNormal"/>
 
                             <Button
-                                android:text="Button"
+                                android:text="8"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/button132"
@@ -1275,7 +1275,7 @@
                                 android:backgroundTint="?android:attr/colorButtonNormal"/>
 
                             <Button
-                                android:text="Button"
+                                android:text="9"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/button131"

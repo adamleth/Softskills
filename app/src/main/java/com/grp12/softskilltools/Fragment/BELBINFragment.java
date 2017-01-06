@@ -12,6 +12,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
+import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.BELBIN;
 import com.grp12.softskilltools.Entities.Question;
 
@@ -190,8 +191,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             currentQuestion8 = loadQuestion(holder.question8);
             currentQuestion9 = loadQuestion(holder.question9);
             currentQuestion10 = loadQuestion(holder.question10);
-            q1 = 0;q2 = 0;q3 = 0;q4 = 0;q5 = 0;
-            q6 = 0;q7 = 0;q8 = 0;q9 = 0;q10 = 0;
+            resetScores();
 
        // }
     }
@@ -199,6 +199,10 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
     public void update(Question question, int score){
         test.setQuestionAnswered(question);
         test.setScore(question,score);
+    }
+
+    public void resetScores(){
+        q1 = q2 = q3= q4 = q5 = q6 = q7 = q8 = q9 = q10 = 0;
     }
 
     public Question loadQuestion(TextView placeHolder) {
@@ -220,21 +224,465 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
         TextView question1, question2, question3, question4, question5, question6, question7, question8,question9,question10;
     }
 
-
-
-
-
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
+            case R.id.button150:
+                q1 = 0;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button48:
+                q1 = 1;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button47:
+                q1 = 2;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button30:
+                q1 = 3;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button31:
+                q1 = 4;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button41:
+                q1 = 5;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button42:
+                q1 = 6;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button43:
+                q1 = 7;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button44:
+                q1 = 8;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button45:
+                q1 = 9;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button46:
+                q1 = 10;
+                System.out.println("Q1= " + q1);
+                break;
+            case R.id.button149:
+                q2 = 0;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button59:
+                q2 = 1;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button58:
+                q2 = 2;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button57:
+                q2 = 3;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button56:
+                q2 = 4;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button55:
+                q2 = 5;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button54:
+                q2 = 6;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button52:
+                q2 = 7;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button51:
+                q2 = 8;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button50:
+                q2 = 9;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button49:
+                q2 = 10;
+                System.out.println("Q2= " + q2);
+                break;
+            case R.id.button148:
+                q3 = 0;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button70:
+                q3 = 1;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button69:
+                q3 = 2;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button68:
+                q3 = 3;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button67:
+                q3 = 4;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button66:
+                q3 = 5;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button65:
+                q3 = 6;
+                System.out.println("Q3= " + q3);;
+                break;
+            case R.id.button64:
+                q3 = 7;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button63:
+                q3 = 8;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button62:
+                q3 = 9;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button61:
+                q3 = 10;
+                System.out.println("Q3= " + q3);
+                break;
+            case R.id.button80:
+                q4 = 0;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button79:
+                q4 = 1;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button78:
+                q4 = 2;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button77:
+                q4 = 3;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button76:
+                q4 = 4;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button75:
+                q4 = 5;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button74:
+                q4 = 6;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button73:
+                q4 = 7;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button72:
+                q4 = 8;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button71:
+                q4 = 9;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button147:
+                q4 = 10;
+                System.out.println("Q4= " + q4);
+                break;
+            case R.id.button91:
+                q5 = 0;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button90:
+                q5 = 1;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button89:
+                q5 = 2;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button88:
+                q5 = 3;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button87:
+                q5 = 4;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button86:
+                q5 = 5;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button85:
+                q5 = 6;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button84:
+                q5 = 7;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button83:
+                q5 = 8;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button81:
+                q5 = 9;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button146:
+                q5 = 10;
+                System.out.println("Q5= " + q5);
+                break;
+            case R.id.button100:
+                q6 = 0;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button99:
+                q6 = 1;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button98:
+                q6 = 2;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button97:
+                q6 = 3;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button96:
+                q6 = 4;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button95:
+                q6 = 5;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button94:
+                q6 = 6;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button93:
+                q6 = 7;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button92:
+                q6 = 8;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button82:
+                q6 = 9;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button145:
+                q6 = 10;
+                System.out.println("Q6= " + q6);
+                break;
+            case R.id.button110:
+                q7 = 0;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button109:
+                q7 = 1;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button108:
+                q7 = 2;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button107:
+                q7 = 3;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button106:
+                q7 = 4;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button105:
+                q7 = 5;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button104:
+                q7 = 6;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button103:
+                q7 = 7;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button102:
+                q7 = 8;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button101:
+                q7 = 9;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button144:
+                q7 = 10;
+                System.out.println("Q7= " + q7);
+                break;
+            case R.id.button120:
+                q8 = 0;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button119:
+                q8 = 1;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button118:
+                q8 = 2;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button117:
+                q8 = 3;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button116:
+                q8 = 4;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button115:
+                q8 = 5;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button114:
+                q8 = 6;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button113:
+                q8 = 7;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button112:
+                q8 = 8;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button111:
+                q8 = 9;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button143:
+                q8 = 10;
+                System.out.println("Q8= " + q8);
+                break;
+            case R.id.button142:
+                q9 = 0;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button130:
+                q9 = 1;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button129:
+                q9 = 2;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button128:
+                q9 = 3;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button127:
+                q9 = 4;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button126:
+                q9 = 5;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button125:
+                q9 = 6;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button124:
+                q9 = 7;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button123:
+                q9 = 8;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button122:
+                q9 = 9;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button121:
+                q9 = 10;
+                System.out.println("Q9= " + q9);
+                break;
+            case R.id.button140:
+                q10 = 0;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button139:
+                q10 = 1;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button138:
+                q10 = 2;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button137:
+                q10 = 3;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button136:
+                q10 = 4;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button135:
+                q10 = 5;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button134:
+                q10 = 6;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button133:
+                q10 = 7;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button132:
+                q10 = 8;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button131:
+                q10 = 9;
+                System.out.println("Q10= " + q10);
+                break;
+            case R.id.button141:
+                q10 = 10;
+                System.out.println("Q10= " + q10);
+                break;
 
             case R.id.button27:
-                if (!finished){
+                if (!finished) {
                     System.out.println(currentQuestion1.toString());
                     System.out.println(currentQuestion2.toString());
                     next();
 
+                } else {
+                    MainMenu.getInstance().getUser().addToResults(test);
+                    ResultListFragment nextFrag = new ResultListFragment();
+                    this.getFragmentManager().beginTransaction()
+                            .replace(R.id.article_fragment, nextFrag, null)
+                            .addToBackStack(null)
+                            .commit();
                 }
+
                 break;
         }
     }
