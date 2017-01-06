@@ -24,86 +24,97 @@ public abstract class AbstractItem implements Serializable {
         this.type = type;
 
     }
-    public testType getTestType(){
 
-        /***********************************************
-         * This method checks for the type of the test *
-         ***********************************************/
+
+    /***********************************************
+     * This method checks for the type of the test *
+     ***********************************************/
+
+    public testType getTestType(){
 
         return type;
     }
-    public void setTestType(testType type) {
 
-        /*****************************************
-         * This method sets the type of the test *
-         *****************************************/
+    /*****************************************
+     * This method sets the type of the test *
+     *****************************************/
+
+    public void setTestType(testType type) {
 
         this.type = type;}
 
+    /******************************
+     * This method gets the owner *
+     ******************************/
 
     public User getOwner(){
 
-        /******************************
-         * This method gets the owner *
-         ******************************/
-
         return owner;
     }
-    public void setOwner(User owner) {
 
-        /****************************************
-         * This method sets the owner of a test *
-         ****************************************/
+    /****************************************
+     * This method sets the owner of a test *
+     ****************************************/
+
+    public void setOwner(User owner) {
 
         this.owner = owner;
     }
+
+    /******************************************
+     * This method sets the name of the owner *
+     ******************************************/
+
     public void setName(String name) {
 
-        /******************************************
-         * This method sets the name of the owner *
-         ******************************************/
+        this.productName = name;
+    }
 
-        this.productName = name;}
+    /****************************************
+     * This method sets the price of a test *
+     ****************************************/
 
     public void setCost(int cost) {
 
-        /****************************************
-         * This method sets the price of a test *
-         ****************************************/
+        this.cost = cost;
+    }
 
-        this.cost = cost;}
+    /***************************************
+     * This method gets the name of a test *
+     ***************************************/
 
-    public String getProductName(){
+    public String getProductName() {
 
-        /***************************************
-         * This method gets the name of a test *
-         ***************************************/
+        return productName;
+    }
 
-        return productName;}
+    /**********************************************
+     * This method gets the description of a test *
+     **********************************************/
 
     public String getDescription(){
 
-        /**********************************************
-         * This method gets the description of a test *
-         **********************************************/
+        return description;
+    }
 
-        return description;}
+    /****************************************
+     * This method gets the price of a test *
+     ****************************************/
 
     public String getPrice() {
 
-        /****************************************
-         * This method gets the price of a test *
-         ****************************************/
+        return Double.toString(cost);
+    }
 
-        return Double.toString(cost);}
+    /*******************************************************************
+     * This method gets the information regarding completion of a test *
+     *******************************************************************/
 
     public int getCompletion(){
 
-        /*******************************************************************
-         * This method gets the information regarding completion of a test *
-         *******************************************************************/
+        return 1;
 
-        return 1;}
+    }
 
 
     @Override

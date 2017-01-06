@@ -69,13 +69,11 @@ public class DISC extends AbstractItem {
 
 
 
-
+    /**********************************************
+     * This method will	begin the DISC-test logic *
+     **********************************************/
 
     private void initialize(){
-
-        /**********************************************
-         * This method will	begin the DISC-test logic *
-         **********************************************/
 
         questions = new Question[totalQuestions];
         for (int i = 0; i < totalQuestions; i++){
@@ -83,12 +81,11 @@ public class DISC extends AbstractItem {
         }
     }
 
-    public Question QUEUELOGIC(){
+    /*************************************************************
+     * This method will	get the next question from the questions *
+     *************************************************************/
 
-        /*************************************************************
-         * This method will	get the next question from the questions *
-         *************************************************************/
-
+    public Question QUEUELOGIC() {
 
             this.nextQuestion = questions[0];
             if (!nextQuestion.getAnswered()) {
@@ -97,11 +94,9 @@ public class DISC extends AbstractItem {
                     questions[i] = questions[i + 1];
                 }
                 questions[questions.length-1] = this.nextQuestion;
-
-
-
             }
-        else{
+
+        else {
                 return null;
                 }
 
@@ -109,11 +104,11 @@ public class DISC extends AbstractItem {
             return nextQuestion;
         }
 
-    public void setScore(Question question,int score){
+    /**********************************
+     * This method will	set the score *
+     *********************************/
 
-        /**********************************
-         * This method will	set the score *
-         *********************************/
+    public void setScore(Question question,int score){
 
     switch(question.getType()){
 
@@ -132,38 +127,41 @@ public class DISC extends AbstractItem {
     }
     }
 
-    public void setQuestionAnswered(Question question){
+    /**********************************************************
+     * This method will	set the answered question as answered *
+     **********************************************************/
 
-        /**********************************************************
-         * This method will	set the answered question as answered *
-         **********************************************************/
+    public void setQuestionAnswered(Question question){
 
         int position = getQuestionPosition(question);
         questions[position].setAnswered(true);
         //calculateCompletion(totalQuestions,question.getQuestionNo());
     }
-    public int getCompletion(){
 
-        /***************************************
-         * This method will	get the completion *
-         ***************************************/
+    /***************************************
+     * This method will	get the completion *
+     ***************************************/
+
+    public int getCompletion(){
 
         return Complete;
     }
-    private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
 
-        /**************************************************
-         * This method will	calculate the completion *
-         **************************************************/
+    /*********************************************
+     * This method will	calculate the completion *
+     *********************************************/
+
+    private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
 
         int result = currentQuestionNo/totalQuestions*100;
         this.Complete = result;
     }
-    private int getQuestionPosition(Question question){
 
-        /*********************************************************
-         * This method will	check for the position of a question *
-         *********************************************************/
+    /*********************************************************
+     * This method will	check for the position of a question *
+     *********************************************************/
+
+    private int getQuestionPosition(Question question){
 
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
