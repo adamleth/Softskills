@@ -191,6 +191,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             currentQuestion9 = loadQuestion(holder.question9);
             currentQuestion10 = loadQuestion(holder.question10);
             resetScores();
+            MainMenu.getInstance().getUser().getSafe().updateUnusedItem(test);
             //MainMenu.getInstance().updateUser();
 
         }

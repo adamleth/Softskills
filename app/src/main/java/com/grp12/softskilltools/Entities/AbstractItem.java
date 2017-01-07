@@ -19,6 +19,7 @@ public abstract class AbstractItem implements Serializable {
     protected User owner;
     private String productName, description;
     private String finishedDate, expirationDate;
+    public int Complete;
 
     public AbstractItem(double cost, boolean isUsed, String productName, String description, testType type){
         this.cost = cost;
@@ -29,6 +30,7 @@ public abstract class AbstractItem implements Serializable {
         this.type = type;
         this.finishedDate = "00/00/0000";
         this.expirationDate = "00/00/0000";
+        this.Complete = 0;
 
     }
 
@@ -134,9 +136,12 @@ public abstract class AbstractItem implements Serializable {
      *******************************************************************/
 
     public int getCompletion(){
+        return this.Complete;
+    }
 
-        return 1;
-
+    public void calculateCompletion(int totalQuestions, int currentQuestionNo ){
+        Double result = Double.valueOf(currentQuestionNo)/Double.valueOf(totalQuestions)*100;
+        this.Complete = result.intValue();
     }
 
     public String getFinishedDate(){

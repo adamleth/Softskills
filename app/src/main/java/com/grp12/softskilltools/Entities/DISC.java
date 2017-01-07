@@ -139,7 +139,8 @@ public class DISC extends AbstractItem {
 
         int position = getQuestionPosition(question);
         questions[position].setAnswered(true);
-        //calculateCompletion(totalQuestions,question.getQuestionNo());
+        calculateCompletion(totalQuestions,question.getQuestionNo());
+        getCompletion();
     }
 
     /***************************************
@@ -147,18 +148,16 @@ public class DISC extends AbstractItem {
      ***************************************/
 
     public int getCompletion(){
-
-        return Complete;
+        System.out.println("Progress " + super.getCompletion());
+        return super.Complete;
     }
 
     /*********************************************
      * This method will	calculate the completion *
      *********************************************/
 
-    private void calculateCompletion(int totalQuestions, int currentQuestionNo ){
-
-        int result = currentQuestionNo/totalQuestions*100;
-        this.Complete = result;
+    public void calculateCompletion(int totalQuestions, int currentQuestionNo ){
+        super.calculateCompletion(totalQuestions,currentQuestionNo);
     }
 
     /*********************************************************

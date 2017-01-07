@@ -69,6 +69,15 @@ public class Safe {
         return usedItems.size() != value;
     }
 
+    public void updateUnusedItem(AbstractItem item){
+        int number  = 0;
+        for(int i = 0; i < unusedItems.size(); i++){
+            if(item == unusedItems.get(i))
+                number = i;
+            unusedItems.set(number,item);
+        }
+
+    }
     /********************************************
      * This method gets an unused item from the safe *
      ********************************************/

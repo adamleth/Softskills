@@ -194,7 +194,7 @@ public class BELBIN extends AbstractItem {
 
     public int getCompletion(){
 
-        return Complete;
+        return super.getCompletion();
     }
 
     /*************************************************
@@ -213,10 +213,8 @@ public class BELBIN extends AbstractItem {
      * current question number and the total amount of questions *
      *************************************************************/
 
-    private void calculateCompletion(int totalQuestions, int currentQuestionNo ) {
-
-        int result = currentQuestionNo/totalQuestions*100;
-        this.Complete = result;
+    public void calculateCompletion(int totalQuestions, int currentQuestionNo ) {
+        super.calculateCompletion(totalQuestions,currentQuestionNo);
     }
 
     /*********************************************************
