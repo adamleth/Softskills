@@ -1,5 +1,6 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
+import com.grp12.softskilltools.Util.PopUp;
 import com.grp12.softskilltools.Util.TestProgressAdaptor;
 
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     private List<AbstractItem> tests;
     public GridView grid;
     Button vejledning, hjælp;
-    TextView ingenProfiler;
+    TextView ingenProfiler,overskrift;
     protected static SafeFragment sSafeFragment;
     public AbstractItem tempItem;
     public int position;
@@ -37,7 +39,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         myView = inflater.inflate(R.layout.frag_active_tests, container, false);
         grid = (GridView) myView.findViewById(R.id.GridView);
         hjælp = (Button) myView.findViewById(R.id.button53);
+        vejledning = (Button) myView.findViewById(R.id.button6);
+        vejledning.setOnClickListener(this);
         ingenProfiler = (TextView) myView.findViewById(R.id.textView8);
+        overskrift = (TextView) myView.findViewById(R.id.ActiveTestsText);
         initialize();
         grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
         grid.setOnItemClickListener(this);
@@ -54,6 +59,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
             hjælp.setVisibility(View.VISIBLE);
             ingenProfiler.setVisibility(View.VISIBLE);
             hjælp.setOnClickListener(this);
+            overskrift.setVisibility(View.GONE);
         }
     }
 
@@ -99,6 +105,9 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                         .replace(R.id.article_fragment, nextFrag,null)
                         .addToBackStack(null)
                         .commit();
+                break;
+            case R.id.button6:
+                startActivity(new Intent(this.getContext(), PopUp.class));
                 break;
         }
     }

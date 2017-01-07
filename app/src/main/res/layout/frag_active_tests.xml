@@ -20,7 +20,7 @@
                 android:text="Igangværende tests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView11"
+                android:id="@+id/ActiveTestsText"
                 android:gravity="center_vertical|center_horizontal"
                 android:textSize="25dp"
                 android:textStyle="bold" />
