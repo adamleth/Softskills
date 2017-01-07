@@ -149,6 +149,23 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 
 }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+    // [END on_start_add_listener]
+
+    // [START on_stop_remove_listener]
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
     public void createUser(String email, String name, String lastName, String phone){
         this.user = new User(name,lastName,email,phone );
     }
@@ -213,6 +230,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                                 , new StoreFragment())
                         .commit();
                 mToolbar.setTitle("Butik");
+                break;
 
             case R.id.navigation_logout:
                 signOut();
@@ -264,13 +282,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         startActivity(i);
 
     }
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
+
 }
 
 

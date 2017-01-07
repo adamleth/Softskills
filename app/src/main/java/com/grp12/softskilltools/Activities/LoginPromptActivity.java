@@ -60,6 +60,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
                     Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
                     i.putExtra("UserEmail",user.getEmail());
 
+
                     startActivity(i);
                 } else {
                     // User is signed out

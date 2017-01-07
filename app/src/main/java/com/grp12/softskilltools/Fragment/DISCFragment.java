@@ -104,7 +104,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
             holder.alert.setVisibility(View.GONE);
             q1 = 0;
             q2 = 0;
-            //MainMenu.getInstance().updateUser();
+            MainMenu.getInstance().updateUser();
         }
 
         else{

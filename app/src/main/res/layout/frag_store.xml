@@ -44,7 +44,7 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:text="Gå til købte produkter"
+                    android:text="UDFYLD DIN PROFIL HER"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/button26"
