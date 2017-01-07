@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.galgespil.stvhendeop.menuapp.R;
@@ -16,18 +17,23 @@ import com.grp12.softskilltools.Entities.BELBIN;
 import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.THREESIXTY;
 import com.grp12.softskilltools.Entities.User;
+import com.grp12.softskilltools.Util.AnimationUtil;
 import com.grp12.softskilltools.Util.StoreAdaptor;
 import com.grp12.softskilltools.resources.ItemDefinition;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static com.grp12.softskilltools.Fragment.SafeFragment.sSafeFragment;
+
 
 /**
  * Created by mathiaslarsen on 16/11/2016.
  */
 
-public class StoreFragment extends Fragment {
+public class StoreFragment extends Fragment implements View.OnClickListener {
+
+
 
     public StoreFragment() {
 
@@ -37,6 +43,7 @@ public class StoreFragment extends Fragment {
     private final int Store_items = 3;
     View myView;
     public ListView lv;
+    public Button ACTION;
     private static StoreFragment sStoreFragment;
     @Override
 
@@ -51,6 +58,12 @@ public class StoreFragment extends Fragment {
         lv = (ListView) myView.findViewById(R.id.list);
         lv.setAdapter(new StoreAdaptor(getContext(), products));
         sStoreFragment = this;
+        ACTION = (Button) myView.findViewById(R.id.button26);
+        ACTION.setOnClickListener(this);
+
+        if (sSafeFragment.tests.isEmpty()==false){
+            ACTION.setVisibility(View.VISIBLE);
+        }
         return myView;
     }
 
@@ -62,6 +75,9 @@ public class StoreFragment extends Fragment {
         item.setOwner(user);
         user.addToSafe(item, qty);
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
+        if (user.getSafe().getSafeSize()==1){
+            AnimationUtil.popOut(ACTION,300);
+        }
     }
 
     /*****************************
@@ -98,6 +114,8 @@ public class StoreFragment extends Fragment {
                     break;
             }
         }
+
+
     }
 
     /***************************************************
@@ -128,4 +146,14 @@ public class StoreFragment extends Fragment {
         return (DISC)items[0];
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.button26){
+            SafeFragment nextFrag= new SafeFragment();
+            this.getFragmentManager().beginTransaction()
+                    .replace(R.id.article_fragment, nextFrag,null)
+                    .addToBackStack(null)
+                    .commit();
+        }
+    }
 }

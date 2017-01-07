@@ -60,6 +60,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private static final String TAG = "EmailPassword";
     private static MainMenu sMainMenu;
     DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mConditionDataRef;
 
 
 
@@ -70,6 +71,21 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_main);
         sMainMenu = this;
         this.user = null;
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    System.out.println("BrugerUID "+user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+            }
+        };
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         View hView =  navigationView.getHeaderView(0);
@@ -130,19 +146,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 
 
-    mAuthListener = new FirebaseAuth.AuthStateListener() {
-        @Override
-        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user != null) {
-                // User is signed in
-                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-            } else {
-                // User is signed out
-                Log.d(TAG, "onAuthStateChanged:signed_out");
-            }
-        }
-    };
+
 
 }
     public void createUser(String email, String name, String lastName, String phone){
@@ -156,6 +160,12 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         return user;
     }
 
+
+    public void updateUser(){
+        mConditionDataRef = mRootDataRef.child("Brugere").child(user.getEmail().replace(".",";")).child("Safe");
+        mConditionDataRef.setValue(this.user.getSafe());
+
+    }
     public boolean onNavigationItemSelected(MenuItem item) {
 
         int id = item.getItemId();

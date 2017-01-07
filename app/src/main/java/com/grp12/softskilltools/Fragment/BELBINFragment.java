@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -192,6 +190,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             currentQuestion9 = loadQuestion(holder.question9);
             currentQuestion10 = loadQuestion(holder.question10);
             resetScores();
+            //MainMenu.getInstance().updateUser();
 
         }
     }
@@ -675,7 +674,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
                     next();
 
                 } else {
-                    test.setFinishedDate();
+                    test.resolveFinishedDate();
                     MainMenu.getInstance().getUser().addToResults(test);
                     ResultListFragment nextFrag = new ResultListFragment();
                     this.getFragmentManager().beginTransaction()

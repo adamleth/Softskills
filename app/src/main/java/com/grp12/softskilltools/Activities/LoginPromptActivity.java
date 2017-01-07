@@ -2,12 +2,21 @@ package com.grp12.softskilltools.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.galgespil.stvhendeop.menuapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Created by mathiaslarsen on 23/11/2016.
@@ -18,8 +27,12 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
 
     EditText email;
     EditText kodeord;
+    TextView warning;
     Button login;
     Button forgot;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private static final String TAG = "EmailPassword";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,14 +46,61 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
         forgot = (Button) findViewById(R.id.glemtkode);
         login.setOnClickListener(this);
         forgot.setOnClickListener(this);
+        warning = (TextView) findViewById(R.id.textView11);
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    System.out.println("BrugerUID "+user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                // ...
+            }
+        };
+        // ...
     }
 
+    public void logInd(final String email, String kodeord) {
+        mAuth.signInWithEmailAndPassword(email, kodeord)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                        Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
+                        i.putExtra("UserEmail",email);
+
+                        startActivity(i);
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithEmail:failed", task.getException());
+                        }
+
+                        // ...
+                    }
+                });
+
+    }
     @Override
     public void onClick(View v) {
         if (v == login) {
-            Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
-            i.putExtra("UserEmail",email.getText().toString());
-            startActivity(i);
+            if (email.getText().length()==0){
+                warning.setText("Du skal skrive en email, før du kan logge ind");
+                warning.setVisibility(View.VISIBLE);
+            }
+            else if (kodeord.getText().length()==0){
+                warning.setText("Du skal skrive et kodeord, før du kan logge ind");
+                warning.setVisibility(View.VISIBLE);
+            }
+            else {
+                logInd(email.getText().toString(), kodeord.getText().toString());
+                warning.setVisibility(View.GONE);
+            }
         }
     }
 }

@@ -2,6 +2,8 @@ package com.grp12.softskilltools.Entities;
 
 
 
+import com.grp12.softskilltools.Activities.MainMenu;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +51,6 @@ public class Safe {
         for (int i = 0; i < qty; i++) {
             unusedItems.add(item);
         }
-
         return unusedItems.size() != value;
     }
 
@@ -62,6 +63,8 @@ public class Safe {
         int value = usedItems.size();
             usedItems.add(item);
             removeItemFromSafe(item);
+
+
 
         return usedItems.size() != value;
     }
@@ -90,6 +93,9 @@ public class Safe {
     public boolean isEmpty() {
 
         return unusedItems.isEmpty();
+    }
+    public int getSafeSize(){
+        return unusedItems.size();
     }
 
     /********************************************

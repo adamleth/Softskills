@@ -2,7 +2,6 @@ package com.grp12.softskilltools.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,6 +103,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
             holder.alert.setVisibility(View.GONE);
             q1 = 0;
             q2 = 0;
+            //MainMenu.getInstance().updateUser();
         }
 
         else{
@@ -214,13 +214,13 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
                     System.out.println(currentQuestion1.toString());
                     System.out.println(currentQuestion2.toString());
-                    test.setFinishedDate();
+                    test.resolveFinishedDate();
                     next();
 
                 }
 
                 else {
-                    test.setFinishedDate();
+                    test.resolveFinishedDate();
                     MainMenu.getInstance().getUser().addToResults(test);
                     ResultListFragment nextFrag= new ResultListFragment();
                     this.getFragmentManager().beginTransaction()

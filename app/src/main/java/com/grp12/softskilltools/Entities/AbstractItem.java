@@ -18,7 +18,7 @@ public abstract class AbstractItem implements Serializable {
     protected testType type;
     protected User owner;
     private String productName, description;
-    private Date finishedDate, expirationDate;
+    private String finishedDate, expirationDate;
 
     public AbstractItem(double cost, boolean isUsed, String productName, String description, testType type){
         this.cost = cost;
@@ -27,8 +27,8 @@ public abstract class AbstractItem implements Serializable {
         this.productName = productName;
         this.description = description;
         this.type = type;
-        this.finishedDate = null;
-        this.expirationDate = null;
+        this.finishedDate = "00/00/0000";
+        this.expirationDate = "00/00/0000";
 
     }
 
@@ -77,15 +77,20 @@ public abstract class AbstractItem implements Serializable {
         this.productName = name;
     }
 
-
-    public void setFinishedDate(){
+    public void setFinishedDate(String date){
+        this.finishedDate = date;
+    }
+    public void setExpirationDate(String date){
+        this.expirationDate = date;
+    }
+    public void resolveFinishedDate(){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
-        this.finishedDate = date;
+        this.finishedDate = dateFormat.format(date);
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.add(Calendar.DATE, 60);
-        this.expirationDate = c.getTime();
+        this.expirationDate = dateFormat.format(c.getTime());
     }
 
     /****************************************
@@ -134,20 +139,13 @@ public abstract class AbstractItem implements Serializable {
 
     }
 
-    public Date getFinishedDate(){
-        return finishedDate;
-    }
+    public String getFinishedDate(){
 
-    public String getFinishedDateAsString(){
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return dateFormat.format(this.finishedDate);
+        return finishedDate;
             }
-    public Date getExpirationDate(){
+    public String getExpirationDate(){
+
         return expirationDate;
-    }
-    public String getExpirationDateAsString(){
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return dateFormat.format(this.expirationDate);
     }
 
 

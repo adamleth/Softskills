@@ -26,7 +26,7 @@ import java.util.List;
 
 public class SafeFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
-    private List<AbstractItem> tests;
+    public List<AbstractItem> tests;
     public GridView grid;
     Button vejledning, hjælp;
     TextView ingenProfiler,overskrift;
