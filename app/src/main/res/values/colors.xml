@@ -14,5 +14,6 @@
     <color name="Stable">#67c34f</color>
     <color name="Compliant">#5384b7</color>
     <color name="Baggrundsfarve">#3c4152</color>
+    <color name="StandardKnapFarve">#d6d7d7</color>
 
 </resources>

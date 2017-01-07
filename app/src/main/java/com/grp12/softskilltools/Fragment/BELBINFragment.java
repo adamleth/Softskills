@@ -1,5 +1,6 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -162,7 +163,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
         this.currentQuestion7 = loadQuestion(holder.question7);this.currentQuestion8 = loadQuestion(holder.question8);
         this.currentQuestion9 = loadQuestion(holder.question9);this.currentQuestion10 = loadQuestion(holder.question10);
 
-
+        resetButtonColors();
 
         return myView;
     }
@@ -193,6 +194,68 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             //MainMenu.getInstance().updateUser();
 
         }
+    }
+
+    public void resetButtonColors(){
+        B1.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B2.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B3.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B4.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B5.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B6.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B7.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B8.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B9.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B10.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B11.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B12.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B13.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B14.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B15.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B16.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B17.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B18.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B19.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B20.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B21.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B22.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B23.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B24.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B25.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B26.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B27.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B28.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B29.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B30.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B31.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B32.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B33.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B34.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B35.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B36.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B37.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B38.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B39.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B40.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B41.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B42.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B43.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B44.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B45.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B46.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B47.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B48.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B49.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B50.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B51.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B52.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B53.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B54.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B55.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B56.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B57.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B58.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B59.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B60.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B61.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B62.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B63.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B64.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B65.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B66.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B67.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B68.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B69.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B70.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B71.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B72.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B73.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B74.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B75.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B76.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B77.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B78.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B79.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B80.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B81.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B82.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B83.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B84.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B85.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B86.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B87.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B88.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B89.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B90.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B91.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B92.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B93.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B94.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B95.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B96.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B97.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B98.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B99.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B100.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B101.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B102.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B103.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B104.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B105.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B106.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B107.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B108.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B109.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));B110.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+
+
+
+
     }
 
     public void update(Question question, int score){

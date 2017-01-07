@@ -1,5 +1,7 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -57,6 +59,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         holder.question1 = (TextView) myView.findViewById(R.id.textView6);
         holder.question2 = (TextView) myView.findViewById(R.id.textView7);
         holder.alert = (TextView) myView.findViewById(R.id.Alert);
+        holder.progress = (TextView) myView.findViewById(R.id.discProgressText);
         B10 = (Button) myView.findViewById(R.id.button14);
         B11 = (Button) myView.findViewById(R.id.button13);
         B12 = (Button) myView.findViewById(R.id.button12);
@@ -85,7 +88,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         Next.setOnClickListener(this);
         this.currentQuestion1 = loadQuestion(holder.question1);
         this.currentQuestion2 = loadQuestion(holder.question2);
-
+        setProgressOnScreen(currentQuestion2);
+        resetButtonColors();
         return myView;
     }
 
@@ -96,20 +100,29 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     public void next() {
 
         if (q1 + q2 == 5) {
-
+            resetButtonColors();
             update(currentQuestion1,q1);
             update(currentQuestion2,q2);
             currentQuestion1 = loadQuestion(holder.question1);
             currentQuestion2 = loadQuestion(holder.question2);
             holder.alert.setVisibility(View.GONE);
+            holder.progress.setVisibility(View.VISIBLE);
             q1 = 0;
             q2 = 0;
-            MainMenu.getInstance().updateUser();
+            setProgressOnScreen(currentQuestion2);
+
+            //MainMenu.getInstance().updateUser();
         }
 
         else{
+            holder.progress.setVisibility(View.GONE);
             holder.alert.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void setProgressOnScreen(Question question){
+        int currentQuestion = test.getQuestionNumber(question);
+        holder.progress.setText("Side "+currentQuestion/2+" af " + test.totalQuestions/2);
     }
 
     /**********************************************
@@ -151,7 +164,25 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
 
     static class viewHolder {
-        TextView question1,question2, alert;
+        TextView question1,question2, alert, progress;
+    }
+
+    public void resetButtonColors(){
+        B10.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B11.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B12.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B13.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B14.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B15.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B20.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B21.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B22.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B23.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B24.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B24.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+        B25.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+
+
     }
 
     /***********************************************************
@@ -164,50 +195,86 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
 
             case R.id.button14:
+                resetButtonColors();
+                B10.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B25.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q1 = 0;
                 q2 = 5;
                 break;
             case R.id.button13:
+                resetButtonColors();
+                B11.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B24.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q1 = 1;
                 q2 = 4;
                 break;
             case R.id.button12:
+                resetButtonColors();
+                B12.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B23.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q1 = 2;
                 q2 = 3;
                 break;
             case R.id.button11:
+                resetButtonColors();
+                B13.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B22.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q1 = 3;
                 q2 = 2;
                 break;
             case R.id.button8:
+                resetButtonColors();
+                B14.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B21.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q1 = 4;
                 q2 = 1;
                 break;
             case R.id.button5:
+                resetButtonColors();
+                B15.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B20.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q1 = 5;
                 q2 = 0;
                 break;
             case R.id.button20:
+                resetButtonColors();
+                B15.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B20.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q2 = 0;
                 q1 = 5;
                 break;
             case R.id.button19:
+                resetButtonColors();
+                B14.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B21.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q2 = 1;
                 q1 = 4;
                 break;
             case R.id.button18:
+                resetButtonColors();
+                B13.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B22.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q2 = 2;
                 q1 = 3;
                 break;
             case R.id.button17:
+                resetButtonColors();
+                B12.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B23.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q2 = 3;
                 q1 = 2;
                 break;
             case R.id.button16:
+                resetButtonColors();
+                B11.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B24.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q2 = 4;
                 q1 = 1;
                 break;
             case R.id.button15:
+                resetButtonColors();
+                B10.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
+                B25.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimaryDark)));
                 q2 = 5;
                 q1 = 0;
                 break;

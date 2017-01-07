@@ -12,7 +12,7 @@ public class DISC extends AbstractItem {
     private int Dom,Inf,Sta,Com;
     private boolean isUsed;
     private int Complete;
-    private final int totalQuestions = 72;
+    public final int totalQuestions = 72;
     private static Question[] questions;
 
     Question nextQuestion;
@@ -173,6 +173,11 @@ public class DISC extends AbstractItem {
                 number = i;
         }
         return number;
+
+    }
+    public int getQuestionNumber(Question question){
+        int position = getQuestionPosition(question);
+        return questions[position].getQuestionNo();
 
     }
 
