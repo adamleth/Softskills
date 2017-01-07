@@ -13,6 +13,7 @@ import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.Question;
+import com.grp12.softskilltools.Util.AnimationUtil;
 
 /**
  * Created by mathiaslarsen on 27/11/2016.
@@ -131,7 +132,10 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
             if (current == null) {
 
+                AnimationUtil.popIn(Next,100);
                 Next.setText("Se resultat");
+                AnimationUtil.popOut(Next,300);
+
 
                 finished = true;
 

@@ -103,7 +103,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/loginknap"
-                        android:background="@drawable/button_primary_solid" />
+                        android:background="@drawable/button_primary_solid"
+                        android:textColor="@color/white" />
 
                     <Button
                         android:text="Glemt din kode? "
@@ -111,7 +112,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/glemtkode"
-                        android:background="@drawable/button_secondary_solid" />
+                        android:background="@drawable/button_secondary_solid"
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
 

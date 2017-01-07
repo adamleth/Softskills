@@ -56,6 +56,11 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
 
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     System.out.println("BrugerUID "+user.getUid());
+
+                    Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
+                    i.putExtra("UserEmail",user.getEmail());
+
+                    startActivity(i);
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -66,6 +71,23 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
         // ...
     }
 
+    // [START on_start_add_listener]
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+    // [END on_start_add_listener]
+
+    // [START on_stop_remove_listener]
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
     public void logInd(final String email, String kodeord) {
         mAuth.signInWithEmailAndPassword(email, kodeord)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -73,18 +95,21 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
 
-                        Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
-                        i.putExtra("UserEmail",email);
 
-                        startActivity(i);
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
+                            udskrivFejl(task.getException().getMessage().toString());
+
                         }
 
                         // ...
                     }
                 });
 
+    }
+    public void udskrivFejl(String fejl){
+        warning.setText(fejl);
+        warning.setVisibility(View.VISIBLE);
     }
     @Override
     public void onClick(View v) {
@@ -101,6 +126,10 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
                 logInd(email.getText().toString(), kodeord.getText().toString());
                 warning.setVisibility(View.GONE);
             }
+        }
+        else if (v == forgot){
+            Toast toast = Toast.makeText(this,"Denne funktion er ikke implementeret",Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 }

@@ -260,6 +260,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
     private void signOut() {
         mAuth.signOut();
+        Intent i = new Intent(MainMenu.this,MainActivity.class);
+        startActivity(i);
 
     }
     @Override
