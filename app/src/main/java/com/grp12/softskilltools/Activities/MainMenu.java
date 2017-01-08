@@ -238,8 +238,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
             case R.id.navigation_logout:
                 signOut();
-
-
                 break;
 
 
