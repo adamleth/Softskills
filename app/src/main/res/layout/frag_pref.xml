@@ -16,10 +16,10 @@
         <RelativeLayout
             android:id="@+id/top_wrapper"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:background="#F56F6C"
+            android:background="@color/colorPrimary"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:layout_height="150dp">
 
             <io.codetail.widget.RevealFrameLayout
                 android:layout_width="match_parent"
@@ -29,12 +29,11 @@
                 <ImageView
                     android:id="@+id/profile_bg_5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:scaleType="fitXY"
-                    android:src="@drawable/profile_image_5"
                     android:visibility="invisible" />
             </io.codetail.widget.RevealFrameLayout>
 
@@ -46,16 +45,16 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="15dp"
                 android:visibility="visible">
 
                 <com.grp12.softskilltools.Util.ArcImageView
                     android:id="@+id/profile_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
 
                     android:src="@mipmap/ic_person_white_24dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp" />
             </io.codetail.widget.RevealLinearLayout>
 
             <TextView

@@ -225,8 +225,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                         .replace(R.id.article_fragment
                                 , new PrefFragment())
                         .commit();
-                mToolbar.setTitle("Min Profil");
+                mToolbar.setTitle(" ");
                 break;
+
             case R.id.navigation_store:
                 fragmentManager.beginTransaction()
                         .replace(R.id.article_fragment

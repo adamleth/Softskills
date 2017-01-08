@@ -112,7 +112,6 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
             setProgressOnScreen(currentQuestion2);
             MainMenu.getInstance().getUser().getSafe().updateUnusedItem(test);
 
-            //MainMenu.getInstance().updateUser();
         }
 
         else{

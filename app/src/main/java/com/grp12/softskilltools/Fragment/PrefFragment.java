@@ -159,8 +159,8 @@ public class PrefFragment extends Fragment {
 
         listData.add(new ProfileMessages("1 minut siden", "Profil", "Test besked", R.mipmap.avatar));
         listData.add(new ProfileMessages("21 minutter siden", "Tilpas", "Test besked", R.mipmap.pencil));
-        listData.add(new ProfileMessages("1 time siden", "Historik", "Test besked", R.mipmap.infographic));
-        listData.add(new ProfileMessages("2 timer siden", "Billeder", "Test besked", R.mipmap.insertpic));
+        listData.add(new ProfileMessages("1 time siden", "Hist.", "Test besked", R.mipmap.infographic));
+        listData.add(new ProfileMessages("2 timer siden", "Bill.", "Test besked", R.mipmap.insertpic));
         listData.add(new ProfileMessages("2 timer siden", "Team", "Test besked", R.mipmap.users));
         adaptor.addAll(listData);
 
