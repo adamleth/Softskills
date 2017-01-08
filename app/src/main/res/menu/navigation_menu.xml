@@ -19,10 +19,16 @@
         android:icon="@mipmap/ic_timeline_white_24dp"/>
     </group>
 
+    <group android:id="@+id/grp7" android:checkableBehavior="single" >
+        <item android:id="@+id/navigation_settings"
+            android:title="Min Profil"
+            android:icon="@mipmap/ic_settings_white_24dp"/>
+    </group>
+
 
 
     <group android:id="@+id/submenu" android:checkableBehavior="single">
-        <item android:title="Administrativ menu" >
+        <item android:title="Administrativ menu">
         <menu>
     <group android:id="@+id/grp4" android:checkableBehavior="single" >
     <item android:id="@+id/navigation_remind"
@@ -43,11 +49,7 @@
     </group>
 
 
-    <group android:id="@+id/grp7" android:checkableBehavior="single" >
-    <item android:id="@+id/navigation_settings"
-        android:title="Indstillinger"
-        android:icon="@mipmap/ic_settings_white_24dp"/>
-    </group>
+
 
     <group android:id="@+id/grp8" android:checkableBehavior="single" >
     <item android:id="@+id/navigation_logout"

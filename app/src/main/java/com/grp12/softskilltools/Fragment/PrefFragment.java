@@ -83,15 +83,6 @@ public class PrefFragment extends Fragment {
         profile_image.setBorderWidth(15);
         profile_image.setProgress(100);
 
-       /* // get the center for the clipping circle
-        final int cx = (profile_bg.getLeft() + profile_bg.getRight()) / 2;
-        final int cy = (profile_bg.getTop() + profile_bg.getBottom()) / 2;
-
-        // get the final radius for the clipping circle
-        int dx = Math.max(cx, profile_bg.getWidth() - cx);
-        int dy = Math.max(cy, profile_bg.getHeight() - cy);
-        final float finalRadius = (float) Math.hypot(dx, dy);*/
-
 
         AnimationUtil.popOut(profile_image, 1500);
 
@@ -171,7 +162,6 @@ public class PrefFragment extends Fragment {
         listData.add(new ProfileMessages("1 time siden", "Historik", "Test besked", R.mipmap.infographic));
         listData.add(new ProfileMessages("2 timer siden", "Billeder", "Test besked", R.mipmap.insertpic));
         listData.add(new ProfileMessages("2 timer siden", "Team", "Test besked", R.mipmap.users));
-        //rv.addItemDecoration(new DividerItemDecoration(getActivity(), null));
         adaptor.addAll(listData);
 
 
