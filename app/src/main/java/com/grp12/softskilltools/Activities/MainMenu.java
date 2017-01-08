@@ -221,8 +221,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
             case R.id.navigation_settings:
-                Intent i = new Intent(this, PrefFragment.class);
-                startActivity(i);
+                fragmentManager.beginTransaction()
+                        .replace(R.id.article_fragment
+                                , new PrefFragment())
+                        .commit();
+                mToolbar.setTitle("Min Profil");
                 break;
             case R.id.navigation_store:
                 fragmentManager.beginTransaction()

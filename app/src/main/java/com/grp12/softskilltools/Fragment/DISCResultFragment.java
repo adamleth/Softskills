@@ -10,20 +10,15 @@ import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.grp12.softskilltools.Entities.AbstractItem;
+
 import com.grp12.softskilltools.Entities.DISC;
-import com.grp12.softskilltools.Entities.User;
+
 
 import org.eazegraph.lib.communication.IOnItemFocusChangedListener;
 import org.eazegraph.lib.models.PieModel;
 import org.eazegraph.lib.charts.PieChart;
 
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 
 //heh
 

@@ -83,7 +83,7 @@ public class ResultListFragment extends Fragment implements AdapterView.OnItemCl
 
                 break;
         }
-        //tempitem skal benyttes i en switch, for at vise det korrekte resultat udfra profiltypen.
+
     }
 
     @Override

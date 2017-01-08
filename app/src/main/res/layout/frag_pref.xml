@@ -1,25 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<io.codetail.widget.RevealLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/root"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:visibility="invisible">
 
-        <Switch
-            android:text="Administrative menu"
+        <RelativeLayout
+            android:id="@+id/top_wrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/switch1" />
+            android:layout_height="230dp"
+            android:background="#F56F6C"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <io.codetail.widget.RevealFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/profile_bg_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profile_image_5"
+                    android:visibility="invisible" />
+            </io.codetail.widget.RevealFrameLayout>
 
 
+            <io.codetail.widget.RevealLinearLayout
+                android:id="@+id/wrapper_profile_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="75dp"
+                android:visibility="visible">
+
+                <com.grp12.softskilltools.Util.ArcImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    android:src="@mipmap/ic_person_white_24dp"
+                    android:visibility="invisible" />
+            </io.codetail.widget.RevealLinearLayout>
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wrapper_profile_img"
+                android:layout_centerHorizontal="true"
+                android:text="Arbab Javaid"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_name"
+                android:layout_centerHorizontal="true"
+                android:text="Dickspinner99@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFF"
+                android:visibility="invisible" />
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:background="#FFFFFF"
+            android:minHeight="90dp"
+            android:visibility="visible" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:visibility="visible">
+
+            <io.codetail.widget.RevealFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+
+                <TextView
+                    android:id="@+id/placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:padding="10dp"
+                    android:text="Android Lollipop introduced a really great new Animator, the Circular Reveal Animation, and Ripple Effect. Let’s see the feature of these two terminologies.  Circular Reveal Animation – Reveal animations provide users visual continuity when you show or hide a group of UI elements.  Ripple Effect – Touch feedback in material design provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. The default touch feedback animations for buttons use the new RippleDrawable class, which transitions between different states with a ripple effect."
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#FFFFFF"
+                    android:visibility="visible" />
+
+
+            </io.codetail.widget.RevealFrameLayout>
+        </ScrollView>
+
 
     </LinearLayout>
-
-</LinearLayout>
+</io.codetail.widget.RevealLinearLayout>
