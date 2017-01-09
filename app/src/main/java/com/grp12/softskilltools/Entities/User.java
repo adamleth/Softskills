@@ -10,6 +10,7 @@ public class User {
 
     public String name;
     public String surName;
+    public String fullName;
     public String email;
     public String phone;
     public Safe safe;
@@ -115,11 +116,14 @@ public class User {
      * This method sets the safe *
      *****************************/
 
-    public void setSafe(Safe safe){
-
+    public void setSafe(Safe safe) {
         this.safe = safe;
     }
 
+
+    public void setfullName(){
+        this.fullName = name + " " + surName;
+    }
     /******************************************
      * This method gets the results of a user *
      ******************************************/

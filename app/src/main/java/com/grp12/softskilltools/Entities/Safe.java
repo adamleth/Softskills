@@ -34,6 +34,41 @@ public class Safe {
      * The logic of this class begins *
      **********************************/
 
+    public void setUnusedBelbinItems(List<BELBIN> unusedBelbinItems) {
+        this.unusedBelbinItems = unusedBelbinItems;
+    }
+
+    public void setUnusedDiscItems(List<DISC> unusedDiscItems) {
+        this.unusedDiscItems = unusedDiscItems;
+    }
+
+    public List<BELBIN> getUnusedBelbinItems() {
+        return unusedBelbinItems;
+    }
+
+    public List<BELBIN> getUsedBelbinItems() {
+        return usedBelbinItems;
+    }
+
+    public List<DISC> getUnusedDiscItems() {
+        return unusedDiscItems;
+    }
+
+    public List<DISC> getUsedDiscItems() {
+        return usedDiscItems;
+    }
+
+    public void setUsedBelbinItems(List<BELBIN> usedBelbinItems) {
+        this.usedBelbinItems = usedBelbinItems;
+    }
+
+    public void setUsedDiscItems(List<DISC> usedDiscItems) {
+        this.usedDiscItems = usedDiscItems;
+    }
+
+    public void setUsedItems(List<AbstractItem> usedItems) {
+        this.usedItems = usedItems;
+    }
 
     /********************************************************
      * This method takes an object and saves it in the safe *
@@ -44,9 +79,11 @@ public class Safe {
         switch (item.getTestType()){
             case DISC:
                 unusedDiscItems.add((DISC)item);
+                System.out.println("Der blev tilføjet til unusedDisc");
                 break;
             case BELBIN:
                 unusedBelbinItems.add((BELBIN)item);
+                System.out.println("Der blev tilføjet til unusedBelbin");
                 break;
 
             case THREESIXTY:
@@ -90,7 +127,7 @@ public class Safe {
      ********************************************/
 
     public List<AbstractItem> læsUnusedItems() {
-        ArrayList<AbstractItem> res = new ArrayList<AbstractItem>();
+        ArrayList<AbstractItem> res = new ArrayList<>();
         res.addAll(unusedBelbinItems);
         res.addAll(unusedDiscItems);
         return res;

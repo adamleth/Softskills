@@ -100,6 +100,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User newUser = dataSnapshot.getValue(User.class);
+                Boolean refreshed = false;
 
                 Log.d("Data",  "val="+newUser);
 
@@ -107,6 +108,12 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 System.out.println("Indeni "+user.getName());
                 nav_user.setText(newUser.getName()+" "+ newUser.getSurName());
                 nav_email.setText(newUser.getEmail());
+
+                if (refreshed == false){
+                    refreshView();
+                }
+
+
 
             }
 
@@ -149,6 +156,15 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 
 }
+
+    private void refreshView() {
+        fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.article_fragment
+                            , new SafeFragment())
+                    .commit();
+            mToolbar.setTitle("Aktive tests");
+        }
 
 
 

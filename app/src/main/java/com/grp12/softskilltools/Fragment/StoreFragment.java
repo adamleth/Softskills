@@ -83,15 +83,16 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         if (user.getSafe().getSafeSize()==1){
             AnimationUtil.popOut(ACTION,300);
         }
+
     }
 
     public void updateUser(){
         String nøgle = getUser().getEmail().replaceAll("[\\.:;&@]","_");
         Log.d("xxxx", nøgle);
-        mConditionDataRef = mRootDataRef.child("Brugere").child(nøgle).child("Safe");
+        mConditionDataRef = mRootDataRef.child("Brugere").child(nøgle);
         Log.d("xxxx", mConditionDataRef.toString());
         Log.d("xxxx", ""+getUser());
-        mConditionDataRef.setValue(getUser().getSafe());
+        mConditionDataRef.setValue(getUser());
 
     }
 
