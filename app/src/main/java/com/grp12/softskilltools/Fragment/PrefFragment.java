@@ -172,5 +172,13 @@ public class PrefFragment extends Fragment {
     }
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 }
