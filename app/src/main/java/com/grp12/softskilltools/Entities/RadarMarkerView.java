@@ -28,7 +28,7 @@ public class RadarMarkerView extends MarkerView {
         tvContent.setTypeface(Typeface.createFromAsset(context.getAssets(), "OpenSans-Light.ttf"));
     }
 
-    // callbacks everytime the MarkerView is redrawn, can be used to update the
+    // callbacks every time the MarkerView is redrawn, can be used to update the
     // content (user-interface)
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
