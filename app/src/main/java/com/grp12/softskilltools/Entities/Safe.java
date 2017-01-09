@@ -130,6 +130,7 @@ public class Safe {
                 usedThreeSixtyItems.add((THREESIXTY)item);
                 break;
         }
+        removeItemFromSafe(item);
         MainMenu.getInstance().updateUser();
 
     }
@@ -228,10 +229,22 @@ public class Safe {
      * This method removes a item from the safe *
      ********************************************/
 
-    private boolean removeItemFromSafe(AbstractItem item){
+    private void removeItemFromSafe(AbstractItem item){
+        int size;
+        switch (item.getTestType()){
+            case DISC:
+                size = unusedDiscItems.size();
+                unusedDiscItems.remove(item);
+                break;
+            case BELBIN:
+                size = unusedBelbinItems.size();
+                unusedBelbinItems.remove(item);
+                break;
+            case THREESIXTY:
+                size = unusedThreeSixtyItems.size();
+                unusedThreeSixtyItems.remove(item);
+                break;
 
-        int value = unusedItems.size();
-        unusedItems.remove(item);
-        return unusedItems.size() != value;
+        }
     }
 }
