@@ -22,9 +22,9 @@ public class ItemDefinition {
 
     public static final String [] TESTDescription_DATA = {
 
-            "DISC-testbeskrivelse. Kan en beskrivelse være kort?",
-            "BELBIN-testbeskrivelse. Lad os bare give hver beskrivelse 60 tegn.",
-            "360-graders-testbeskrivelse, som er meget lang og irriterende"
+            "DISC-personlighedsprofil bestemmer din type og personlighed.",
+            "BELBIN-profilen bestemmer din rolle i teamet.",
+            "360-graders-profil er på nuværende tidspunkt ikke tilgængelig."
     };
 
     public static final double [] TESTPrice_DATA = {

@@ -171,4 +171,14 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
                     .commit();
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 }
