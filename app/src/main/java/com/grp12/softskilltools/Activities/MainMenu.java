@@ -13,7 +13,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.TextAppearanceSpan;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -62,6 +65,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private static MainMenu sMainMenu;
     DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mConditionDataRef;
+    private Boolean refreshed;
 
 
 
@@ -72,6 +76,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_main);
         sMainMenu = this;
         this.user = null;
+        this.refreshed = false;
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -100,7 +105,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User newUser = dataSnapshot.getValue(User.class);
-                Boolean refreshed = false;
 
                 Log.d("Data",  "val="+newUser);
 
@@ -108,14 +112,13 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 System.out.println("Indeni "+user.getName());
                 nav_user.setText(newUser.getName()+" "+ newUser.getSurName());
                 nav_email.setText(newUser.getEmail());
+                SafeFragment.getInstance().dataChanged();
 
-                if (refreshed == false){
-                    refreshView();
-                }
 
 
 
             }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -137,6 +140,15 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         mToggle.syncState();
 
         navView = (NavigationView) findViewById(R.id.navigation);
+        Menu menu = navView.getMenu();
+        MenuItem titel1 = menu.findItem(R.id.grp1);
+        MenuItem titel2 = menu.findItem(R.id.grp2);
+        SpannableString s1 = new SpannableString(titel1.getTitle());
+        SpannableString s2 = new SpannableString(titel2.getTitle());
+        s1.setSpan(new TextAppearanceSpan(this,R.style.TextAppearance),0,s1.length(),0);
+        s2.setSpan(new TextAppearanceSpan(this,R.style.TextAppearance),0,s2.length(),0);
+        titel1.setTitle(s1);
+        titel2.setTitle(s2);
         navView.setNavigationItemSelectedListener(this);
 
 
@@ -164,8 +176,19 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                             , new SafeFragment())
                     .commit();
             mToolbar.setTitle("Aktive tests");
+       this.refreshed = true;
         }
 
+
+    public void updateUser(){
+        String nøgle = getUser().getEmail().replaceAll("[\\.:;&@]","_");
+        Log.d("xxxx", nøgle);
+        mConditionDataRef = mRootDataRef.child("Brugere").child(nøgle);
+        Log.d("xxxx", mConditionDataRef.toString());
+        Log.d("xxxx", ""+getUser());
+        mConditionDataRef.setValue(getUser());
+
+    }
 
 
     @Override

@@ -100,8 +100,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         User user = new User(forNavn.getText().toString(),efterNavn.getText().toString(),email.getText().toString(),telefon.getText().toString());
-                        user.addToSafe(new BELBIN(0,false,"BELBIN","test",AbstractItem.testType.BELBIN),1);
-                        user.safe.unusedBelbinItems.get(0).setOwner(user.getFullName());
+                        //user.addToSafe(new BELBIN(0,false,"BELBIN","test",AbstractItem.testType.BELBIN),1);
+                        //user.safe.unusedBelbinItems.get(0).setOwner(user.getFullName());
 
                         System.out.println(user.getName());
                         String nøgle = user.getEmail().replaceAll("[\\.:;&@]","_");

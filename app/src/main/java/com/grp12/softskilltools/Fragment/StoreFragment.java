@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -71,6 +72,8 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         return myView;
     }
 
+
+
     /*************************************************
      * This method adds a bought test to the profile *
      *************************************************/
@@ -78,7 +81,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     public void addToBasket(AbstractItem item, int qty, User user) {
         item.setOwner(user.getFullName());
         user.addToSafe(item, qty);
-        updateUser();
+        MainMenu.getInstance().updateUser();
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
         if (user.getSafe().getSafeSize()==1){
             AnimationUtil.popOut(ACTION,300);
@@ -86,15 +89,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    public void updateUser(){
-        String nøgle = getUser().getEmail().replaceAll("[\\.:;&@]","_");
-        Log.d("xxxx", nøgle);
-        mConditionDataRef = mRootDataRef.child("Brugere").child(nøgle);
-        Log.d("xxxx", mConditionDataRef.toString());
-        Log.d("xxxx", ""+getUser());
-        mConditionDataRef.setValue(getUser());
 
-    }
 
     /*****************************
      * This method gets the user *

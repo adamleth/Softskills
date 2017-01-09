@@ -15,9 +15,11 @@ public class Safe {
 
     public List<BELBIN> unusedBelbinItems = new ArrayList<>();
     public List<BELBIN> usedBelbinItems = new ArrayList<>();
+    public List<THREESIXTY> usedThreeSixtyItems = new ArrayList<>();
 
     public List<DISC> unusedDiscItems = new ArrayList<>();
     public List<DISC> usedDiscItems = new ArrayList<>();
+    public List<THREESIXTY> unusedThreeSixtyItems = new ArrayList<>();
 
 
 
@@ -70,6 +72,22 @@ public class Safe {
         this.usedItems = usedItems;
     }
 
+    public void setUnusedThreeSixtyItems(List<THREESIXTY> unusedThreeSixtyItems) {
+        this.unusedThreeSixtyItems = unusedThreeSixtyItems;
+    }
+
+    public List<THREESIXTY> getUnusedThreeSixtyItems() {
+        return unusedThreeSixtyItems;
+    }
+
+    public List<THREESIXTY> getUsedThreeSixtyItems() {
+        return usedThreeSixtyItems;
+    }
+
+    public void setUsedThreeSixtyItems(List<THREESIXTY> usedThreeSixtyItems) {
+        this.usedThreeSixtyItems = usedThreeSixtyItems;
+    }
+
     /********************************************************
      * This method takes an object and saves it in the safe *
      ********************************************************/
@@ -87,6 +105,7 @@ public class Safe {
                 break;
 
             case THREESIXTY:
+                unusedThreeSixtyItems.add((THREESIXTY)item);
         }
     }
 
@@ -108,8 +127,10 @@ public class Safe {
                 break;
 
             case THREESIXTY:
+                usedThreeSixtyItems.add((THREESIXTY)item);
                 break;
         }
+        MainMenu.getInstance().updateUser();
 
     }
 
@@ -130,6 +151,7 @@ public class Safe {
         ArrayList<AbstractItem> res = new ArrayList<>();
         res.addAll(unusedBelbinItems);
         res.addAll(unusedDiscItems);
+        res.addAll(unusedThreeSixtyItems);
         return res;
     }
 
@@ -188,10 +210,11 @@ public class Safe {
      * This method gets the results from a test *
      ********************************************/
 
-    public ArrayList<AbstractItem> getUsedItems() {
+    public ArrayList<AbstractItem> hentUsedItems() {
         ArrayList<AbstractItem> res = new ArrayList<>();
         res.addAll(usedDiscItems);
         res.addAll(usedBelbinItems);
+        res.addAll(usedThreeSixtyItems);
         return res;
     }
 

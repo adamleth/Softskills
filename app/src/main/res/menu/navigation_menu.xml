@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/grp1" android:checkableBehavior="single" >
+    <group  android:checkableBehavior="single" >
+        <item android:title="Brugermenu" android:id="@+id/grp1">
+            <menu>
     <item android:id="@+id/navigation_test"
         android:title="Udfyld profil"
         android:icon="@mipmap/ic_person_white_24dp"/>
-    </group>
 
-    <group android:id="@+id/grp2" android:checkableBehavior="single" >
+
+
     <item android:id="@+id/navigation_store"
         android:title="Køb profil"
         android:icon="@mipmap/ic_local_grocery_store_white_24dp"/>
-    </group>
 
-    <group android:id="@+id/grp3" android:checkableBehavior="single" >
+
     <item android:id="@+id/navigation_results"
         android:title="Mine Resultater"
         android:icon="@mipmap/ic_timeline_white_24dp"/>
-    </group>
 
-    <group android:id="@+id/grp7" android:checkableBehavior="single" >
+
+
         <item android:id="@+id/navigation_settings"
             android:title="Min Profil"
             android:icon="@mipmap/ic_settings_white_24dp"/>
+
+            </menu>
+        </item>
     </group>
 
 
 
-    <group android:id="@+id/submenu" android:checkableBehavior="single">
-        <item android:title="Administrativ menu">
+    <group  android:checkableBehavior="single">
+        <item android:title="Administrativ menu" android:id="@+id/grp2">
         <menu>
     <group android:id="@+id/grp4" android:checkableBehavior="single" >
     <item android:id="@+id/navigation_remind"

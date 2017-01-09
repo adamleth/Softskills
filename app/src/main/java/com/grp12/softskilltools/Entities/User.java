@@ -128,9 +128,9 @@ public class User {
      * This method gets the results of a user *
      ******************************************/
 
-    public List<AbstractItem> getResults() {
+    public List<AbstractItem> hentResults() {
 
-        return safe.getUsedItems();
+        return safe.hentUsedItems();
     }
     public String getFullName(){
         return name + " " + surName;

@@ -37,10 +37,10 @@
         app:headerLayout="@layout/navigation_header1"
         android:id="@+id/navigation"
         android:background="@color/menu"
-        app:itemTextColor="@color/black"
-        app:itemIconTint="@color/colorPrimaryDark"
+        app:itemTextColor="@color/Compliant"
 
-        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark">
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+        app:itemIconTint="@color/Compliant">
 
     </android.support.design.widget.NavigationView>
 

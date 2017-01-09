@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -61,6 +62,9 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
             hjælp.setOnClickListener(this);
             overskrift.setVisibility(View.GONE);
         }
+    }
+    public void dataChanged(){
+       //Her skal viewet refreshes efter der er blevet hentet data.
     }
 
     public void startTest(AbstractItem item, int position){
