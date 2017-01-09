@@ -34,7 +34,7 @@ public class ItemDefinition {
         };
 
 
-    public static final AbstractItem.testType testType[]  = {
+    public static final AbstractItem.testType[] testType  = {
 
         AbstractItem.testType.DISC,
         AbstractItem.testType.BELBIN,

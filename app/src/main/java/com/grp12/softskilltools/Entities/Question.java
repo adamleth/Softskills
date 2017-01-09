@@ -12,6 +12,10 @@ public class Question {
     public enum questionType {Dom,Inf,Sta,Com,PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP};
     public questionType type;
 
+    public Question(){
+
+    }
+
     Question(String question, int questionNo, questionType type){
         this.questionNo = questionNo;
         this.question = question;

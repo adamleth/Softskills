@@ -61,7 +61,7 @@ public class ResultListAdaptor extends BaseAdapter{
             holder = (ViewHolder) convertView.getTag();
         }
             holder.type.setText(results.get(position).getProductName());
-            holder.name.setText(results.get(position).getOwner().getName() + " " + results.get(position).getOwner().surName);
+            holder.name.setText(results.get(position).getOwner());
             holder.created.setText(results.get(position).getFinishedDate());
             holder.expire.setText(results.get(position).getExpirationDate());
 

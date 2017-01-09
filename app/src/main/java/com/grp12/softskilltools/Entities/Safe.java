@@ -13,60 +13,67 @@ import java.util.List;
 
 public class Safe {
 
-    private List<AbstractItem> unusedItems;
-    private List<AbstractItem> usedItems;
-    private AbstractItem item;
-    private User owner;
+    public List<BELBIN> unusedBelbinItems = new ArrayList<>();
+    public List<BELBIN> usedBelbinItems = new ArrayList<>();
 
-    Safe(User owner){
-        Initialize(owner);
-    }
+    public List<DISC> unusedDiscItems = new ArrayList<>();
+    public List<DISC> usedDiscItems = new ArrayList<>();
 
 
+
+
+    private List<AbstractItem> unusedItems = new ArrayList<>();
+    private List<AbstractItem> usedItems = new ArrayList<>();
+
+
+    /** Nødvendigt med konsteruktør uden parametre for at objektet kan instantieres fra JSON */
     public Safe() {
-
-        unusedItems = new ArrayList<>();
-        usedItems = new ArrayList<>();
     }
 
     /**********************************
      * The logic of this class begins *
      **********************************/
 
-    private void Initialize(User user) {
-        this.owner = user;
-        unusedItems = new ArrayList<>();
-        usedItems = new ArrayList<>();
-
-    }
 
     /********************************************************
      * This method takes an object and saves it in the safe *
      ********************************************************/
 
-    boolean addToSafe(AbstractItem item, int qty) {
+    void addToSafe(AbstractItem item, int qty) {
 
-        int value = unusedItems.size();
+        switch (item.getTestType()){
+            case DISC:
+                unusedDiscItems.add((DISC)item);
+                break;
+            case BELBIN:
+                unusedBelbinItems.add((BELBIN)item);
+                break;
 
-        for (int i = 0; i < qty; i++) {
-            unusedItems.add(item);
+            case THREESIXTY:
         }
-        return unusedItems.size() != value;
     }
+
 
     /**********************************************
      * This method filters out the answered tests *
      **********************************************/
 
-    boolean addToResults(AbstractItem item) {
-
-        int value = usedItems.size();
-            usedItems.add(item);
-            removeItemFromSafe(item);
+    void addToResults(AbstractItem item) {
 
 
+        switch (item.getTestType()){
+            case DISC:
+                usedDiscItems.add((DISC)item);
+                break;
 
-        return usedItems.size() != value;
+            case BELBIN:
+                usedBelbinItems.add((BELBIN)item);
+                break;
+
+            case THREESIXTY:
+                break;
+        }
+
     }
 
     public void updateUnusedItem(AbstractItem item){
@@ -82,29 +89,79 @@ public class Safe {
      * This method gets an unused item from the safe *
      ********************************************/
 
-    List<AbstractItem> getSafe() {
-        return unusedItems;
+    public List<AbstractItem> læsUnusedItems() {
+        ArrayList<AbstractItem> res = new ArrayList<AbstractItem>();
+        res.addAll(unusedBelbinItems);
+        res.addAll(unusedDiscItems);
+        return res;
     }
+
+
+
+
+
+    public void sætUnusedItems(List<AbstractItem> Unused){
+       for (int i = 0; i < Unused.size();i++){
+            switch (Unused.get(i).getTestType()){
+                case DISC:
+                    DISC disc = (DISC)Unused.get(i);
+                    this.unusedItems.add(disc);
+                    break;
+
+                case BELBIN:
+                    BELBIN belbin = (BELBIN)Unused.get(i);
+                    this.unusedItems.add(belbin);
+                    break;
+
+                case THREESIXTY:
+                    THREESIXTY threesixty = (THREESIXTY)Unused.get(i);
+                    this.unusedItems.add(threesixty);
+
+                    break;
+            }
+       }
+
+    }
+
+
+    public void sætUsedItems(List<AbstractItem> used){
+        for (int i = 0; i < used.size();i++){
+            switch (used.get(i).getTestType()){
+                case DISC:
+                    DISC disc = (DISC)used.get(i);
+                    this.usedDiscItems.add(disc);
+                    break;
+
+                case BELBIN:
+                    BELBIN belbin = (BELBIN)used.get(i);
+                    this.usedBelbinItems.add(belbin);
+                    break;
+
+                case THREESIXTY:
+                    THREESIXTY threesixty = (THREESIXTY)used.get(i);
+                    this.unusedItems.add(threesixty);
+
+                    break;
+            }
+        }
+    }
+
 
     /********************************************
      * This method gets the results from a test *
      ********************************************/
 
-    List<AbstractItem> getResults() {
-
-        return usedItems;
+    public ArrayList<AbstractItem> getUsedItems() {
+        ArrayList<AbstractItem> res = new ArrayList<>();
+        res.addAll(usedDiscItems);
+        res.addAll(usedBelbinItems);
+        return res;
     }
 
-    /*********************************************************
-     * The method checks if the safe is empty for unused items*
-     **********************************************************/
 
-    public boolean isEmpty() {
 
-        return unusedItems.isEmpty();
-    }
     public int getSafeSize(){
-        return unusedItems.size();
+        return læsUnusedItems().size();
     }
 
     /********************************************

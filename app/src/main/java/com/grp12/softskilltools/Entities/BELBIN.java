@@ -1,6 +1,9 @@
 package com.grp12.softskilltools.Entities;
 
 import com.grp12.softskilltools.resources.BELBIN_Data;
+import com.grp12.softskilltools.resources.DISC_Data;
+
+import java.util.ArrayList;
 
 
 /**
@@ -8,11 +11,29 @@ import com.grp12.softskilltools.resources.BELBIN_Data;
  */
 
 public class BELBIN extends AbstractItem {
-    private final int totalQuestions = 70;
+    public final int totalQuestions = 70;
     private int PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP;
-    private int Complete;
-    public static Question[] questions;
-    Question nextQuestion;
+    public int Complete;
+    public static ArrayList<Question> questions;
+    public static Question[] usedQuestions;
+    public Question nextQuestion;
+
+
+    public BELBIN(){
+        PL = 0;
+        RI = 0;
+        CO = 0;
+        SH = 0;
+        ME = 0;
+        TW = 0;
+        IMP = 0;
+        CF = 0;
+        SP = 0;
+        DROP = 0;
+        this.Complete = 0;
+        initialize();
+        convertQuestions();
+    }
 
     public BELBIN(double cost, boolean isUsed, String productName, String description, testType type) {
         super(cost, isUsed, productName, description, type);
@@ -28,6 +49,22 @@ public class BELBIN extends AbstractItem {
         DROP = 0;
         this.Complete = 0;
         initialize();
+        convertQuestions();
+    }
+
+    public void setQuestions(ArrayList<Question> questions){
+        this.questions = questions;
+    }
+
+    public ArrayList<Question> getQuestions(){
+        return this.questions;
+    }
+
+    public testType getTestType(){
+        return super.getTestType();
+    }
+    public void setTestType(testType type){
+        super.setTestType(type);
     }
 
     public void setDROP(int DROP) {
@@ -116,11 +153,13 @@ public class BELBIN extends AbstractItem {
          * The Belbin-test logic begins *
          *******************************/
 
-        questions = new Question[totalQuestions];
+        questions = new ArrayList<>();
         for (int i = 0; i < totalQuestions; i++){
-            questions[i] = new Question(BELBIN_Data.BelbinWord_Data[i],BELBIN_Data.QuestionNo_DATA[i],BELBIN_Data.BELBINTYPE_Data[i]);
+            questions.add(i,new Question(BELBIN_Data.BelbinWord_Data[i],BELBIN_Data.QuestionNo_DATA[i],BELBIN_Data.BELBINTYPE_Data[i]));
         }
     }
+
+
 
 
 
@@ -130,16 +169,16 @@ public class BELBIN extends AbstractItem {
          * This method will get the next question from the stack of questions *
          **********************************************************************/
 
-        this.nextQuestion = questions[0];
+        this.nextQuestion = usedQuestions[0];
         if (!nextQuestion.getAnswered()) {
             //ACTION
-            for (int i = 0; i < (questions.length - 1); i++) {
-                questions[i] = questions[i + 1];
+            for (int i = 0; i < (usedQuestions.length - 1); i++) {
+                usedQuestions[i] = usedQuestions[i + 1];
             }
-            questions[questions.length-1] = this.nextQuestion;
-
+            usedQuestions[usedQuestions.length-1] = this.nextQuestion;
         }
-        else{
+
+        else {
             return null;
         }
 
@@ -203,9 +242,10 @@ public class BELBIN extends AbstractItem {
 
     public void setQuestionAnswered(Question question){
 
-        int questionNo = getQuestionNumber(question);
-        questions[questionNo-1].setAnswered(true);
+        int position = getQuestionPosition(question);
+        usedQuestions[position].setAnswered(true);
         calculateCompletion(totalQuestions,question.getQuestionNo());
+        getCompletion();
     }
 
     /*************************************************************
@@ -223,9 +263,10 @@ public class BELBIN extends AbstractItem {
 
     private int getQuestionPosition(Question question){
 
+
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
-            if(question == questions[i])
+            if(question == usedQuestions[i])
                 number = i;
         }
         return number;
@@ -238,16 +279,18 @@ public class BELBIN extends AbstractItem {
 
     public int getQuestionNumber(Question question){
 
-        int number  = 0;
-        for(int i = 0; i < totalQuestions; i++){
-            if(question == questions[i])
-                number = i;
-        }
-        return number;
-
+        int position = getQuestionPosition(question);
+        return usedQuestions[position].getQuestionNo();
         /****************************
          * The Belbin-test logic ends *
          ****************************/
+    }
+
+    public void convertQuestions(){
+        usedQuestions = new Question[totalQuestions];
+        for (int i = 0; i < totalQuestions; i++){
+            usedQuestions[i] = questions.get(i);
+        }
     }
 
     @Override

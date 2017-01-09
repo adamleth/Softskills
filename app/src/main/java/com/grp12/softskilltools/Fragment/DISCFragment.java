@@ -148,8 +148,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
                 AnimationUtil.popIn(Next,100);
                 Next.setText("Se resultat");
                 AnimationUtil.popOut(Next,300);
-
-
+                AnimationUtil.popIn(holder.progress,60);
                 finished = true;
 
 

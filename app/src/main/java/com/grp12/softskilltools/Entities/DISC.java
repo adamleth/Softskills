@@ -2,6 +2,7 @@ package com.grp12.softskilltools.Entities;
 
 import com.grp12.softskilltools.resources.DISC_Data;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,13 +11,24 @@ import java.util.Date;
 
 public class DISC extends AbstractItem {
     private int Dom,Inf,Sta,Com;
-    private boolean isUsed;
-    private int Complete;
+    public boolean isUsed;
+    public int Complete;
     public final int totalQuestions = 72;
-    private static Question[] questions;
+    public static ArrayList<Question> questions;
+    public static Question[] usedQuestions;
 
-    Question nextQuestion;
+    public Question nextQuestion;
 
+
+
+        public DISC(){
+            Dom = 0;
+            Inf = 0;
+            Sta = 0;
+            Com = 0;
+            initialize();
+            convertQuestions();
+        }
 
     public DISC(double cost, boolean isUsed, String productName, String description, testType type ) {
         super(cost, isUsed, productName, description, type);
@@ -25,11 +37,25 @@ public class DISC extends AbstractItem {
         Sta = 0;
         Com = 0;
         this.Complete =  getCompletion();
-
         initialize();
+        convertQuestions();
 
     }
 
+    public void setQuestions(ArrayList<Question> questions){
+        this.questions = questions;
+    }
+
+    public ArrayList<Question> getQuestions(){
+        return this.questions;
+    }
+
+    public void convertQuestions(){
+        usedQuestions = new Question[totalQuestions];
+        for (int i = 0; i < totalQuestions; i++){
+            usedQuestions[i] = questions.get(i);
+        }
+    }
 
     public int getDom() {
 
@@ -79,9 +105,9 @@ public class DISC extends AbstractItem {
 
     private void initialize(){
 
-        questions = new Question[totalQuestions];
+        questions = new ArrayList<>();
         for (int i = 0; i < totalQuestions; i++){
-            questions[i] = new Question(DISC_Data.DISCWord_Data[i],DISC_Data.QuestionNo_DATA[i],DISC_Data.DISCTYPE_Data[i]);
+            questions.add(i,new Question(DISC_Data.DISCWord_Data[i],DISC_Data.QuestionNo_DATA[i],DISC_Data.DISCTYPE_Data[i]));
         }
     }
 
@@ -91,13 +117,13 @@ public class DISC extends AbstractItem {
 
     public Question QUEUELOGIC() {
 
-            this.nextQuestion = questions[0];
+            this.nextQuestion = usedQuestions[0];
             if (!nextQuestion.getAnswered()) {
                 //ACTION
-                for (int i = 0; i < (questions.length - 1); i++) {
-                    questions[i] = questions[i + 1];
+                for (int i = 0; i < (usedQuestions.length - 1); i++) {
+                    usedQuestions[i] = usedQuestions[i + 1];
                 }
-                questions[questions.length-1] = this.nextQuestion;
+                usedQuestions[usedQuestions.length-1] = this.nextQuestion;
             }
 
         else {
@@ -131,6 +157,13 @@ public class DISC extends AbstractItem {
     }
     }
 
+    public testType getTestType(){
+        return super.getTestType();
+    }
+    public void setTestType(testType type){
+        super.setTestType(type);
+    }
+
     /**********************************************************
      * This method will	set the answered question as answered *
      **********************************************************/
@@ -138,7 +171,7 @@ public class DISC extends AbstractItem {
     public void setQuestionAnswered(Question question){
 
         int position = getQuestionPosition(question);
-        questions[position].setAnswered(true);
+        usedQuestions[position].setAnswered(true);
         calculateCompletion(totalQuestions,question.getQuestionNo());
         getCompletion();
     }
@@ -168,7 +201,7 @@ public class DISC extends AbstractItem {
 
         int number  = 0;
         for(int i = 0; i < totalQuestions; i++){
-            if(question == questions[i])
+            if(question == usedQuestions[i])
                 number = i;
         }
         return number;
@@ -176,7 +209,7 @@ public class DISC extends AbstractItem {
     }
     public int getQuestionNumber(Question question){
         int position = getQuestionPosition(question);
-        return questions[position].getQuestionNo();
+        return usedQuestions[position].getQuestionNo();
 
     }
 

@@ -3,6 +3,7 @@ package com.grp12.softskilltools.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.galgespil.stvhendeop.menuapp.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
 import com.grp12.softskilltools.Entities.BELBIN;
@@ -33,7 +36,8 @@ import static com.grp12.softskilltools.Fragment.SafeFragment.sSafeFragment;
 
 public class StoreFragment extends Fragment implements View.OnClickListener {
 
-
+    DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mConditionDataRef;
 
     public StoreFragment() {
 
@@ -72,12 +76,23 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
      *************************************************/
 
     public void addToBasket(AbstractItem item, int qty, User user) {
-        item.setOwner(user);
+        item.setOwner(user.getFullName());
         user.addToSafe(item, qty);
+        updateUser();
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
         if (user.getSafe().getSafeSize()==1){
             AnimationUtil.popOut(ACTION,300);
         }
+    }
+
+    public void updateUser(){
+        String nøgle = getUser().getEmail().replaceAll("[\\.:;&@]","_");
+        Log.d("xxxx", nøgle);
+        mConditionDataRef = mRootDataRef.child("Brugere").child(nøgle).child("Safe");
+        Log.d("xxxx", mConditionDataRef.toString());
+        Log.d("xxxx", ""+getUser());
+        mConditionDataRef.setValue(getUser().getSafe());
+
     }
 
     /*****************************

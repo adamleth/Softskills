@@ -25,7 +25,7 @@ public class User {
         this.surName = surName;
         this.email = email;
         this.phone = phone;
-        this.safe = new Safe(this);
+        this.safe = new Safe();
 
     }
 
@@ -99,7 +99,7 @@ public class User {
 
     public List<AbstractItem> retrieveSafeObjects() {
 
-        return safe.getSafe();
+        return safe.læsUnusedItems();
     }
 
     /*****************************
@@ -126,7 +126,10 @@ public class User {
 
     public List<AbstractItem> getResults() {
 
-        return safe.getResults();
+        return safe.getUsedItems();
+    }
+    public String getFullName(){
+        return name + " " + surName;
     }
 
     /*********************************************

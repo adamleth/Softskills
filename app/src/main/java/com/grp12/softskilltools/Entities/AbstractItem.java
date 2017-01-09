@@ -15,11 +15,15 @@ public abstract class AbstractItem implements Serializable {
     public double cost;
     public enum testType{DISC,BELBIN,THREESIXTY};
     public boolean isUsed;
-    protected testType type;
-    protected User owner;
-    private String productName, description;
-    private String finishedDate, expirationDate;
+    public testType type;
+    public String owner;
+    public String productName, description;
+    public String finishedDate, expirationDate;
     public int Complete;
+
+    public AbstractItem(){
+
+    }
 
     public AbstractItem(double cost, boolean isUsed, String productName, String description, testType type){
         this.cost = cost;
@@ -56,7 +60,7 @@ public abstract class AbstractItem implements Serializable {
      * This method gets the owner *
      ******************************/
 
-    public User getOwner(){
+    public String getOwner(){
 
         return owner;
     }
@@ -65,7 +69,7 @@ public abstract class AbstractItem implements Serializable {
      * This method sets the owner of a test *
      ****************************************/
 
-    public void setOwner(User owner) {
+    public void setOwner(String owner) {
 
         this.owner = owner;
     }

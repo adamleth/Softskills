@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -94,11 +95,12 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         Intent PromptIntent = getIntent();
         final String email = PromptIntent.getStringExtra("UserEmail");
         createUser(email,info.get("Name"),info.get("lastName"),info.get("phone"));
-        DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replace(".",";"));
+        DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]","_"));
         mConditionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User newUser = dataSnapshot.getValue(User.class);
+
                 Log.d("Data",  "val="+newUser);
 
                 user = newUser;
@@ -140,15 +142,15 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                             , new SafeFragment())
                     .commit();
             mToolbar.setTitle("Aktive tests");
-        }
+         }
 
     mAuth = FirebaseAuth.getInstance();
 
 
 
-
-
 }
+
+
 
     @Override
     public void onStart() {
@@ -178,11 +180,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
-    public void updateUser(){
-        mConditionDataRef = mRootDataRef.child("Brugere").child(user.getEmail().replace(".",";")).child("Safe");
-        mConditionDataRef.setValue(this.user.getSafe());
 
-    }
     public boolean onNavigationItemSelected(MenuItem item) {
 
         int id = item.getItemId();
