@@ -168,6 +168,10 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
         return myView;
     }
 
+    /******************************************************
+     * This method changes the view and updates the score *
+     ******************************************************/
+
     public void next(){
         if (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 == 10){
             update(currentQuestion1,q1);
@@ -191,6 +195,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             currentQuestion9 = loadQuestion(holder.question9);
             currentQuestion10 = loadQuestion(holder.question10);
             resetScores();
+            resetButtonColors();
             
 
         }
