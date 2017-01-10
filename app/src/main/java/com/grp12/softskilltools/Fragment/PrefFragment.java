@@ -35,9 +35,6 @@ import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
 
 
-/**
- * Created by BLiveInHack on 19-01-2016.
- */
 public class PrefFragment extends Fragment {
     public TextView profile_name, tag1, placeholder, title, profile_name_1;
     public ImageView menu, profile_bg, img2, img3;
