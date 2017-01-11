@@ -122,8 +122,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, "Fejl",
-                                    Toast.LENGTH_SHORT).show();
                             knap.setText("Der skete en fejl");
 
 
