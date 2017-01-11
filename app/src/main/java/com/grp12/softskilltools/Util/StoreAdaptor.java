@@ -73,7 +73,6 @@ public class StoreAdaptor extends BaseAdapter implements View.OnClickListener {
         }
 
         holder.name.setText(products.get(position).getProductName());
-        holder.description.setText(products.get(position).getDescription());
         holder.price.setText(products.get(position).getPrice()+",-");
 
         return convertView;
