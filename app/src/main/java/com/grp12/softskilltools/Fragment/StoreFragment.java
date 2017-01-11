@@ -165,6 +165,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
                     .replace(R.id.article_fragment, nextFrag,null)
                     .addToBackStack(null)
                     .commit();
+            MainMenu.getInstance().mToolbar.setTitle("Dine Profiler");
         }
     }
 
