@@ -166,19 +166,19 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     }
 
     public void resetButtonColors(){
-//        B10.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B11.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B12.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B13.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B14.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B15.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B20.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B21.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B22.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B23.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B24.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B24.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
-//        B25.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.StandardKnapFarve)));
+//        B10.setBackgroundResource(R.drawable.button_profile_std);
+//        B11.setBackgroundResource(R.drawable.button_profile_std);
+//        B12.setBackgroundResource(R.drawable.button_profile_std);
+//        B13.setBackgroundResource(R.drawable.button_profile_std);
+//        B14.setBackgroundResource(R.drawable.button_profile_std);
+//        B15.setBackgroundResource(R.drawable.button_profile_std);
+//        B20.setBackgroundResource(R.drawable.button_profile_std);
+//        B21.setBackgroundResource(R.drawable.button_profile_std);
+//        B22.setBackgroundResource(R.drawable.button_profile_std);
+//        B23.setBackgroundResource(R.drawable.button_profile_std);
+//        B24.setBackgroundResource(R.drawable.button_profile_std);
+//        B24.setBackgroundResource(R.drawable.button_profile_std);
+//        B25.setBackgroundResource(R.drawable.button_profile_std);
         B10.setBackgroundResource(R.drawable.button_profile_std);
         B11.setBackgroundResource(R.drawable.button_profile_std);
         B12.setBackgroundResource(R.drawable.button_profile_std);
