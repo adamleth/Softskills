@@ -81,42 +81,22 @@
                 android:visibility="invisible" />
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center_vertical"
-            android:background="#FFFFFF"
-            android:minHeight="90dp"
-            android:visibility="visible" />
 
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true"
-            android:visibility="visible">
-
-            <io.codetail.widget.RevealFrameLayout
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible">
-
-
-                <TextView
-                    android:id="@+id/placeholder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:padding="10dp"
-                    android:text="Android Lollipop introduced a really great new Animator, the Circular Reveal Animation, and Ripple Effect. Let’s see the feature of these two terminologies.  Circular Reveal Animation – Reveal animations provide users visual continuity when you show or hide a group of UI elements.  Ripple Effect – Touch feedback in material design provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. The default touch feedback animations for buttons use the new RippleDrawable class, which transitions between different states with a ripple effect."
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#FFFFFF"
-                    android:visibility="visible" />
-
-
-            </io.codetail.widget.RevealFrameLayout>
-        </ScrollView>
+                android:layout_height="wrap_content"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                android:background="@drawable/button_primary_solid" />
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/viewPager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
 
 
     </LinearLayout>

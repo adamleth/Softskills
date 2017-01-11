@@ -387,6 +387,20 @@ public class AnimationUtil {
             }
         }, time);
     }
+    public static void popInGone(final View v, int time) {
+        v.setVisibility(View.VISIBLE);
+        final Spring s = SpringSystem.create().createSpring();
+        s.setSpringConfig(springConfig);
+        s.setCurrentValue(1);
+        s.addListener(new Performer(v, View.SCALE_X)).addListener(new Performer(v, View.SCALE_Y));
+        v.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                s.setEndValue(0);
+                //v.setVisibility(View.GONE);
+            }
+        }, time);
+    }
 
     public static void popOut(final View v, int time) {
         v.setVisibility(View.INVISIBLE);

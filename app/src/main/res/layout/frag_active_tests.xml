@@ -14,7 +14,8 @@
             android:orientation="vertical"
             android:layout_weight="5"
             android:layout_width="match_parent"
-            android:layout_height="0px">
+            android:layout_height="0px"
+            android:id="@+id/rodSafe">
 
             <GridLayout
                 android:layout_width="match_parent"

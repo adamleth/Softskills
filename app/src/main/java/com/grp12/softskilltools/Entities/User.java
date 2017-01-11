@@ -14,6 +14,7 @@ public class User {
     public String email;
     public String phone;
     public Safe safe;
+    public String birth;
 
 
 

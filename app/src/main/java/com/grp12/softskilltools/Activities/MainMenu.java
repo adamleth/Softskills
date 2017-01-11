@@ -112,7 +112,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 System.out.println("Indeni "+user.getName());
                 nav_user.setText(newUser.getName()+" "+ newUser.getSurName());
                 nav_email.setText(newUser.getEmail());
-                SafeFragment.getInstance().dataChanged();
+                SafeFragment.getInstance().onResume();
 
 
 
@@ -169,15 +169,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 }
 
-    private void refreshView() {
-        fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.article_fragment
-                            , new SafeFragment())
-                    .commit();
-            mToolbar.setTitle("Aktive tests");
-       this.refreshed = true;
-        }
 
 
     public void updateUser(){
@@ -196,9 +187,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-    // [END on_start_add_listener]
 
-    // [START on_stop_remove_listener]
     @Override
     public void onStop() {
         super.onStop();
