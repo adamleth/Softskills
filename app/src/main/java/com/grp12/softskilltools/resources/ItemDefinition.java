@@ -22,9 +22,9 @@ public class ItemDefinition {
 
     public static final String [] TESTDescription_DATA = {
 
-            "DISC-personlighedsprofil bestemmer din type og personlighed.",
-            "BELBIN-profilen bestemmer din rolle i teamet.",
-            "360-graders-profil er på nuværende tidspunkt ikke tilgængelig."
+            "Tryk her for at se beskrivelse af testen.",
+            "Tryk her for at se beskrivelse af testen.",
+            "Denne test er ikke tilgængelig på nuværende tidspunkt."
     };
 
     public static final double [] TESTPrice_DATA = {
