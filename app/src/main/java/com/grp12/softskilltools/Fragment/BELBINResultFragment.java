@@ -45,9 +45,6 @@ public class BELBINResultFragment extends Fragment {
         View view = inflater.inflate(R.layout.frag_belbin_result, container, false);
         bundle = getArguments();
         this.temp = (BELBIN) bundle.getSerializable("Item");
-        TextView tv = (TextView) view.findViewById(R.id.BelbinResultText);
-        tv.setTextColor(Color.WHITE);
-        tv.setBackgroundColor(Color.rgb(60, 65, 82));
         mChart = (RadarChart) view.findViewById(R.id.spiderweb);
         mChart.setBackgroundColor(Color.rgb(60, 65, 82));
         mChart.getDescription().setEnabled(false);
@@ -153,4 +150,6 @@ public class BELBINResultFragment extends Fragment {
         mChart.setData(data);
         mChart.invalidate();
     }
+
+
 }
