@@ -112,7 +112,7 @@ public class PrefFragment extends Fragment {
         }, 300);
 
 
-        adaptor = new QuickAdaptor<ProfileMessages>(getActivity(), R.layout.row_layout) {
+        /*adaptor = new QuickAdaptor<ProfileMessages>(getActivity(), R.layout.row_layout) {
             @Override
             protected void convert(final BaseAdaptorHelper helper, ProfileMessages item) {
 
@@ -162,7 +162,7 @@ public class PrefFragment extends Fragment {
         adaptor.addAll(listData);
 
 
-
+*/
 
         return myView;
 

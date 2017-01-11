@@ -239,7 +239,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                         .replace(R.id.article_fragment
                                 , new SafeFragment())
                         .commit();
-                mToolbar.setTitle("Udfyld profil");
+                mToolbar.setTitle("Dine profiler");
                 break;
             case R.id.navigation_results:
                 fragmentManager.beginTransaction()

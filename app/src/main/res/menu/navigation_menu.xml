@@ -5,7 +5,7 @@
         <item android:title="Brugermenu" android:id="@+id/grp1">
             <menu>
     <item android:id="@+id/navigation_test"
-        android:title="Udfyld profil"
+        android:title="Mine Profiler"
         android:icon="@mipmap/ic_person_white_24dp"/>
 
 

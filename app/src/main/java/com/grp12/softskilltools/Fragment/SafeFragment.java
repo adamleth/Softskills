@@ -30,7 +30,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     public List<AbstractItem> tests;
     public GridView grid;
     Button vejledning, hjælp;
-    TextView ingenProfiler,overskrift;
+    TextView ingenProfiler,hjælp2;
     protected static SafeFragment sSafeFragment;
     public AbstractItem tempItem;
     public int position;
@@ -40,10 +40,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         myView = inflater.inflate(R.layout.frag_active_tests, container, false);
         grid = (GridView) myView.findViewById(R.id.GridView);
         hjælp = (Button) myView.findViewById(R.id.button53);
+        hjælp2 = (TextView) myView.findViewById(R.id.textView20);
         vejledning = (Button) myView.findViewById(R.id.button6);
         vejledning.setOnClickListener(this);
         ingenProfiler = (TextView) myView.findViewById(R.id.textView8);
-        overskrift = (TextView) myView.findViewById(R.id.ActiveTestsText);
         initialize();
         grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
         grid.setOnItemClickListener(this);
@@ -60,7 +60,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
             hjælp.setVisibility(View.VISIBLE);
             ingenProfiler.setVisibility(View.VISIBLE);
             hjælp.setOnClickListener(this);
-            overskrift.setVisibility(View.GONE);
+            hjælp2.setVisibility(View.VISIBLE);
         }
     }
     public void dataChanged(){

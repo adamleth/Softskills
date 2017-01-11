@@ -1,5 +1,8 @@
 package com.grp12.softskilltools.Entities;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.resources.BELBIN_Data;
 import com.grp12.softskilltools.resources.DISC_Data;
 
@@ -17,6 +20,9 @@ public class BELBIN extends AbstractItem {
     public static ArrayList<Question> questions;
     public static Question[] usedQuestions;
     public Question nextQuestion;
+    private User user = MainMenu.getInstance().getUser();
+    private DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(user.getEmail().replaceAll("[\\.:;&@]","_"));
 
 
     public BELBIN(){
@@ -157,6 +163,7 @@ public class BELBIN extends AbstractItem {
         for (int i = 0; i < totalQuestions; i++){
             questions.add(i,new Question(BELBIN_Data.BelbinWord_Data[i],BELBIN_Data.QuestionNo_DATA[i],BELBIN_Data.BELBINTYPE_Data[i]));
         }
+
     }
 
 
@@ -181,6 +188,7 @@ public class BELBIN extends AbstractItem {
         else {
             return null;
         }
+
 
         return nextQuestion;
     }
