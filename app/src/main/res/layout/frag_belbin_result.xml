@@ -6,15 +6,6 @@
     >
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.6"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="DIT BELBIN RESULTAT"
-        android:id="@+id/BelbinResultText"/>
-
         <com.github.mikephil.charting.charts.RadarChart
             android:layout_width="match_parent"
             android:layout_height="0dp"
