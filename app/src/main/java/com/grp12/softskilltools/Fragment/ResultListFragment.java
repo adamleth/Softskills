@@ -31,8 +31,6 @@ public class ResultListFragment extends Fragment implements AdapterView.OnItemCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_resultlist, container, false);
-        button = (Button) myView.findViewById(R.id.button21);
-        button.setOnClickListener(this);
         results = (ListView) myView.findViewById(R.id.Results);
         results.setAdapter(new ResultListAdaptor(getContext(),testResults));
         results.setOnItemClickListener(this);
@@ -81,9 +79,9 @@ public class ResultListFragment extends Fragment implements AdapterView.OnItemCl
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.button21){
 
-        }
+
+
     }
 
 }
