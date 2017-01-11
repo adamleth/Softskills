@@ -1,6 +1,7 @@
 package com.grp12.softskilltools.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -22,6 +23,7 @@ import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.THREESIXTY;
 import com.grp12.softskilltools.Entities.User;
 import com.grp12.softskilltools.Util.AnimationUtil;
+import com.grp12.softskilltools.Util.PopUp;
 import com.grp12.softskilltools.Util.StoreAdaptor;
 import com.grp12.softskilltools.resources.ItemDefinition;
 
@@ -88,6 +90,8 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
+
 
 
 
@@ -177,5 +181,12 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onPause() {
         super.onPause();
+    }
+
+    public void openPopUp(AbstractItem item) {
+        Intent i = new Intent(this.getContext(), PopUp.class);
+        i.putExtra("brødtekst",item.getDescription());
+        i.putExtra("overskrift",item.getProductName());
+        startActivity(i);
     }
 }
