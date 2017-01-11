@@ -10,6 +10,7 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.galgespil.stvhendeop.menuapp.R;
 
@@ -17,8 +18,9 @@ import com.galgespil.stvhendeop.menuapp.R;
  * Created by Mathias R. Larsen on 07-01-2017.
  */
 
-public class PopUp extends Activity {
+public class PopUp extends Activity implements View.OnClickListener {
 
+    public Button knap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,16 @@ public class PopUp extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int)(width*.8),(int)(height*.6));
+        getWindow().setLayout((int)(width*.9),(int)(height*.7));
+        knap = (Button) findViewById(R.id.button21);
+        knap.setOnClickListener(this);
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == knap.getId()){
+            finish();
+        }
+    }
 }
