@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Button login, register;
     ImageView logo;
     TextView welcome;
+    TextView weCanHelp;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.frag_login);
 
         welcome = (TextView) findViewById(R.id.textView10);
+        weCanHelp = (TextView) findViewById(R.id.textView20);
         login = (Button) findViewById(R.id.button3);
         register = (Button) findViewById(R.id.button2);
         logo = (ImageView) findViewById(R.id.imageView4);
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AnimationUtil.popOut(logo,700);
         AnimationUtil.popOut(welcome,400);
+        AnimationUtil.popOut(weCanHelp, 400);
         AnimationUtil.enterLeft(login,300);
         AnimationUtil.enterRight(register,300);
 
