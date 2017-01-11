@@ -22,8 +22,8 @@ public class ItemDefinition {
 
     public static final String [] TESTDescription_DATA = {
 
-            "Tryk her for at se beskrivelse af testen.",
-            "Tryk her for at se beskrivelse af testen.",
+            "Tryk for at se beskrivelse.",
+            "Tryk for at se beskrivelse.",
             "Denne test er ikke tilgængelig på nuværende tidspunkt."
     };
 
