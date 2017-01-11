@@ -36,7 +36,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:text='Hey!'
+                    android:text='Softskills Toolbox er appen der lynhurtigt gør det muligt for dig, via forskellige profiler, at bestemme din personlighed eller rolle i et kommende team. Du kan også benytte appen som et vigtigt redskab til nye rekrutteringer i dine teams, hvilket sker ved invitation af potentielle kandidater. Du kan let og hurtigt holde øje med resultaterne af disse, hvilket bettyder, at nye og passende medarbejdere altid er lige rundt om hjørnet!'
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView32"
