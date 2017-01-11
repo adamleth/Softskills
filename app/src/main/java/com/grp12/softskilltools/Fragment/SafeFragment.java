@@ -76,6 +76,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                         .replace(R.id.article_fragment, nextFrag,null)
                         .addToBackStack(null)
                         .commit();
+                        MainMenu.getInstance().mToolbar.setTitle("DISC PROFIL");
                 break;
             case BELBIN:
                 BELBINFragment belbinFrag= new BELBINFragment();
@@ -83,6 +84,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                         .replace(R.id.article_fragment, belbinFrag,null)
                         .addToBackStack(null)
                         .commit();
+                        MainMenu.getInstance().mToolbar.setTitle("BELBIN PROFIL");
                 break;
             case THREESIXTY:
                 break;
