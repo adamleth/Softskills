@@ -16,7 +16,7 @@ public class ItemDefinition {
     public static final String [] TESTName_DATA = {
 
             "DISC",
-            "Belbin",
+            "BELBIN",
             "ThreeSixty"
     };
 
