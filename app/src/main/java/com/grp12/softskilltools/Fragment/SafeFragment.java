@@ -56,6 +56,8 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         vejledning = (Button) myView.findViewById(R.id.button6);
         vejledning.setOnClickListener(this);
         ingenProfiler = (TextView) myView.findViewById(R.id.textView8);
+        grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
+        grid.setOnItemClickListener(this);
         sSafeFragment = this;
         return myView;
 
@@ -109,6 +111,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         initialize();
         grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
         grid.setOnItemClickListener(this);
+
         System.out.println("onResume blev kaldt" + tests.size());
 
     }
