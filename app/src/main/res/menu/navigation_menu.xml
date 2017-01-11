@@ -22,7 +22,7 @@
 
 
         <item android:id="@+id/navigation_settings"
-            android:title="Min Profil"
+            android:title="Min Konto"
             android:icon="@mipmap/ic_settings_white_24dp"/>
 
             </menu>

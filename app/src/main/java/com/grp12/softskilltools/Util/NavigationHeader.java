@@ -14,15 +14,18 @@ import com.galgespil.stvhendeop.menuapp.R;
 
 public class NavigationHeader extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView user;
+    private ArcImageView user;
     private TextView userName,userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_header1);
-        user = (ImageView)findViewById(R.id.imageView2);
+        user = (ArcImageView) findViewById(R.id.header_image);
         userName = (TextView)findViewById(R.id.NavHeaderName);
         userEmail = (TextView)findViewById(R.id.NavHeaderEmail);
+        user.setBorderColor(0x55000000);
+        user.setBorderWidth(15);
+        user.setProgress(100);
     }
 
 
