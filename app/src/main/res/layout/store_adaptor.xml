@@ -50,14 +50,15 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:text="Beskrivelse af testen"
+                        android:text="Tryk for at se beskrivelse af profilen"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/textView16"
                         android:gravity="top|center_vertical"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="2dp"
-                        android:layout_marginBottom="5dp" />
+                        android:layout_marginBottom="5dp"
+                        android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 

@@ -24,7 +24,7 @@ public class ItemDefinition {
 
             "Tryk for at se beskrivelse.",
             "Tryk for at se beskrivelse.",
-            "Denne test er ikke tilgængelig på nuværende tidspunkt."
+            "Tryk for at se beskrivelse."
     };
 
     public static final double [] TESTPrice_DATA = {
