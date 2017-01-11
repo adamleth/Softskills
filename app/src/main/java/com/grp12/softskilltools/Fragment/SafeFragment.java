@@ -13,6 +13,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
+import com.grp12.softskilltools.Activities.LoginPromptActivity;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
 import com.grp12.softskilltools.Util.PopUp;
@@ -34,6 +35,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     protected static SafeFragment sSafeFragment;
     public AbstractItem tempItem;
     public int position;
+    public int antal;
     View myView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +63,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
             ingenProfiler.setVisibility(View.VISIBLE);
             hjælp.setOnClickListener(this);
             hjælp2.setVisibility(View.VISIBLE);
+            antal = 2;
+        }
+        else if (tests.isEmpty()==false){
+            antal = 1;
         }
     }
     public void dataChanged(){
@@ -114,7 +120,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                 MainMenu.getInstance().mToolbar.setTitle("Butik");
                 break;
             case R.id.button6:
-                startActivity(new Intent(this.getContext(), PopUp.class));
+                //startActivity(new Intent(this.getContext(), PopUp.class));
+                Intent i = new Intent(this.getContext(), PopUp.class);
+                i.putExtra("antal",antal);
+                startActivity(i);
                 break;
         }
     }
