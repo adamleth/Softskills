@@ -8,7 +8,6 @@
     <string name="sign_up_with_email_string">Sign Up with Email</string>
     <string name="i_already_have_an_account_string">I already have an account</string>
     <string name="logotype_string">Logotype</string>
-    <string name="introduktion">Softskills Toolbox er appen der lynhurtigt gør det muligt for dig, via forskellige profiler, at bestemme din personlighed eller rolle i et kommende team. Du kan også benytte appen som et vigtigt redskab til nye rekrutteringer i dine teams, hvilket sker ved invitation af potentielle kandidater. Du kan let og hurtigt holde øje med resultaterne af disse, hvilket bettyder, at nye og passende medarbejdere altid er lige rundt om hjørnet!</string>
-    <string name="introduktionOverskrift"></string>
-    <string name="introduktionBrødtekst"></string>
+    <string name="introduktionBrødtekst">Softskills Toolbox er appen der lynhurtigt gør det muligt for dig, via forskellige profiler, at bestemme din personlighed eller rolle i et kommende team. Du kan også benytte appen som et vigtigt redskab til nye rekrutteringer i dine teams, hvilket sker ved invitation af potentielle kandidater. Du kan let og hurtigt holde øje med resultaterne af disse, hvilket bettyder, at nye og passende medarbejdere altid er lige rundt om hjørnet!</string>
+    <string name="introduktionOverskrift">Introduktion</string>
 </resources>
