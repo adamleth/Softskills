@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
 
@@ -22,6 +23,7 @@ import com.galgespil.stvhendeop.menuapp.R;
 public class PopUp extends Activity implements View.OnClickListener {
 
     public Button knap;
+    public TextView Overskrift, Brødtekst;
 
 
 
@@ -30,16 +32,21 @@ public class PopUp extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_window);
+        Overskrift = (TextView) findViewById(R.id.textView9);
+        Brødtekst = (TextView) findViewById(R.id.textView32);
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
         Intent PromptIntent = getIntent();
         final int antal = PromptIntent.getIntExtra("antal",1);
+        final String tempBrødtekst = PromptIntent.getStringExtra("brødtekst");
+        final String tempOverskrift = PromptIntent.getStringExtra("overskrift");
+        setTekst(tempOverskrift,tempBrødtekst);
         System.out.println(antal);
 
         if (antal == 2){
-            getWindow().setLayout((int) (width * .9), (int) (height * .55));
+            getWindow().setLayout((int) (width * .9), (int) (height * .60));
             System.out.println("Højden bør være .55");
         }
         else if (antal == 1) {
@@ -48,6 +55,11 @@ public class PopUp extends Activity implements View.OnClickListener {
         }
         knap = (Button) findViewById(R.id.button21);
         knap.setOnClickListener(this);
+    }
+
+    public void setTekst(String overskrift, String brødtekst){
+        Brødtekst.setText(brødtekst);
+        Overskrift.setText(overskrift);
     }
 
 

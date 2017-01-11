@@ -1,6 +1,7 @@
 package com.grp12.softskilltools.Util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,7 @@ public class StoreAdaptor extends BaseAdapter implements View.OnClickListener {
             holder.price = (TextView) convertView.findViewById(R.id.textView17);
             holder.add = (ImageButton) convertView.findViewById(R.id.button25);
             holder.add.setOnClickListener(this);
+            holder.description.setOnClickListener(this);
 
 
             convertView.setTag(convertView.getId(),position);
@@ -71,7 +73,6 @@ public class StoreAdaptor extends BaseAdapter implements View.OnClickListener {
         }
 
         holder.name.setText(products.get(position).getProductName());
-        holder.description.setText(products.get(position).getDescription());
         holder.price.setText(products.get(position).getPrice()+",-");
 
         return convertView;
@@ -82,7 +83,16 @@ public class StoreAdaptor extends BaseAdapter implements View.OnClickListener {
         View parent = (View)v.getParent();
         AbstractItem item = products.get(StoreFragment.getInstance().lv.getPositionForView(parent));
         User user = StoreFragment.getInstance().getUser();
-        StoreFragment.getInstance().addToBasket(item,1,user);
+
+        switch (v.getId()) {
+            case R.id.button25:
+            StoreFragment.getInstance().addToBasket(item, 1, user);
+                break;
+            case R.id.textView16:
+                StoreFragment.getInstance().openPopUp(item);
+
+                break;
+        }
 
     }
 

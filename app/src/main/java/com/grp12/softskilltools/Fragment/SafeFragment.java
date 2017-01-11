@@ -123,6 +123,8 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                 //startActivity(new Intent(this.getContext(), PopUp.class));
                 Intent i = new Intent(this.getContext(), PopUp.class);
                 i.putExtra("antal",antal);
+                i.putExtra("overskrift",getResources().getString(R.string.introduktionOverskrift));
+                i.putExtra("brødtekst",getResources().getString(R.string.introduktionBrødtekst));
                 startActivity(i);
                 break;
         }
