@@ -74,15 +74,15 @@ public class PrefFragment extends Fragment {
         profile_name.setText(user.getName().toString() + " " + user.getSurName().toString());
         tag1.setText(user.getEmail().toString());
 
-        AnimationUtil.enterTop(profile_name, 1500);
-        AnimationUtil.enterTop(tag1, 1700);
+        AnimationUtil.enterTop(profile_name, 700);
+        AnimationUtil.enterTop(tag1, 900);
 
         profile_image.setBorderColor(0x55000000);
         profile_image.setBorderWidth(15);
         profile_image.setProgress(100);
 
 
-        AnimationUtil.popOut(profile_image, 1500);
+        AnimationUtil.popOut(profile_image, 700);
 
         profile_bg.postDelayed(new Runnable() {
             @Override
@@ -96,7 +96,7 @@ public class PrefFragment extends Fragment {
                 animator.setInterpolator(new AccelerateDecelerateInterpolator());
                 animator.start();
             }
-        }, 1700);
+        }, 800);
 
         root.postDelayed(new Runnable() {
             @Override
@@ -109,8 +109,10 @@ public class PrefFragment extends Fragment {
                 animator.setDuration(500);
                 animator.setInterpolator(new AccelerateDecelerateInterpolator());
                 animator.start();
+                AnimationUtil.enterLeft(tabs,300);
+                AnimationUtil.enterBottom(pager,350);
             }
-        }, 300);
+        }, 100);
 
 
         return myView;

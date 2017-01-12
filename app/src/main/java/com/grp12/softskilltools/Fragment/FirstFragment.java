@@ -23,7 +23,6 @@ public class FirstFragment extends Fragment {
         EditText surName = (EditText)v.findViewById(R.id.EditSurName);
         EditText email = (EditText)v.findViewById(R.id.EditEmail);
         EditText password = (EditText)v.findViewById(R.id.EditPassword);
-        EditText birth = (EditText)v.findViewById(R.id.EditBirth);
         EditText phone = (EditText)v.findViewById(R.id.EditPhone);
         name.setText(getArguments().getString("name"));
         surName.setText(getArguments().getString("surName"));
