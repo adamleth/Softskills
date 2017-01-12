@@ -39,6 +39,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     Button vejledning, hjælp;
     TextView ingenProfiler,hjælp2;
     protected static SafeFragment sSafeFragment;
+    public TestProgressAdaptor adaptor;
     public AbstractItem tempItem;
     public int position;
     public int antal;
@@ -56,7 +57,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         vejledning = (Button) myView.findViewById(R.id.button6);
         vejledning.setOnClickListener(this);
         ingenProfiler = (TextView) myView.findViewById(R.id.textView8);
-        grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
+        initialize();
+        adaptor = new TestProgressAdaptor(getContext(),tests);
+        grid.setAdapter(adaptor);
+
         grid.setOnItemClickListener(this);
         sSafeFragment = this;
         return myView;
@@ -88,6 +92,7 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     }
 
     public void updateView(){
+
         tests = MainMenu.getInstance().getUser().retrieveSafeObjects();
         AnimationUtil.popInGone(hjælp,300);
         AnimationUtil.popInGone(ingenProfiler,300);
@@ -105,12 +110,14 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     }
 
 
-    @Override
-    public void onResume() {
+
+    public void Update() {
         super.onResume();
         initialize();
-        grid.setAdapter(new TestProgressAdaptor(getContext(),tests));
-        grid.setOnItemClickListener(this);
+        adaptor.update(tests);
+        adaptor.notifyDataSetChanged();
+        //grid.invalidateViews();
+        grid.setAdapter(adaptor);
 
         System.out.println("onResume blev kaldt" + tests.size());
 

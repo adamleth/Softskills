@@ -108,12 +108,14 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
                 Log.d("Data",  "val="+newUser);
 
+                User temp = user;
                 user = newUser;
                 System.out.println("Indeni "+user.getName());
                 nav_user.setText(newUser.getName()+" "+ newUser.getSurName());
                 nav_email.setText(newUser.getEmail());
-                SafeFragment.getInstance().onResume();
-
+                if (temp != newUser) {
+                    SafeFragment.getInstance().Update();
+                }
 
 
 

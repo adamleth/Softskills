@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
@@ -23,12 +24,20 @@ public class TestProgressAdaptor extends BaseAdapter {
 
     private static List<AbstractItem> products;
     private LayoutInflater mInflater;
+    private static TestProgressAdaptor sTestProgressAdaptor;
 
     public TestProgressAdaptor(Context ProgressFragment, List<AbstractItem> products){
         this.products = products;
         mInflater = LayoutInflater.from(ProgressFragment);
+        sTestProgressAdaptor = this;
+    }
+    public void update(List<AbstractItem> updates){
+        this.products = updates;
     }
 
+    public static TestProgressAdaptor getInstance(){
+        return sTestProgressAdaptor;
+    }
 
     @Override
     public int getCount() {
