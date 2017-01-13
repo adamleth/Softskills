@@ -14,7 +14,8 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        app:layout_marginLeftPercent="25%"
+        app:layout_marginTopPercent="20%"
 
         android:src="@mipmap/s_1_1"
 
@@ -35,7 +36,7 @@
 
         app:layout_heightPercent="6%"
         app:layout_marginRightPercent="14%"
-        app:layout_marginTopPercent="30%"
+        app:layout_marginTopPercent="15%"
         app:layout_widthPercent="19%"/>
 
 
@@ -48,8 +49,8 @@
         android:src="@mipmap/s_1_3"
 
         app:layout_heightPercent="8%"
-        app:layout_marginLeftPercent="46%"
-        app:layout_marginTopPercent="43%"
+        app:layout_marginLeftPercent="72%"
+        app:layout_marginTopPercent="33%"
         app:layout_widthPercent="15%"/>
 
     <ImageView
@@ -61,8 +62,8 @@
         android:src="@mipmap/s_1_4"
 
         app:layout_heightPercent="10%"
-        app:layout_marginLeftPercent="44%"
-        app:layout_marginTopPercent="52%"
+        app:layout_marginLeftPercent="55%"
+        app:layout_marginTopPercent="42%"
         app:layout_widthPercent="13%"/>
 
     <ImageView
@@ -74,8 +75,8 @@
         android:src="@mipmap/s_1_6"
 
         app:layout_heightPercent="7%"
-        app:layout_marginLeftPercent="20%"
-        app:layout_marginTopPercent="47%"
+        app:layout_marginLeftPercent="4%"
+        app:layout_marginTopPercent="25%"
         app:layout_widthPercent="20%"/>
 
     <ImageView
@@ -87,8 +88,8 @@
         android:src="@mipmap/s_1_7"
 
         app:layout_heightPercent="8%"
-        app:layout_marginLeftPercent="22%"
-        app:layout_marginTopPercent="35%"
+        app:layout_marginLeftPercent="72%"
+        app:layout_marginTopPercent="25%"
         app:layout_widthPercent="17%"/>
 
     <ImageView
@@ -101,7 +102,7 @@
         android:src="@mipmap/s_1_5"
 
         app:layout_heightPercent="10%"
-        app:layout_marginTopPercent="33%"
+        app:layout_marginTopPercent="11%"
         app:layout_widthPercent="15%"/>
 
     <ImageView
@@ -125,11 +126,26 @@
 
         android:gravity="center"
 
-        android:text="@string/text_web_dev"
+        android:text="3 forskellige profiler"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size_large"
 
         app:layout_heightPercent="15%"
-        app:layout_marginBottomPercent="11%"
-        app:layout_widthPercent="45%"/>
+        app:layout_marginBottomPercent="30%"
+        app:layout_widthPercent="70%"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+        android:gravity="center"
+
+        android:text="Igennem 3 forskellige profiler, kan du få analyseret din personlighed og få hjælp til at finde det perfekte team, for netop dig"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+
+        app:layout_heightPercent="25%"
+        app:layout_marginBottomPercent="9%"
+        app:layout_widthPercent="90%"/>
 </android.support.percent.PercentRelativeLayout>

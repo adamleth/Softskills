@@ -14,7 +14,10 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        app:layout_marginLeftPercent="25%"
+        app:layout_marginTopPercent="20%"
+
+
 
         android:src="@mipmap/s_0_1"
 
@@ -33,7 +36,7 @@
 
         app:layout_heightPercent="10%"
         app:layout_marginRightPercent="12%"
-        app:layout_marginTopPercent="27%"
+        app:layout_marginTopPercent="10%"
         app:layout_widthPercent="12%"/>
 
 
@@ -46,8 +49,8 @@
         android:src="@mipmap/s_0_3"
 
         app:layout_heightPercent="25%"
-        app:layout_marginLeftPercent="14%"
-        app:layout_marginTopPercent="49%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="35%"
         app:layout_widthPercent="30%"/>
 
     <ImageView
@@ -59,8 +62,8 @@
         android:src="@mipmap/s_0_4"
 
         app:layout_heightPercent="15%"
-        app:layout_marginLeftPercent="14%"
-        app:layout_marginTopPercent="39%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="18%"
         app:layout_widthPercent="20%"/>
 
     <ImageView
@@ -73,7 +76,7 @@
         android:src="@mipmap/s_0_5"
 
         app:layout_heightPercent="15%"
-        app:layout_marginTopPercent="22%"
+        app:layout_marginTopPercent="10%"
         app:layout_widthPercent="45%"/>
 
     <ImageView
@@ -86,7 +89,7 @@
 
         app:layout_heightPercent="6%"
         app:layout_marginLeftPercent="4%"
-        app:layout_marginTopPercent="26%"
+        app:layout_marginTopPercent="15%"
         app:layout_widthPercent="6%"/>
 
     <ImageView
@@ -99,7 +102,7 @@
 
         app:layout_heightPercent="8%"
         app:layout_marginLeftPercent="14%"
-        app:layout_marginTopPercent="25%"
+        app:layout_marginTopPercent="12%"
         app:layout_widthPercent="9%"/>
 
     <ImageView
@@ -112,7 +115,7 @@
 
         app:layout_heightPercent="6%"
         app:layout_marginLeftPercent="77%"
-        app:layout_marginTopPercent="38%"
+        app:layout_marginTopPercent="20%"
         app:layout_widthPercent="8%"/>
 
     <TextView
@@ -123,11 +126,26 @@
 
         android:gravity="center"
 
-        android:text="@string/text_web_ceo"
+        android:text="Få profileret din personlighed"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text_size_large"
 
         app:layout_heightPercent="15%"
-        app:layout_marginBottomPercent="11%"
-        app:layout_widthPercent="45%"/>
+        app:layout_marginBottomPercent="30%"
+        app:layout_widthPercent="60%"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+        android:gravity="center"
+
+        android:text="Softskills Toolbox hjælper dig med at bestemme din personlighed eller rolle i et kommende team"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+
+        app:layout_heightPercent="25%"
+        app:layout_marginBottomPercent="5%"
+        app:layout_widthPercent="90%"/>
 </android.support.percent.PercentRelativeLayout>
