@@ -11,7 +11,7 @@
 
 
     <item android:id="@+id/navigation_store"
-        android:title="Køb profil"
+        android:title="Køb Profil"
         android:icon="@mipmap/ic_local_grocery_store_white_24dp"/>
 
 
@@ -32,7 +32,7 @@
 
 
     <group  android:checkableBehavior="single">
-        <item android:title="Administrativ menu" android:id="@+id/grp2">
+        <item android:title="Administrativ Menu" android:id="@+id/grp2">
         <menu>
     <group android:id="@+id/grp4" android:checkableBehavior="single" >
     <item android:id="@+id/navigation_remind"
