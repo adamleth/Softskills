@@ -19,8 +19,7 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.viewpager_2, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.tvFragSecond);
-        tv.setText(getArguments().getString("msg"));
+
 
         return v;
     }
