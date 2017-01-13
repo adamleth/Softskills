@@ -73,7 +73,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private static final int TOTAL_PAGES = 3;
     private static final int ACTUAL_PAGES_COUNT = 3;
     public int[] mPagesColors;
-    boolean firstTime = true;
+    TextView nav_user;
+    TextView nav_email;
 
 
 
@@ -85,16 +86,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         sMainMenu = this;
         this.user = null;
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-        View hView = navigationView.getHeaderView(0);
-        final TextView nav_user = (TextView) hView.findViewById(R.id.NavHeaderName);
-        final TextView nav_email = (TextView) hView.findViewById(R.id.NavHeaderEmail);
-        Intent PromptIntent = getIntent();
-        final String email = PromptIntent.getStringExtra("UserEmail");
-        createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
-
-
-
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -105,28 +96,40 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     System.out.println("BrugerUID " + user.getUid());
+
                 } else {
                     // User is signed out
+
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
             }
         };
 
+
+        Intent PromptIntent = getIntent();
+        final String email = PromptIntent.getStringExtra("UserEmail");
+        createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
+
+
+
         DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]", "_"));
-        mConditionRef.addValueEventListener(new ValueEventListener() {
+        mConditionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User newUser = dataSnapshot.getValue(User.class);
 
                 Log.d("Data", "val=" + newUser);
 
-                User temp = user;
                 user = newUser;
-                System.out.println("Indeni " + user.getName());
-                nav_user.setText(newUser.getName() + " " + newUser.getSurName());
-                nav_email.setText(newUser.getEmail());
-                if (temp != newUser) {
-                    //SafeFragment.getInstance().Update();
+
+                if (newUser.getVirgin() == false) {
+                    initialize(2);
+                    System.out.println("Indeni " + newUser.getName());
+                    nav_user.setText(newUser.getName() + " " + newUser.getSurName());
+                    nav_email.setText(newUser.getEmail());
+                }
+                else{
+                    initialize(1);
                 }
 
 
@@ -140,7 +143,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         });
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        initialize();
+
 
 
 
@@ -150,11 +153,38 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 }
 
-    public void initialize() {
+    public void databaseCall(String email){
+        DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]", "_"));
+        mConditionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User newUser = dataSnapshot.getValue(User.class);
+
+                Log.d("Data", "val=" + newUser);
+
+                user = newUser;
+
+                if (newUser.getVirgin() == false) {
+                    System.out.println("Indeni " + newUser.getName());
+                    nav_user.setText(newUser.getName() + " " + newUser.getSurName());
+                    nav_email.setText(newUser.getEmail());
+                }
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void initialize(int i) {
 
 
         fragmentManager = getSupportFragmentManager();
-        if (firstTime == true) {
+        if (i == 1) {
 
             mPagesColors = new int[]{
                     ContextCompat.getColor(this, R.color.colorPrimary),
@@ -168,13 +198,22 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
             replaceTutorialFragment();
 
-        } else if (firstTime == false) {
+        } else if (i == 2) {
+
+            NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+            View hView = navigationView.getHeaderView(0);
+            nav_user = (TextView) hView.findViewById(R.id.NavHeaderName);
+            nav_email = (TextView) hView.findViewById(R.id.NavHeaderEmail);
+            Intent PromptIntent = getIntent();
+            final String email = PromptIntent.getStringExtra("UserEmail");
+            createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
 
 
 
 
 
 
+            databaseCall(user.getEmail());
             mToolbar = (Toolbar) findViewById(R.id.nav_action);
             setSupportActionBar(mToolbar);
 
@@ -405,8 +444,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             Toast.makeText(mContext, "Skip button clicked", Toast.LENGTH_SHORT).show();
             System.out.println(user.getName());
             setContentView(R.layout.activity_main);
-            firstTime = false;
-            initialize();
+            user.setVirgin(false);
+            updateUser();
+            initialize(2);
 
         }
     }
