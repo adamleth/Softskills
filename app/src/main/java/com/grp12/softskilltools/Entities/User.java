@@ -15,6 +15,7 @@ public class User {
     public String phone;
     public Safe safe;
     public String birth;
+    public boolean virgin;
 
 
 
@@ -28,6 +29,7 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.safe = new Safe();
+        this.virgin = true;
 
     }
 
@@ -153,6 +155,12 @@ public class User {
     public void addToResults(AbstractItem item) {
 
         safe.addToResults(item);
+    }
+    public void setVirgin(Boolean virgin){
+        this.virgin = virgin;
+    }
+    public boolean getVirgin(){
+        return virgin;
     }
 
 }
