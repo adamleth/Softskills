@@ -15,6 +15,7 @@
             
         </activity>
         <activity android:name="com.grp12.softskilltools.Activities.MainMenu" />
+        <activity android:name="com.grp12.softskilltools.introduction.MainIntroduction" />
         <activity android:name="com.grp12.softskilltools.Fragment.PrefFragment" />
         <activity android:name="com.grp12.softskilltools.Activities.MainActivity">
             <intent-filter>
