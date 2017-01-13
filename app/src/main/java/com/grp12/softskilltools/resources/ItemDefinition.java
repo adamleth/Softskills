@@ -22,7 +22,7 @@ public class ItemDefinition {
 
     public static final String [] TESTDescription_DATA = {
 
-            "Denne type profil bestemmer, let og hurtigt, din DISC-type og personlighed. Find ud af hvordan de forskellige DISC-faktorer (Dominance, Influence, Steadiness og Complience) kan forudsige din adfærd overfor andre og vejlede dig til dine styrker og svagheder.",
+            "Dette værktøj anvender vi til at identificere kommunikationsstile, adfærd og motivationsfaktorer hos individer, – og hos teams bruger vi det til at fremhæve ligheder og forskelle indenfor teamet. Målet for vores indsatser er at få endnu mere værdi ud af både ligheder og forskelle, både i forhold til teamet og til omgivelserne, og DiSC™ Person Profil er uhyre effektivt til at igangsætte en sådan proces.",
             "Denne type profil bestemmer, ud fra en række spørgsmål, hvilken rolle du bedst vil udfylde i et team bestående af forskellige personligheder.",
             "Denne test er ikke tilgængelig på nuværende tidspunkt."
     };
