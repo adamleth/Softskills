@@ -85,6 +85,14 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         sMainMenu = this;
         this.user = null;
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        View hView = navigationView.getHeaderView(0);
+        final TextView nav_user = (TextView) hView.findViewById(R.id.NavHeaderName);
+        final TextView nav_email = (TextView) hView.findViewById(R.id.NavHeaderEmail);
+        Intent PromptIntent = getIntent();
+        final String email = PromptIntent.getStringExtra("UserEmail");
+        createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -103,6 +111,33 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 }
             }
         };
+
+        DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]", "_"));
+        mConditionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User newUser = dataSnapshot.getValue(User.class);
+
+                Log.d("Data", "val=" + newUser);
+
+                User temp = user;
+                user = newUser;
+                System.out.println("Indeni " + user.getName());
+                nav_user.setText(newUser.getName() + " " + newUser.getSurName());
+                nav_email.setText(newUser.getEmail());
+                if (temp != newUser) {
+                    //SafeFragment.getInstance().Update();
+                }
+
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initialize();
@@ -136,39 +171,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         } else if (firstTime == false) {
 
 
-            NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-            View hView = navigationView.getHeaderView(0);
-            final TextView nav_user = (TextView) hView.findViewById(R.id.NavHeaderName);
-            final TextView nav_email = (TextView) hView.findViewById(R.id.NavHeaderEmail);
-            Intent PromptIntent = getIntent();
-            final String email = PromptIntent.getStringExtra("UserEmail");
-            createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
-            DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]", "_"));
-            mConditionRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    User newUser = dataSnapshot.getValue(User.class);
-
-                    Log.d("Data", "val=" + newUser);
-
-                    User temp = user;
-                    user = newUser;
-                    System.out.println("Indeni " + user.getName());
-                    nav_user.setText(newUser.getName() + " " + newUser.getSurName());
-                    nav_email.setText(newUser.getEmail());
-                    if (temp != newUser) {
-                        SafeFragment.getInstance().Update();
-                    }
 
 
-                }
-
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
 
 
             mToolbar = (Toolbar) findViewById(R.id.nav_action);
@@ -399,6 +403,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         @Override
         public void onClick(View v) {
             Toast.makeText(mContext, "Skip button clicked", Toast.LENGTH_SHORT).show();
+            System.out.println(user.getName());
             setContentView(R.layout.activity_main);
             firstTime = false;
             initialize();
