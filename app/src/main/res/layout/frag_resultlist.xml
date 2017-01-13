@@ -15,7 +15,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="Herunder kan du se resultaterne af dine egne gennemførte tests. Du vil ikke kunne se resultater fra gruppertests."
+                android:text="Herunder kan du se resultaterne af dine egne gennemførte tests. Du vil ikke kunne se resultaterne fra gruppeprofiler."
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textView12"
