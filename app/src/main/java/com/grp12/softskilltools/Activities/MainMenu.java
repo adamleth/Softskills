@@ -4,11 +4,9 @@ package com.grp12.softskilltools.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -33,16 +31,13 @@ import com.cleveroad.slidingtutorial.TransformItem;
 import com.cleveroad.slidingtutorial.TutorialFragment;
 import com.cleveroad.slidingtutorial.TutorialOptions;
 import com.cleveroad.slidingtutorial.TutorialPageOptionsProvider;
-import com.cleveroad.slidingtutorial.TutorialSupportFragment;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.grp12.softskilltools.Entities.User;
 import com.grp12.softskilltools.Fragment.SafeFragment;
@@ -51,16 +46,9 @@ import com.grp12.softskilltools.Fragment.RemindFragment;
 import com.grp12.softskilltools.Fragment.ResultListFragment;
 import com.grp12.softskilltools.Fragment.StoreFragment;
 import com.grp12.softskilltools.Fragment.PrefFragment;
-import com.grp12.softskilltools.Util.PopUp;
-import com.grp12.softskilltools.introduction.MainIntroduction;
 
 import java.util.HashMap;
-import java.util.IllegalFormatException;
-import java.util.IllegalFormatFlagsException;
-import java.util.IllegalFormatWidthException;
 import java.util.Map;
-
-import static java.security.AccessController.getContext;
 
 /**
  * Created by mathiaslarsen on 13/11/2016.
