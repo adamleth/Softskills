@@ -170,7 +170,6 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
                 MainMenu.getInstance().mToolbar.setTitle("Butik");
                 break;
             case R.id.button6:
-                //startActivity(new Intent(this.getContext(), PopUp.class));
                 Intent i = new Intent(this.getContext(), PopUp.class);
                 i.putExtra("antal",antal);
                 i.putExtra("overskrift",getResources().getString(R.string.introduktionOverskrift));

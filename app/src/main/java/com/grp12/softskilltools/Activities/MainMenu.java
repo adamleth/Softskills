@@ -1,13 +1,14 @@
 package com.grp12.softskilltools.Activities;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,15 +22,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.cleveroad.slidingtutorial.Direction;
+import com.cleveroad.slidingtutorial.IndicatorOptions;
+import com.cleveroad.slidingtutorial.PageOptions;
+import com.cleveroad.slidingtutorial.TransformItem;
+import com.cleveroad.slidingtutorial.TutorialFragment;
+import com.cleveroad.slidingtutorial.TutorialOptions;
+import com.cleveroad.slidingtutorial.TutorialPageOptionsProvider;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.grp12.softskilltools.Entities.User;
 import com.grp12.softskilltools.Fragment.SafeFragment;
@@ -40,9 +48,6 @@ import com.grp12.softskilltools.Fragment.StoreFragment;
 import com.grp12.softskilltools.Fragment.PrefFragment;
 
 import java.util.HashMap;
-import java.util.IllegalFormatException;
-import java.util.IllegalFormatFlagsException;
-import java.util.IllegalFormatWidthException;
 import java.util.Map;
 
 /**
@@ -65,7 +70,10 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private static MainMenu sMainMenu;
     DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mConditionDataRef;
-    private Boolean refreshed;
+    private static final int TOTAL_PAGES = 3;
+    private static final int ACTUAL_PAGES_COUNT = 3;
+    public int[] mPagesColors;
+    boolean firstTime = true;
 
 
 
@@ -76,7 +84,10 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_main);
         sMainMenu = this;
         this.user = null;
-        this.refreshed = false;
+
+
+
+        mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -85,7 +96,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    System.out.println("BrugerUID "+user.getUid());
+                    System.out.println("BrugerUID " + user.getUid());
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -93,83 +104,102 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
         };
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-        View hView =  navigationView.getHeaderView(0);
-        final TextView nav_user = (TextView)hView.findViewById(R.id.NavHeaderName);
-        final TextView nav_email = (TextView)hView.findViewById(R.id.NavHeaderEmail);
-        Intent PromptIntent = getIntent();
-        final String email = PromptIntent.getStringExtra("UserEmail");
-        createUser(email,info.get("Name"),info.get("lastName"),info.get("phone"));
-        DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]","_"));
-        mConditionRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User newUser = dataSnapshot.getValue(User.class);
-
-                Log.d("Data",  "val="+newUser);
-
-                User temp = user;
-                user = newUser;
-                System.out.println("Indeni "+user.getName());
-                nav_user.setText(newUser.getName()+" "+ newUser.getSurName());
-                nav_email.setText(newUser.getEmail());
-                if (temp != newUser) {
-                    SafeFragment.getInstance().Update();
-                }
-
-
-
-            }
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        initialize();
 
 
 
 
-
-        mToolbar = (Toolbar) findViewById(R.id.nav_action);
-        setSupportActionBar(mToolbar);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
-
-        mDrawerLayout.addDrawerListener(mToggle);
-        mToggle.syncState();
-
-        navView = (NavigationView) findViewById(R.id.navigation);
-        Menu menu = navView.getMenu();
-        MenuItem titel1 = menu.findItem(R.id.grp1);
-        MenuItem titel2 = menu.findItem(R.id.grp2);
-        SpannableString s1 = new SpannableString(titel1.getTitle());
-        SpannableString s2 = new SpannableString(titel2.getTitle());
-        s1.setSpan(new TextAppearanceSpan(this,R.style.TextAppearance),0,s1.length(),0);
-        s2.setSpan(new TextAppearanceSpan(this,R.style.TextAppearance),0,s2.length(),0);
-        titel1.setTitle(s1);
-        titel2.setTitle(s2);
-        navView.setNavigationItemSelectedListener(this);
-
-
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        fragmentManager = getSupportFragmentManager();
-        if (savedInstanceState == null) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.article_fragment
-                            , new SafeFragment())
-                    .commit();
-            mToolbar.setTitle("Aktive tests");
-         }
-
-    mAuth = FirebaseAuth.getInstance();
 
 
 
 }
+
+    public void initialize() {
+
+
+        fragmentManager = getSupportFragmentManager();
+        if (firstTime == true) {
+
+            mPagesColors = new int[]{
+                    ContextCompat.getColor(this, R.color.colorPrimary),
+                    ContextCompat.getColor(this, R.color.colorPrimary),
+                    ContextCompat.getColor(this, R.color.colorPrimary),
+                    ContextCompat.getColor(this, R.color.colorPrimary),
+                    ContextCompat.getColor(this, R.color.colorPrimary),
+                    ContextCompat.getColor(this, R.color.colorPrimary),
+
+            };
+
+            replaceTutorialFragment();
+
+        } else if (firstTime == false) {
+
+
+            NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+            View hView = navigationView.getHeaderView(0);
+            final TextView nav_user = (TextView) hView.findViewById(R.id.NavHeaderName);
+            final TextView nav_email = (TextView) hView.findViewById(R.id.NavHeaderEmail);
+            Intent PromptIntent = getIntent();
+            final String email = PromptIntent.getStringExtra("UserEmail");
+            createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
+            DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]", "_"));
+            mConditionRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    User newUser = dataSnapshot.getValue(User.class);
+
+                    Log.d("Data", "val=" + newUser);
+
+                    User temp = user;
+                    user = newUser;
+                    System.out.println("Indeni " + user.getName());
+                    nav_user.setText(newUser.getName() + " " + newUser.getSurName());
+                    nav_email.setText(newUser.getEmail());
+                    if (temp != newUser) {
+                        SafeFragment.getInstance().Update();
+                    }
+
+
+                }
+
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+            mToolbar = (Toolbar) findViewById(R.id.nav_action);
+            setSupportActionBar(mToolbar);
+
+            mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+            mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
+
+            mDrawerLayout.addDrawerListener(mToggle);
+            mToggle.syncState();
+
+            navView = (NavigationView) findViewById(R.id.navigation);
+            Menu menu = navView.getMenu();
+            MenuItem titel1 = menu.findItem(R.id.grp1);
+            MenuItem titel2 = menu.findItem(R.id.grp2);
+            SpannableString s1 = new SpannableString(titel1.getTitle());
+            SpannableString s2 = new SpannableString(titel2.getTitle());
+            s1.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s1.length(), 0);
+            s2.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s2.length(), 0);
+            titel1.setTitle(s1);
+            titel2.setTitle(s2);
+            navView.setNavigationItemSelectedListener(this);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            fragmentManager.beginTransaction()
+                    .replace(R.id.article_fragment
+                            , new SafeFragment())
+                    .commit();
+            mToolbar.setTitle("Dine profiler");
+        }
+    }
 
 
 
@@ -278,22 +308,103 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
-    public static class MyPreferenceFragment extends PreferenceFragment
-    {
+    public void replaceTutorialFragment() {
+        final IndicatorOptions indicatorOptions = IndicatorOptions.newBuilder(this)
+                .build();
+        final TutorialOptions tutorialOptions = TutorialFragment.newTutorialOptionsBuilder(this)
+                .setUseAutoRemoveTutorialFragment(true)
+                .setUseInfiniteScroll(true)
+                .setPagesColors(mPagesColors)
+                .setPagesCount(TOTAL_PAGES)
+                .setIndicatorOptions(indicatorOptions)
+                .setTutorialPageProvider(new TutorialPagesProvider())
+                .setOnSkipClickListener(new OnSkipClickListener(this))
+                .build();
+        final TutorialFragment tutorialFragment = TutorialFragment.newInstance(tutorialOptions);
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.article_fragment, tutorialFragment)
+                .commit();
+    }
 
-        private Toolbar mToolbar;
+    private static final class TutorialPagesProvider implements TutorialPageOptionsProvider {
+
+        @NonNull
         @Override
-        public void onCreate(final Bundle savedInstanceState)
-        {
-            super.onCreate(savedInstanceState);
+        public PageOptions provide(int position) {
+            @LayoutRes int pageLayoutResId;
+            TransformItem[] tutorialItems;
+            position %= ACTUAL_PAGES_COUNT;
+            switch (position) {
+                case 0: {
+                    pageLayoutResId = R.layout.fragment_page_first;
+                    tutorialItems = new TransformItem[]{
+                            TransformItem.create(R.id.ivFirstImage, Direction.LEFT_TO_RIGHT, 0.20f),
+                            TransformItem.create(R.id.ivSecondImage, Direction.RIGHT_TO_LEFT, 0.06f),
+                            TransformItem.create(R.id.ivThirdImage, Direction.LEFT_TO_RIGHT, 0.08f),
+                            TransformItem.create(R.id.ivFourthImage, Direction.RIGHT_TO_LEFT, 0.1f),
+                            TransformItem.create(R.id.ivFifthImage, Direction.RIGHT_TO_LEFT, 0.03f),
+                            TransformItem.create(R.id.ivSixthImage, Direction.RIGHT_TO_LEFT, 0.09f),
+                            TransformItem.create(R.id.ivSeventhImage, Direction.RIGHT_TO_LEFT, 0.14f),
+                            TransformItem.create(R.id.ivEighthImage, Direction.RIGHT_TO_LEFT, 0.07f)
+                    };
+                    break;
+                }
+                case 1: {
+                    pageLayoutResId = R.layout.fragment_page_third;
+                    tutorialItems = new TransformItem[]{
+                            TransformItem.create(R.id.ivFirstImage, Direction.RIGHT_TO_LEFT, 0.20f),
+                            TransformItem.create(R.id.ivSecondImage, Direction.LEFT_TO_RIGHT, 0.06f),
+                            TransformItem.create(R.id.ivThirdImage, Direction.RIGHT_TO_LEFT, 0.08f),
+                            TransformItem.create(R.id.ivFourthImage, Direction.LEFT_TO_RIGHT, 0.1f),
+                            TransformItem.create(R.id.ivFifthImage, Direction.LEFT_TO_RIGHT, 0.03f),
+                            TransformItem.create(R.id.ivSixthImage, Direction.LEFT_TO_RIGHT, 0.09f),
+                            TransformItem.create(R.id.ivSeventhImage, Direction.LEFT_TO_RIGHT, 0.14f)
+                    };
+                    break;
+                }
+                case 2: {
+                    pageLayoutResId = R.layout.fragment_page_second;
+                    tutorialItems = new TransformItem[]{
+                            TransformItem.create(R.id.ivFirstImage, Direction.RIGHT_TO_LEFT, 0.2f),
+                            TransformItem.create(R.id.ivSecondImage, Direction.LEFT_TO_RIGHT, 0.06f),
+                            TransformItem.create(R.id.ivThirdImage, Direction.RIGHT_TO_LEFT, 0.08f),
+                            TransformItem.create(R.id.ivFourthImage, Direction.LEFT_TO_RIGHT, 0.1f),
+                            TransformItem.create(R.id.ivFifthImage, Direction.LEFT_TO_RIGHT, 0.03f),
+                            TransformItem.create(R.id.ivSixthImage, Direction.LEFT_TO_RIGHT, 0.09f),
+                            TransformItem.create(R.id.ivSeventhImage, Direction.LEFT_TO_RIGHT, 0.14f),
+                            TransformItem.create(R.id.ivEighthImage, Direction.LEFT_TO_RIGHT, 0.07f)
+                    };
+                    break;
+                }
+                default: {
+                    throw new IllegalArgumentException("Unknown position: " + position);
+                }
+            }
 
-
-            addPreferencesFromResource(R.xml.preferences);
-
+            return PageOptions.create(pageLayoutResId, position, tutorialItems);
         }
     }
 
 
+    private final class OnSkipClickListener implements View.OnClickListener {
+
+        @NonNull
+        private final Context mContext;
+
+        OnSkipClickListener(@NonNull Context context) {
+            mContext = context.getApplicationContext();
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(mContext, "Skip button clicked", Toast.LENGTH_SHORT).show();
+            setContentView(R.layout.activity_main);
+            firstTime = false;
+            initialize();
+
+        }
+    }
 
         @Override
         public boolean onOptionsItemSelected (MenuItem item){
