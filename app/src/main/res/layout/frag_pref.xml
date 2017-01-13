@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/profile_name"
                 android:layout_centerHorizontal="true"
-                android:text="Dickspinner99@gmail.com"
+                android:text="ibnmichael@deeznutz.com"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#FFF"
                 android:visibility="invisible" />

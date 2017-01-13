@@ -27,7 +27,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="Du vil blive præsenteret for en række udsagn. Udsagnene hører sammen i par. Du skal give hvert udsagt point fra 0 til 5. Summen af de to udsagn, vil altid være lig 5."
+                    android:text="Du vil blive præsenteret for en række udsagn. Udsagnene hører sammen i par. Du skal give hvert udsagn point fra 0 til 5. Summen af de to udsagn, vil altid være lig 5."
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/textView4"
