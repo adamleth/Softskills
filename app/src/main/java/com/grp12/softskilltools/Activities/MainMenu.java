@@ -130,6 +130,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                     nav_user.setText(newUser.getName() + " " + newUser.getSurName());
                     nav_email.setText(newUser.getEmail());
                     loadMenu(newUser.getAdministrativ());
+
+
                 }
                 else{
                     initialize(1);
@@ -171,6 +173,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                     System.out.println("Indeni " + newUser.getName());
                     nav_user.setText(newUser.getName() + " " + newUser.getSurName());
                     nav_email.setText(newUser.getEmail());
+                    SafeFragment.getInstance().Update();
                 }
 
             }

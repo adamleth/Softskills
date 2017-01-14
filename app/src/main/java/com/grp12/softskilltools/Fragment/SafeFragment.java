@@ -112,7 +112,6 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
 
 
     public void Update() {
-        super.onResume();
         initialize();
         adaptor.update(tests);
         adaptor.notifyDataSetChanged();
