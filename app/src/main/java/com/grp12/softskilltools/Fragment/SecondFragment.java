@@ -105,10 +105,12 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
                 if (administrativ.isChecked() == true){
                     user.setAdministrativ(true);
                     MainMenu.getInstance().ChangeMenu(true);
+                    MainMenu.getInstance().updateUser();
                 }
                 if(administrativ.isChecked() == false){
                     user.setAdministrativ(false);
                     MainMenu.getInstance().ChangeMenu(false);
+                    MainMenu.getInstance().updateUser();
                 }
                 break;
         }
