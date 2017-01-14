@@ -15,7 +15,8 @@ public class User {
     public String phone;
     public Safe safe;
     public String birth;
-    public boolean virgin;
+    public boolean firstRun, administrativ, notifikationer, inverter;
+
 
 
 
@@ -29,9 +30,14 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.safe = new Safe();
-        this.virgin = true;
+        this.firstRun = true;
+        this.administrativ = false;
+        this.notifikationer = true;
+        this.inverter = false;
 
     }
+
+
 
     /***************************************
      * This method sets the name of a user *
@@ -156,11 +162,35 @@ public class User {
 
         safe.addToResults(item);
     }
-    public void setVirgin(Boolean virgin){
-        this.virgin = virgin;
+    public void setFirstRun(Boolean firstRun){
+        this.firstRun = firstRun;
     }
-    public boolean getVirgin(){
-        return virgin;
+    public boolean getFirstRun(){
+        return firstRun;
+    }
+
+    public boolean getAdministrativ() {
+        return administrativ;
+    }
+
+    public boolean getNotifikationer() {
+        return notifikationer;
+    }
+
+    public boolean getInverter() {
+        return inverter;
+    }
+
+    public void setAdministrativ(boolean administrativ) {
+        this.administrativ = administrativ;
+    }
+
+    public void setNotifikationer(boolean notifikationer) {
+        this.notifikationer = notifikationer;
+    }
+
+    public void setInverter(boolean inverter) {
+        this.inverter = inverter;
     }
 
 }

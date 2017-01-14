@@ -6,7 +6,9 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -67,20 +69,20 @@
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/checkBox5"
+                        android:id="@+id/checkbox_inverter"
                         android:layout_weight="1"
                         />
 
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/checkBox4"
+                        android:id="@+id/checkbox_administrativ"
                         android:layout_weight="1"/>
 
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/checkBox3"
+                        android:id="@+id/checkbox_notifikationer"
                         android:layout_weight="1"/>
                 </LinearLayout>
             </LinearLayout>

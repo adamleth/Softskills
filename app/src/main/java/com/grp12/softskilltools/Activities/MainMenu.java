@@ -75,6 +75,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     public int[] mPagesColors;
     TextView nav_user;
     TextView nav_email;
+    public MenuItem titel1, titel2;
+    public Menu menu;
 
 
 
@@ -122,11 +124,12 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
                 user = newUser;
 
-                if (newUser.getVirgin() == false) {
+                if (newUser.getFirstRun() == false) {
                     initialize(2);
                     System.out.println("Indeni " + newUser.getName());
                     nav_user.setText(newUser.getName() + " " + newUser.getSurName());
                     nav_email.setText(newUser.getEmail());
+                    loadMenu(newUser.getAdministrativ());
                 }
                 else{
                     initialize(1);
@@ -150,6 +153,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 
 
+
 }
 
     public void databaseCall(String email){
@@ -163,7 +167,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
                 user = newUser;
 
-                if (newUser.getVirgin() == false) {
+                if (newUser.getFirstRun() == false) {
                     System.out.println("Indeni " + newUser.getName());
                     nav_user.setText(newUser.getName() + " " + newUser.getSurName());
                     nav_email.setText(newUser.getEmail());
@@ -223,15 +227,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             mToggle.syncState();
 
             navView = (NavigationView) findViewById(R.id.navigation);
-            Menu menu = navView.getMenu();
-            MenuItem titel1 = menu.findItem(R.id.grp1);
-            MenuItem titel2 = menu.findItem(R.id.grp2);
-            SpannableString s1 = new SpannableString(titel1.getTitle());
-            SpannableString s2 = new SpannableString(titel2.getTitle());
-            s1.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s1.length(), 0);
-            s2.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s2.length(), 0);
-            titel1.setTitle(s1);
-            titel2.setTitle(s2);
+
+
+
             navView.setNavigationItemSelectedListener(this);
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -240,6 +238,26 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                             , new SafeFragment())
                     .commit();
             mToolbar.setTitle("Dine profiler");
+
+        }
+    }
+    public void loadMenu(Boolean administrativ) {
+        menu = navView.getMenu();
+        titel1 = menu.findItem(R.id.grp1);
+        titel2 = menu.findItem(R.id.gruppe2);
+        if (administrativ == false) {
+            ChangeMenu(false);
+            SpannableString s1 = new SpannableString(titel1.getTitle());
+            s1.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s1.length(), 0);
+            titel1.setTitle(s1);
+        } else if (administrativ == true) {
+            ChangeMenu(true);
+            SpannableString s1 = new SpannableString(titel1.getTitle());
+            SpannableString s2 = new SpannableString(titel2.getTitle());
+            s1.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s1.length(), 0);
+            s2.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s2.length(), 0);
+            titel1.setTitle(s1);
+            titel2.setTitle(s2);
         }
     }
 
@@ -443,7 +461,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             Toast.makeText(mContext, "Skip button clicked", Toast.LENGTH_SHORT).show();
             System.out.println(user.getName());
             setContentView(R.layout.activity_main);
-            user.setVirgin(false);
+            user.setFirstRun(false);
             updateUser();
             initialize(2);
 
@@ -458,6 +476,18 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
             return super.onOptionsItemSelected(item);
         }
+
+    public void ChangeMenu(Boolean administrativ){
+        if (administrativ == true) {
+            navView.getMenu().setGroupVisible(R.id.grp2, administrativ);
+            SpannableString s2 = new SpannableString(titel2.getTitle());
+            s2.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance), 0, s2.length(), 0);
+            titel2.setTitle(s2);
+        }
+        else {
+            navView.getMenu().setGroupVisible(R.id.grp2, administrativ);
+        }
+    }
 
 
 

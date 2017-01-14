@@ -131,7 +131,7 @@ public class PrefFragment extends Fragment {
 
 
                 case 0: return FirstFragment.newInstance(user.getName().toString(),user.getSurName().toString(),user.getEmail().toString(),user.getPhone().toString());
-                case 1: return SecondFragment.newInstance("SecondFragment, Instance 1");
+                case 1: return SecondFragment.newInstance(user);
                 case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
                 default: return ThirdFragment.newInstance("ThirdFragment, Default");
             }
