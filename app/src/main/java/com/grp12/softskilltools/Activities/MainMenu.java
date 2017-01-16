@@ -4,6 +4,7 @@ package com.grp12.softskilltools.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.AsyncTask;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -68,8 +69,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
     private static MainMenu sMainMenu;
-    DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mConditionDataRef;
+    public DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
+    public DatabaseReference mConditionDataRef;
     private static final int TOTAL_PAGES = 3;
     private static final int ACTUAL_PAGES_COUNT = 3;
     public int[] mPagesColors;
@@ -251,6 +252,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                             , new SafeFragment())
                     .commit();
             mToolbar.setTitle("Dine profiler");
+            loadMenu(user.getAdministrativ());
 
         }
     }
@@ -275,8 +277,37 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
+    public class updateUser extends AsyncTask<String, Void, String>{
 
-    public void updateUser(){
+        @Override
+        protected String doInBackground(String... params) {
+
+            try{
+                String nøgle = getUser().getEmail().replaceAll("[\\.:;&@]","_");
+                Log.d("xxxx", nøgle);
+                mConditionDataRef = mRootDataRef.child("Brugere").child(nøgle);
+                Log.d("xxxx", mConditionDataRef.toString());
+                Log.d("xxxx", ""+getUser());
+                mConditionDataRef.setValue(getUser());
+                return "Brugeren blev opdateret korrekt";
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                return "Der skete en fejl" + e;
+            }
+
+        }
+        protected void onPostExecute() {
+            SafeFragment.getInstance().Update();
+        }
+
+    }
+
+
+
+
+
+    public void updateUser1(){
         String nøgle = getUser().getEmail().replaceAll("[\\.:;&@]","_");
         Log.d("xxxx", nøgle);
         mConditionDataRef = mRootDataRef.child("Brugere").child(nøgle);
@@ -476,7 +507,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             setContentView(R.layout.activity_main);
             user.setFirstRun(false);
             ButtonPressed = true;
-            updateUser();
+            new updateUser().execute();
             initialize(2);
 
         }

@@ -99,18 +99,18 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button21:
-                MainMenu.getInstance().updateUser();
+                MainMenu.getInstance().updateUser1();
                 break;
             case R.id.checkbox_administrativ:
                 if (administrativ.isChecked() == true){
                     user.setAdministrativ(true);
                     MainMenu.getInstance().ChangeMenu(true);
-                    MainMenu.getInstance().updateUser();
+                    MainMenu.getInstance().updateUser1();
                 }
                 if(administrativ.isChecked() == false){
                     user.setAdministrativ(false);
                     MainMenu.getInstance().ChangeMenu(false);
-                    MainMenu.getInstance().updateUser();
+                    MainMenu.getInstance().updateUser1();
                 }
                 break;
         }

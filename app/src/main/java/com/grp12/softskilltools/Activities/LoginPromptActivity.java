@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.grp12.softskilltools.Util.NetworkChangeReciever;
 
 /**
  * Created by mathiaslarsen on 23/11/2016.
@@ -30,6 +31,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
     TextView warning;
     Button login;
     Button forgot;
+    NetworkChangeReciever reciever;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
@@ -39,7 +41,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_prompt);
-
+        reciever = new NetworkChangeReciever();
         email = (EditText) findViewById(R.id.loginemail);
         kodeord = (EditText) findViewById(R.id.loginkode);
         login = (Button) findViewById(R.id.loginknap);
@@ -47,28 +49,37 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
         login.setOnClickListener(this);
         forgot.setOnClickListener(this);
         warning = (TextView) findViewById(R.id.textView11);
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    System.out.println("BrugerUID "+user.getUid());
-
-                    Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
-                    i.putExtra("UserEmail",user.getEmail());
 
 
-                    startActivity(i);
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
+            mAuth = FirebaseAuth.getInstance();
+            mAuthListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if (user != null) {
+
+                        Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                        System.out.println("BrugerUID " + user.getUid());
+
+                        Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
+                        i.putExtra("UserEmail", user.getEmail());
+
+
+                        startActivity(i);
+                    } else {
+                        // User is signed out
+                        Log.d(TAG, "onAuthStateChanged:signed_out");
+                    }
+                    // ...
                 }
-                // ...
-            }
-        };
+            };
+        if(checkInternetConnection() == false){
+            login.setText("INGEN INtERNETFORBINDELSE");
+            login.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+            login.setClickable(false);
+            forgot.setClickable(false);
+            forgot.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        }
         // ...
     }
 
@@ -111,6 +122,10 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
     public void udskrivFejl(String fejl){
         warning.setText(fejl);
         warning.setVisibility(View.VISIBLE);
+    }
+    public boolean checkInternetConnection(){
+
+        return reciever.checkInternet(this);
     }
     @Override
     public void onClick(View v) {

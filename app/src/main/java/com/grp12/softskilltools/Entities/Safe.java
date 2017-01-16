@@ -2,10 +2,18 @@ package com.grp12.softskilltools.Entities;
 
 
 
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.google.firebase.database.DatabaseReference;
+import com.grp12.softskilltools.Activities.MainActivity;
 import com.grp12.softskilltools.Activities.MainMenu;
+import com.grp12.softskilltools.Fragment.SafeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.grp12.softskilltools.Activities.MainMenu.*;
 
 /**
  * Created by mathiaslarsen on 18/11/2016.
@@ -135,7 +143,7 @@ public class Safe {
                 break;
         }
         removeItemFromSafe(item);
-        MainMenu.getInstance().updateUser();
+        new updateUser().execute();
 
     }
 
@@ -227,6 +235,37 @@ public class Safe {
 
     public int getSafeSize(){
         return læsUnusedItems().size();
+    }
+
+
+    public class updateUser extends AsyncTask<String, Void, String>{
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            try{
+                String nøgle = MainMenu.getInstance().getUser().getEmail().replaceAll("[\\.:;&@]","_");
+                Log.d("xxxx", nøgle);
+                DatabaseReference ref = MainMenu.getInstance().mConditionDataRef;
+                ref = MainMenu.getInstance().mRootDataRef.child("Brugere").child(nøgle);
+                Log.d("xxxx", ref.toString());
+                Log.d("xxxx", ""+MainMenu.getInstance().getUser());
+                ref.setValue(MainMenu.getInstance().getUser());
+                return "Brugeren blev opdateret korrekt";
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                return "Der skete en fejl" + e;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            SafeFragment.getInstance().Update();
+        }
+
     }
 
     /********************************************
