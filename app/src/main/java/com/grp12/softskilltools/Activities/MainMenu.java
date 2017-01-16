@@ -77,16 +77,18 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     TextView nav_email;
     public MenuItem titel1, titel2;
     public Menu menu;
+    public boolean ButtonPressed;
 
 
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sMainMenu = this;
         this.user = null;
+        this.ButtonPressed = false;
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -129,13 +131,19 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                     System.out.println("Indeni " + newUser.getName());
                     nav_user.setText(newUser.getName() + " " + newUser.getSurName());
                     nav_email.setText(newUser.getEmail());
-                    loadMenu(newUser.getAdministrativ());
-
+                    if (savedInstanceState != null)
+                    SafeFragment.getInstance().Update();
+                    else {
+                        databaseCall(newUser.getEmail());
+                    }
 
                 }
-                else{
+                else if(newUser.getFirstRun() == true){
                     initialize(1);
+                    System.out.println("Indeni " + newUser.getName());
+
                 }
+
 
 
             }
@@ -173,7 +181,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                     System.out.println("Indeni " + newUser.getName());
                     nav_user.setText(newUser.getName() + " " + newUser.getSurName());
                     nav_email.setText(newUser.getEmail());
-                    SafeFragment.getInstance().Update();
+                    if(ButtonPressed != true) {
+                        SafeFragment.getInstance().Update();
+                    }
                 }
 
             }
@@ -465,6 +475,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             System.out.println(user.getName());
             setContentView(R.layout.activity_main);
             user.setFirstRun(false);
+            ButtonPressed = true;
             updateUser();
             initialize(2);
 
