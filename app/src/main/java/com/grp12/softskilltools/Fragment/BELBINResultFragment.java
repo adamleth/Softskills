@@ -83,7 +83,7 @@ public class BELBINResultFragment extends Fragment {
         xAxis.setXOffset(0f);
         xAxis.setValueFormatter(new IAxisValueFormatter() {
 
-            private String[] mActivities = new String[]{"PL", "RI", "CO", "SH", "ME","TW","IMP","CF","SP","DROP"};
+            private String[] mActivities = new String[]{"Idémand", "Kontaktskaber", "Koordinator", "Opstarter", "Analytiker","Formidler","Organisator","Afslutter","Specialist"};
 
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
