@@ -96,12 +96,16 @@ public class Safe {
 
         switch (item.getTestType()){
             case DISC:
-                unusedDiscItems.add((DISC)item);
-                System.out.println("Der blev tilføjet til unusedDisc");
+                for (int i = 1; i <= qty; i++) {
+                    unusedDiscItems.add((DISC) item);
+                    System.out.println("Der blev tilføjet til unusedDisc");
+                }
                 break;
             case BELBIN:
-                unusedBelbinItems.add((BELBIN)item);
-                System.out.println("Der blev tilføjet til unusedBelbin");
+                for (int i = 1; i <= qty; i++) {
+                    unusedBelbinItems.add((BELBIN) item);
+                    System.out.println("Der blev tilføjet til unusedBelbin");
+                }
                 break;
 
             case THREESIXTY:

@@ -25,6 +25,7 @@ import com.grp12.softskilltools.Entities.User;
 import com.grp12.softskilltools.Util.AnimationUtil;
 import com.grp12.softskilltools.Util.PopUp;
 import com.grp12.softskilltools.Util.StoreAdaptor;
+import com.grp12.softskilltools.Util.Store_popup;
 import com.grp12.softskilltools.resources.ItemDefinition;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
 
     DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mConditionDataRef;
+    AbstractItem tempItem;
 
     public StoreFragment() {
 
@@ -103,6 +105,12 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
 
         return MainMenu.getInstance().getUser();
 
+    }
+    public void setTempItem(AbstractItem item){
+        this.tempItem = item;
+    }
+    public AbstractItem getTempItem(){
+        return tempItem;
     }
 
     /**********************************************
@@ -187,6 +195,10 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         Intent i = new Intent(this.getContext(), PopUp.class);
         i.putExtra("brødtekst",item.getDescription());
         i.putExtra("overskrift",item.getProductName());
+        startActivity(i);
+    }
+    public void openAcceptPopUp(){
+        Intent i = new Intent(this.getContext(),Store_popup.class);
         startActivity(i);
     }
 }

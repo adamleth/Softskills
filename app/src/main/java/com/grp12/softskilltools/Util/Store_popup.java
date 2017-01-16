@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
+import com.grp12.softskilltools.Fragment.StoreFragment;
 import com.squareup.haha.perflib.Main;
 
 import org.w3c.dom.Text;
@@ -28,7 +29,7 @@ public class Store_popup extends Activity implements View.OnClickListener {
     public int antal;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_popup);
         antal = 1;
@@ -46,11 +47,16 @@ public class Store_popup extends Activity implements View.OnClickListener {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        Intent PromptIntent = getIntent();
-        produkt = (AbstractItem)PromptIntent.getSerializableExtra("objekt");
+        produkt = StoreFragment.getInstance().getTempItem();
         getWindow().setLayout((int) (width * .9), (int) (height * .60));
         text.setText("Ønsker du at købe " + produkt.getProductName() + "?");
+        setQuantity(antal);
 
+
+    }
+
+    public void setQuantity(int tal){
+        quantity.setText(String.valueOf(tal));
     }
 
     @Override
@@ -59,17 +65,20 @@ public class Store_popup extends Activity implements View.OnClickListener {
             finish();
         }
         if (v.getId() == accept.getId()){
-            MainMenu.getInstance().getUser().addToSafe(produkt,antal);
+            StoreFragment.getInstance().addToBasket(produkt,Integer.valueOf(quantity.getText().toString()),MainMenu.getInstance().getUser());
+            finish();
         }
         if (v.getId() == plus.getId()){
-            if (antal <= 10) {
+            if (antal <= 9) {
                 antal = antal + 1;
             }
+            setQuantity(antal);
         }
         if (v.getId() == minus.getId()){
-            if (antal >= 1){
+            if (antal >= 2){
                antal = antal -1;
             }
+            setQuantity(antal);
 
         }
     }

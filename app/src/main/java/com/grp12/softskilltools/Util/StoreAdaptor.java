@@ -25,6 +25,7 @@ public class StoreAdaptor extends BaseAdapter implements View.OnClickListener {
     private static ArrayList<AbstractItem> products;
     private LayoutInflater mInflater;
     private AbstractItem item;
+    public StoreFragment store;
 
 
     public StoreAdaptor(Context mStoreFragment, ArrayList<AbstractItem> products){
@@ -83,10 +84,12 @@ public class StoreAdaptor extends BaseAdapter implements View.OnClickListener {
         View parent = (View)v.getParent();
         AbstractItem item = products.get(StoreFragment.getInstance().lv.getPositionForView(parent));
         User user = StoreFragment.getInstance().getUser();
+        store = StoreFragment.getInstance();
 
         switch (v.getId()) {
             case R.id.button25:
-            StoreFragment.getInstance().addToBasket(item, 1, user);
+                store.setTempItem(item);
+            store.openAcceptPopUp();
                 break;
             case R.id.textView16:
                 StoreFragment.getInstance().openPopUp(item);
