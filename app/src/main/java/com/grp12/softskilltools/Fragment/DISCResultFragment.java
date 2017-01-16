@@ -18,6 +18,7 @@ import org.eazegraph.lib.communication.IOnItemFocusChangedListener;
 import org.eazegraph.lib.models.PieModel;
 import org.eazegraph.lib.charts.PieChart;
 
+import java.text.DecimalFormat;
 
 
 //heh
@@ -35,6 +36,8 @@ public class DISCResultFragment extends Fragment {
     TextView textInf;
     TextView textSta;
     TextView textCom;
+    public DecimalFormat df;
+
 
 
 
@@ -56,6 +59,7 @@ public class DISCResultFragment extends Fragment {
         textCom = (TextView) view.findViewById(R.id.comText);
         bundle = getArguments();
         this.temp = (DISC) bundle.getSerializable("Item");
+        df = new DecimalFormat("#.0");
         loadData(temp.getDom(), temp.getInf(), temp.getSta(), temp.getCom());
         //Testresultater skap parses direkte fra listresultfragment, via en putextra funktion. På denne måde sendes data direkte til dette framgent, og loader med det samme.
         return view;
@@ -66,15 +70,15 @@ public class DISCResultFragment extends Fragment {
      ******************************/
 
     private void loadData(int dom, int inf, int sta, int com) {
-        int perDom = (int) (0.55 * dom);
-        int perInf = (int) (0.55 * inf);
-        int perSta = (int) (0.55 * sta);
-        int perCom = (int) (0.55 * com);
+        double perDom = Double.valueOf(100)*dom/Double.valueOf(180);
+        double perInf = Double.valueOf(100)*inf/Double.valueOf(180);
+        double perSta = Double.valueOf(100)*sta/Double.valueOf(180);
+        double perCom = Double.valueOf(100)*com/Double.valueOf(180);
 
-        mPieChart.addPieSlice(new PieModel("Dominant", perDom, Color.parseColor("#e94848")));
-        mPieChart.addPieSlice(new PieModel("Influential", perInf, Color.parseColor("#ed7c21")));
-        mPieChart.addPieSlice(new PieModel("Stable", perSta, Color.parseColor("#67c34f")));
-        mPieChart.addPieSlice(new PieModel("Compliant", perCom, Color.parseColor("#5384b7")));
+        mPieChart.addPieSlice(new PieModel("Dominant", Math.round(perDom), Color.parseColor("#e94848")));
+        mPieChart.addPieSlice(new PieModel("Influential", Math.round(perInf), Color.parseColor("#ed7c21")));
+        mPieChart.addPieSlice(new PieModel("Stable", Math.round(perSta), Color.parseColor("#67c34f")));
+        mPieChart.addPieSlice(new PieModel("Compliant", Math.round(perCom), Color.parseColor("#5384b7")));
 
         mPieChart.setOnItemFocusChangedListener(new IOnItemFocusChangedListener() {
 
@@ -84,10 +88,10 @@ public class DISCResultFragment extends Fragment {
             }
         });
 
-        textDom.setText(dom + " (" + perDom + "%)");
-        textInf.setText(inf + " (" + perInf + "%)");
-        textSta.setText(sta + " (" + perSta + "%)");
-        textCom.setText(com + " (" + perCom + "%)");
+        textDom.setText(dom + " (" + df.format(perDom) + "%)");
+        textInf.setText(inf + " (" + df.format(perInf) + "%)");
+        textSta.setText(sta + " (" + df.format(perSta) + "%)");
+        textCom.setText(com + " (" + df.format(perCom) + "%)");
 
     }
 

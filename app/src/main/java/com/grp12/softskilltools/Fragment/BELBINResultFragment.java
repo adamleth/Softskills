@@ -37,6 +37,8 @@ public class BELBINResultFragment extends Fragment {
     private RadarChart mChart;
     BELBIN temp;
     Bundle bundle;
+    TextView resIde, resKon, resKoo, resOps, resAna,
+            resFor, resOrg, resAfs, resSpe;
 
 
     @Nullable
@@ -56,6 +58,16 @@ public class BELBINResultFragment extends Fragment {
         MarkerView mv = new RadarMarkerView(view.getContext(), R.layout.radar_markerview);
         mv.setChartView(mChart);
         mChart.setMarker(mv);
+        resIde = (TextView) view.findViewById(R.id.resIde);
+        resKon = (TextView) view.findViewById(R.id.resKon);
+        resKoo = (TextView) view.findViewById(R.id.resKoo);
+        resOps = (TextView) view.findViewById(R.id.resOps);
+        resAna = (TextView) view.findViewById(R.id.resAna);
+        resFor = (TextView) view.findViewById(R.id.resFor);
+        resOrg = (TextView) view.findViewById(R.id.resOrg);
+        resAfs = (TextView) view.findViewById(R.id.resAfs);
+        resSpe = (TextView) view.findViewById(R.id.resSpe);
+        resFor = (TextView) view.findViewById(R.id.resFor);
 
         setData(temp.getPL(),temp.getRI(),temp.getCO(),temp.getSH(),temp.getME(),temp.getTW(),temp.getIMP(),temp.getCF(),temp.getSP(),temp.getDROP());
 
@@ -124,8 +136,6 @@ public class BELBINResultFragment extends Fragment {
         entries1.add(new RadarEntry((float)IMP+30));
         entries1.add(new RadarEntry((float)CF+30));
         entries1.add(new RadarEntry((float)SP+30));
-        entries1.add(new RadarEntry((float)DROP+30));
-
 
 
         RadarDataSet set1 = new RadarDataSet(entries1, "Dit resultat");
@@ -149,7 +159,20 @@ public class BELBINResultFragment extends Fragment {
 
         mChart.setData(data);
         mChart.invalidate();
+
+        resIde.setText(String.valueOf(PL));
+        resKon.setText(String.valueOf(RI));
+        resKoo.setText(String.valueOf(CO));
+        resOps.setText(String.valueOf(SH));
+        resAna.setText(String.valueOf(ME));
+        resFor.setText(String.valueOf(TW));
+        resOrg.setText(String.valueOf(IMP));
+        resAfs.setText(String.valueOf(CF));
+        resSpe.setText(String.valueOf(SP));
+
     }
+
+
 
 
 }
