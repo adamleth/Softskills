@@ -34,6 +34,7 @@ public class Safe {
 
     private List<AbstractItem> unusedItems = new ArrayList<>();
     private List<AbstractItem> usedItems = new ArrayList<>();
+    public static Safe sSafe;
 
 
     /** Nødvendigt med konsteruktør uden parametre for at objektet kan instantieres fra JSON */
@@ -169,6 +170,9 @@ public class Safe {
     }
 
 
+    public static Safe getInstance(){
+        return sSafe;
+    }
 
 
 
@@ -263,9 +267,12 @@ public class Safe {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            SafeFragment.getInstance().Update();
+
         }
 
+    }
+    public void runUpdate(){
+        new updateUser().execute();
     }
 
     /********************************************

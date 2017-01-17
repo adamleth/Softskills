@@ -214,7 +214,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onPause() {
         super.onPause();
-        Safe.getInstance().runUpdate();
+        SafeFragment.getInstance().Update();
 
     }
 
