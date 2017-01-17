@@ -89,6 +89,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
         if (user.getSafe().getSafeSize()==1){
             AnimationUtil.popOut(ACTION,300);
+            MainMenu.getInstance().getUser().setFirstRun(false);
         }
 
     }

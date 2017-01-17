@@ -80,6 +80,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     public MenuItem titel1, titel2;
     public Menu menu;
     public boolean ButtonPressed;
+    public String email;
 
 
 
@@ -113,7 +114,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 
         Intent PromptIntent = getIntent();
-        final String email = PromptIntent.getStringExtra("UserEmail");
+        email = PromptIntent.getStringExtra("UserEmail");
         createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
 
 
@@ -176,7 +177,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 User newUser = dataSnapshot.getValue(User.class);
 
                 Log.d("Data", "val=" + newUser);
-
                 user = newUser;
 
                 if (newUser.getFirstRun() == false) {
@@ -187,6 +187,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                         SafeFragment.getInstance().Update();
                     }
                     loadMenu(user.getAdministrativ());
+
                 }
 
             }
@@ -218,6 +219,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                     ContextCompat.getColor(this, R.color.colorPrimary),
 
             };
+            Intent PromptIntent = getIntent();
+
+            createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
+            databaseCall(user.getEmail());
+
 
             replaceTutorialFragment();
 
@@ -228,7 +234,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             nav_user = (TextView) hView.findViewById(R.id.NavHeaderName);
             nav_email = (TextView) hView.findViewById(R.id.NavHeaderEmail);
             Intent PromptIntent = getIntent();
-            final String email = PromptIntent.getStringExtra("UserEmail");
             createUser(email, info.get("Name"), info.get("lastName"), info.get("phone"));
 
 
@@ -258,6 +263,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                             , new SafeFragment())
                     .commit();
             mToolbar.setTitle("Dine profiler");
+
 
 
         }
@@ -321,7 +327,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            SafeFragment.getInstance().Update();
+            if (!user.getFirstRun()) {
+                SafeFragment.getInstance().Update();
+            }
         }
 
 
@@ -574,11 +582,10 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         @Override
         public void onClick(View v) {
             Toast.makeText(mContext, "Skip button clicked", Toast.LENGTH_SHORT).show();
-            System.out.println(user.getName());
             setContentView(R.layout.activity_main);
             user.setFirstRun(false);
             ButtonPressed = true;
-            new updateUser().execute();
+            updateUser1();
             initialize(2);
 
         }

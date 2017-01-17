@@ -46,7 +46,8 @@
                     android:id="@+id/loginemail"
                     android:hint="Email"
                     android:background="@drawable/textedit_custom"
-                    android:layout_marginTop="40dp" />
+                    android:layout_marginTop="40dp"
+                    android:text="test@test.dk" />
 
             </LinearLayout>
 
@@ -67,7 +68,8 @@
                     android:hint="Password"
                     android:background="@drawable/textedit_custom"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="30dp" />
+                    android:layout_marginBottom="30dp"
+                    android:text="testtest" />
             </LinearLayout>
 
             <LinearLayout

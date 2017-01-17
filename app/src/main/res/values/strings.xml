@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">g12 SoftSkill Tools</string>
-    <string name="this_is_photoshop_s_version__of_lorem_ipsum__proin_gravida_nibh_string">This is Photoshops version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. \rAenean sollicitudi.\rlorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</string>
-    <string name="login_with_facebook_string">Login with Facebook</string>
-    <string name="sign_up_with_email_string">Sign Up with Email</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string name="i_already_have_an_account_string">I already have an account</string>
     <string name="logotype_string">Logotype</string>
     <string name="introduktionBrødtekst">Softskills Toolbox er appen der lynhurtigt gør det muligt for dig, via forskellige profiler, at bestemme din personlighed eller rolle i et kommende team. Du kan også benytte appen som et vigtigt redskab til nye rekrutteringer i dine teams, hvilket sker ved invitation af potentielle kandidater. Du kan let og hurtigt holde øje med resultaterne af disse, hvilket bettyder, at nye og passende medarbejdere altid er lige rundt om hjørnet!</string>
