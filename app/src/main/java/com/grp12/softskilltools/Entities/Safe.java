@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.grp12.softskilltools.Activities.MainActivity;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Fragment.SafeFragment;
+import com.squareup.haha.perflib.Main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,6 +121,7 @@ public class Safe {
             case THREESIXTY:
                 unusedThreeSixtyItems.add((THREESIXTY)item);
         }
+
     }
 
 
@@ -144,7 +146,7 @@ public class Safe {
                 break;
         }
         removeItemFromSafe(item);
-        new updateUser().execute();
+        MainMenu.getInstance().runUpdate();
 
     }
 
@@ -242,38 +244,7 @@ public class Safe {
     }
 
 
-    public class updateUser extends AsyncTask<String, Void, String>{
 
-        @Override
-        protected String doInBackground(String... params) {
-
-            try{
-                String nøgle = MainMenu.getInstance().getUser().getEmail().replaceAll("[\\.:;&@]","_");
-                Log.d("xxxx", nøgle);
-                DatabaseReference ref = MainMenu.getInstance().mConditionDataRef;
-                ref = MainMenu.getInstance().mRootDataRef.child("Brugere").child(nøgle);
-                Log.d("xxxx", ref.toString());
-                Log.d("xxxx", ""+MainMenu.getInstance().getUser());
-                ref.setValue(MainMenu.getInstance().getUser());
-                return "Brugeren blev opdateret korrekt";
-            }
-            catch (Exception e){
-                e.printStackTrace();
-                return "Der skete en fejl" + e;
-            }
-
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-
-        }
-
-    }
-    public void runUpdate(){
-        new updateUser().execute();
-    }
 
     /********************************************
      * This method removes a item from the safe *

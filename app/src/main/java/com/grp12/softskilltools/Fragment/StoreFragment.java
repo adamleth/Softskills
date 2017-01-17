@@ -20,6 +20,7 @@ import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
 import com.grp12.softskilltools.Entities.BELBIN;
 import com.grp12.softskilltools.Entities.DISC;
+import com.grp12.softskilltools.Entities.Safe;
 import com.grp12.softskilltools.Entities.THREESIXTY;
 import com.grp12.softskilltools.Entities.User;
 import com.grp12.softskilltools.Util.AnimationUtil;
@@ -27,6 +28,7 @@ import com.grp12.softskilltools.Util.PopUp;
 import com.grp12.softskilltools.Util.StoreAdaptor;
 import com.grp12.softskilltools.Util.Store_popup;
 import com.grp12.softskilltools.resources.ItemDefinition;
+import com.squareup.haha.perflib.Main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -85,11 +87,11 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     public void addToBasket(AbstractItem item, int qty, User user) {
         item.setOwner(user.getFullName());
         user.addToSafe(item, qty);
-        MainMenu.getInstance().updateUser1();
+        MainMenu.getInstance().runUpdate();
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
         if (user.getSafe().getSafeSize()==1){
             AnimationUtil.popOut(ACTION,300);
-            MainMenu.getInstance().getUser().setFirstRun(false);
+
         }
 
     }
