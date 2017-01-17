@@ -121,6 +121,10 @@ public class BELBINResultFragment extends Fragment {
         return  view;
     }
 
+    /********************************************
+     * This method reads the data of the result *
+     ********************************************/
+
     public void setData(int PL, int RI, int CO, int SH, int ME, int TW, int IMP, int CF, int SP, int DROP) {
 
 

@@ -125,6 +125,10 @@ public class PrefFragment extends Fragment {
             super(fm);
         }
 
+        /******************************************************************************
+         * This method creates a new instance of the different pages in the viewPager *
+         ******************************************************************************/
+
         @Override
         public Fragment getItem(int position) {
             switch (position) {
