@@ -85,7 +85,7 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
     public void addToBasket(AbstractItem item, int qty, User user) {
         item.setOwner(user.getFullName());
         user.addToSafe(item, qty);
-        MainMenu.getInstance().updateUser();
+        MainMenu.getInstance().updateUser1();
         Toast.makeText(getContext(), "Du ejer nu "+item.getProductName(), Toast.LENGTH_SHORT).show();
         if (user.getSafe().getSafeSize()==1){
             AnimationUtil.popOut(ACTION,300);
