@@ -153,15 +153,15 @@ public class BELBINResultFragment extends Fragment implements View.OnClickListen
         ArrayList<RadarEntry> entries1 = new ArrayList<RadarEntry>();
 
 
-        entries1.add(new RadarEntry((float)PL+30));
-        entries1.add(new RadarEntry((float)RI+30));
-        entries1.add(new RadarEntry((float)CO+30));
-        entries1.add(new RadarEntry((float)SH+30));
-        entries1.add(new RadarEntry((float)ME+30));
-        entries1.add(new RadarEntry((float)TW+30));
-        entries1.add(new RadarEntry((float)IMP+30));
-        entries1.add(new RadarEntry((float)CF+30));
-        entries1.add(new RadarEntry((float)SP+30));
+        entries1.add(new RadarEntry((float)PL+50));
+        entries1.add(new RadarEntry((float)RI+50));
+        entries1.add(new RadarEntry((float)CO+50));
+        entries1.add(new RadarEntry((float)SH+50));
+        entries1.add(new RadarEntry((float)ME+50));
+        entries1.add(new RadarEntry((float)TW+50));
+        entries1.add(new RadarEntry((float)IMP+50));
+        entries1.add(new RadarEntry((float)CF+50));
+        entries1.add(new RadarEntry((float)SP+50));
 
 
         RadarDataSet set1 = new RadarDataSet(entries1, "Dit resultat");
