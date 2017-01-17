@@ -42,6 +42,9 @@ public class ResultListFragment extends Fragment implements AdapterView.OnItemCl
 
     }
 
+    /*************************************************************************************
+     * This method handles the onClick event when the user presses on one of the 3 tests *
+     *************************************************************************************/
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

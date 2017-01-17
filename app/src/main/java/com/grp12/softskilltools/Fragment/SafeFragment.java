@@ -73,6 +73,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         animated = false;
     }
 
+    /********************************
+     * This method begins the logic *
+     ********************************/
+
     public void initialize() {
 
         tests = MainMenu.getInstance().getUser().retrieveSafeObjects();
@@ -110,6 +114,9 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
     }
 
 
+    /***********************
+     * This method updates *
+     ***********************/
 
     public void Update() {
         initialize();
@@ -121,6 +128,10 @@ public class SafeFragment extends Fragment implements AdapterView.OnItemClickLis
         System.out.println("onResume blev kaldt" + tests.size());
 
     }
+
+    /**************************************
+     * This method begins the chosen test *
+     **************************************/
 
     public void startTest(AbstractItem item, int position){
         this.position = position;

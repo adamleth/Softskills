@@ -54,7 +54,9 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
 
 
-
+    /*************************************************************************************
+     * This method checks for whether the administrative environment is activated or nah *
+     *************************************************************************************/
 
     public void checkAdministrativ(){
         if (user.getAdministrativ() == true){
@@ -73,6 +75,11 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
             inverter.setChecked(false);
         }
     }
+
+    /****************************************
+     * This method checks for notifications *
+     ****************************************/
+
     public void checkNotifikationer(){
         if (user.getNotifikationer() == true){
             notifikationer.setChecked(true);

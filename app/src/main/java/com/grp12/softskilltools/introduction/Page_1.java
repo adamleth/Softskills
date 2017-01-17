@@ -19,6 +19,10 @@ public class Page_1 extends PageFragment {
         return R.layout.fragment_page_first;
     }
 
+    /*******************************************************
+     * This method handles the first page of the coachMark *
+     *******************************************************/
+
     @NonNull
     @Override
     protected TransformItem[] getTransformItems() {
