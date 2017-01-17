@@ -22,7 +22,7 @@ public class Question {
         this.type = type;
     }
 
-    int getQuestionNo(){
+    int getQuestionNo() {
         return questionNo;
     }
     public void setQuestionNo(int No) {this.questionNo = No;}

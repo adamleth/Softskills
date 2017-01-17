@@ -36,13 +36,17 @@ public class Safe {
     private List<AbstractItem> usedItems = new ArrayList<>();
 
 
-    /** Nødvendigt med konsteruktør uden parametre for at objektet kan instantieres fra JSON */
-    public Safe() {
-    }
+    /***********************************************************************************************
+     * Necessary with a constructor without parameters so the object kan be instantiated from JSON *
+     ***********************************************************************************************/
 
     /**********************************
      * The logic of this class begins *
      **********************************/
+
+    public Safe() {
+    }
+
 
     public void setUnusedBelbinItems(List<BELBIN> unusedBelbinItems) {
         this.unusedBelbinItems = unusedBelbinItems;
@@ -156,9 +160,9 @@ public class Safe {
         }
 
     }
-    /********************************************
+    /*************************************************
      * This method gets an unused item from the safe *
-     ********************************************/
+     *************************************************/
 
     public List<AbstractItem> læsUnusedItems() {
         ArrayList<AbstractItem> res = new ArrayList<>();
@@ -171,6 +175,9 @@ public class Safe {
 
 
 
+    /**********************************************************
+     * This method sorts unused items regarding to which test *
+     **********************************************************/
 
     public void sætUnusedItems(List<AbstractItem> Unused){
        for (int i = 0; i < Unused.size();i++){
@@ -195,6 +202,10 @@ public class Safe {
 
     }
 
+
+    /********************************************************
+     * This method sorts used items regarding to which test *
+     ********************************************************/
 
     public void sætUsedItems(List<AbstractItem> used){
         for (int i = 0; i < used.size();i++){
