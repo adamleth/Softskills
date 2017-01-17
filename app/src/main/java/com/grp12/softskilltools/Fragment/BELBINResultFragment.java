@@ -1,5 +1,6 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.galgespil.stvhendeop.menuapp.R;
@@ -25,6 +25,8 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 import com.grp12.softskilltools.Entities.BELBIN;
 import com.grp12.softskilltools.Entities.RadarMarkerView;
+import com.grp12.softskilltools.Util.BELBIN_popup;
+import com.grp12.softskilltools.Util.DISC_popup;
 
 import java.util.ArrayList;
 
@@ -32,13 +34,16 @@ import java.util.ArrayList;
  * Created by Mathias R. Larsen on 07-01-2017.
  */
 
-public class BELBINResultFragment extends Fragment {
+public class BELBINResultFragment extends Fragment implements View.OnClickListener {
 
     private RadarChart mChart;
     BELBIN temp;
     Bundle bundle;
     TextView resIde, resKon, resKoo, resOps, resAna,
-            resFor, resOrg, resAfs, resSpe;
+            resFor, resOrg, resAfs, resSpe,
+            popIde, popKon, popKoo, popOps, popAna,
+            popFor, popOrg, popAfs, popSpe;
+    public int antal;
 
 
     @Nullable
@@ -67,7 +72,24 @@ public class BELBINResultFragment extends Fragment {
         resOrg = (TextView) view.findViewById(R.id.resOrg);
         resAfs = (TextView) view.findViewById(R.id.resAfs);
         resSpe = (TextView) view.findViewById(R.id.resSpe);
-        resFor = (TextView) view.findViewById(R.id.resFor);
+        popIde = (TextView) view.findViewById(R.id.popIde);
+        popKon = (TextView) view.findViewById(R.id.popKon);
+        popKoo = (TextView) view.findViewById(R.id.popKoo);
+        popOps = (TextView) view.findViewById(R.id.popOps);
+        popAna = (TextView) view.findViewById(R.id.popAna);
+        popFor = (TextView) view.findViewById(R.id.popFor);
+        popOrg = (TextView) view.findViewById(R.id.popOrg);
+        popAfs = (TextView) view.findViewById(R.id.popAfs);
+        popSpe = (TextView) view.findViewById(R.id.popSpe);
+        popIde.setOnClickListener(this);
+        popKon.setOnClickListener(this);
+        popKoo.setOnClickListener(this);
+        popOps.setOnClickListener(this);
+        popAna.setOnClickListener(this);
+        popFor.setOnClickListener(this);
+        popOrg.setOnClickListener(this);
+        popAfs.setOnClickListener(this);
+        popSpe.setOnClickListener(this);
 
         setData(temp.getPL(),temp.getRI(),temp.getCO(),temp.getSH(),temp.getME(),temp.getTW(),temp.getIMP(),temp.getCF(),temp.getSP(),temp.getDROP());
 
@@ -121,21 +143,25 @@ public class BELBINResultFragment extends Fragment {
         return  view;
     }
 
+    /********************************************
+     * This method reads the data of the result *
+     ********************************************/
+
     public void setData(int PL, int RI, int CO, int SH, int ME, int TW, int IMP, int CF, int SP, int DROP) {
 
 
         ArrayList<RadarEntry> entries1 = new ArrayList<RadarEntry>();
 
 
-        entries1.add(new RadarEntry((float)PL+30));
-        entries1.add(new RadarEntry((float)RI+30));
-        entries1.add(new RadarEntry((float)CO+30));
-        entries1.add(new RadarEntry((float)SH+30));
-        entries1.add(new RadarEntry((float)ME+30));
-        entries1.add(new RadarEntry((float)TW+30));
-        entries1.add(new RadarEntry((float)IMP+30));
-        entries1.add(new RadarEntry((float)CF+30));
-        entries1.add(new RadarEntry((float)SP+30));
+        entries1.add(new RadarEntry((float)PL+50));
+        entries1.add(new RadarEntry((float)RI+50));
+        entries1.add(new RadarEntry((float)CO+50));
+        entries1.add(new RadarEntry((float)SH+50));
+        entries1.add(new RadarEntry((float)ME+50));
+        entries1.add(new RadarEntry((float)TW+50));
+        entries1.add(new RadarEntry((float)IMP+50));
+        entries1.add(new RadarEntry((float)CF+50));
+        entries1.add(new RadarEntry((float)SP+50));
 
 
         RadarDataSet set1 = new RadarDataSet(entries1, "Dit resultat");
@@ -172,7 +198,72 @@ public class BELBINResultFragment extends Fragment {
 
     }
 
-
-
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.popIde:
+                Intent i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.idemandOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.idemandBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popKon:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.kontaktskaberOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.kontaktskaberBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popKoo:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.koordinatorOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.koordinatorBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popOps:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.opstarterOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.opstarterBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popAna:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.analytikerOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.analytikerBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popFor:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.formidlerOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.formidlerBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popOrg:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.organisatorOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.organisatorBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popAfs:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.afslutterOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.afslutterBrødtekst));
+                startActivity(i);
+                break;
+            case R.id.popSpe:
+                i = new Intent(this.getContext(), BELBIN_popup.class);
+                i.putExtra("antal", antal);
+                i.putExtra("overskrift", getResources().getString(R.string.specialistOverskrift));
+                i.putExtra("brødtekst", getResources().getString(R.string.specialistBrødtekst));
+                startActivity(i);
+                break;
+        }
+    }
 
 }

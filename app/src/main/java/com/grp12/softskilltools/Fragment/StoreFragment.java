@@ -191,12 +191,21 @@ public class StoreFragment extends Fragment implements View.OnClickListener {
         super.onPause();
     }
 
+    /**********************************************************************
+     * This method makes sure the pop up actually pops up when clicked on *
+     **********************************************************************/
+
     public void openPopUp(AbstractItem item) {
         Intent i = new Intent(this.getContext(), PopUp.class);
         i.putExtra("brødtekst",item.getDescription());
         i.putExtra("overskrift",item.getProductName());
         startActivity(i);
     }
+
+    /*******************************************************************************
+     * This method makes sure the pop up for acceptance of a deal actually pops up *
+     *******************************************************************************/
+
     public void openAcceptPopUp(){
         Intent i = new Intent(this.getContext(),Store_popup.class);
         startActivity(i);

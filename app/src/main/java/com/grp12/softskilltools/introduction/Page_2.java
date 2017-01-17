@@ -18,6 +18,10 @@ public class Page_2 extends PageFragment {
         return R.layout.fragment_page_second;
     }
 
+    /*******************************************************
+     * This method handles the second page of the coachMark *
+     *******************************************************/
+
     @NonNull
     @Override
     protected TransformItem[] getTransformItems() {

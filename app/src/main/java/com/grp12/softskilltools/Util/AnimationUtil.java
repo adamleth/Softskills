@@ -42,6 +42,10 @@ public class AnimationUtil {
         s.setEndValue(count);
     }
 
+    /*************************************************
+     * This method handles all the Spring animations *
+     *************************************************/
+
     public static Spring enterBottom(final View v, final int time) {
 
         final Spring s = SpringSystem.create().createSpring();
@@ -81,6 +85,10 @@ public class AnimationUtil {
         return s;
     }
 
+    /******************************************************
+     * This method handles the rotation (X) of animations *
+     ******************************************************/
+
     public static void rotateX(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -96,6 +104,10 @@ public class AnimationUtil {
         }, time);
 
     }
+
+    /**********************************************
+     * This method handles the landing animations *
+     **********************************************/
 
     public static void landMeY(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
@@ -127,6 +139,10 @@ public class AnimationUtil {
 
     }
 
+    /*****************************************************
+     * This method handles the landing (X) of animations *
+     *****************************************************/
+
     public static void landMeX(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -155,6 +171,11 @@ public class AnimationUtil {
         }, time);
     }
 
+
+    /******************************************************
+     * This method handles the landing (Me) of animations *
+     ******************************************************/
+
     public static void landMe(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -182,7 +203,9 @@ public class AnimationUtil {
 
     }
 
-
+    /************************************************
+     * This method changes the visibility of a view *
+     ************************************************/
 
     public static Spring showMe(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
@@ -201,6 +224,10 @@ public class AnimationUtil {
         return s;
     }
 
+    /*********************************************************************
+     * This method changes the visibility of a view, in this it hides it *
+     *********************************************************************/
+
     public static Spring hideMe(final View v, final int time) {
         //v.setVisibility(View.INVISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -217,6 +244,10 @@ public class AnimationUtil {
         return s;
     }
 
+
+    /***************************************************
+     * This method handles the rotation (X) with color *
+     ***************************************************/
 
     public static void rotateXwithColor(final View v, final int color, final int time) {
         // v.setVisibility(View.INVISIBLE);
@@ -248,6 +279,10 @@ public class AnimationUtil {
 
     }
 
+    /******************************************************
+     * This method handles the rotation (Y) of animations *
+     ******************************************************/
+
     public static void rotateY(final View v, final int time) {
         final Spring s = SpringSystem.create().createSpring();
         s.setSpringConfig(springConfig);
@@ -262,6 +297,10 @@ public class AnimationUtil {
         }, time);
 
     }
+
+    /****************************************************************
+     * This method handles the clockwise rotation of the animations *
+     ****************************************************************/
 
     public static void rotateClockWise(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
@@ -278,6 +317,10 @@ public class AnimationUtil {
         }, time);
     }
 
+     /**************************************************************************
+     * This method handles the visibility of the clockwise rotation animations *
+     ***************************************************************************/
+
     public static void rotateClockWiseVisible(final View v, final int time) {
         //v.setVisibility(View.INVISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -292,6 +335,10 @@ public class AnimationUtil {
             }
         }, time);
     }
+
+    /****************************************************************
+     * This method handles the clockwise rotation of the animations *
+     ****************************************************************/
 
     public static Spring getrotateClockWise(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
@@ -310,6 +357,10 @@ public class AnimationUtil {
 
     }
 
+    /************************************************************************
+     * This method handles the counter-clockwise rotation of the animations *
+     ************************************************************************/
+
     public static void rotateAntiClockWise(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -325,6 +376,10 @@ public class AnimationUtil {
         }, time);
 
     }
+
+    /*************************************************************
+     * This method handles the entry of a animation from the top *
+     *************************************************************/
 
     public static Spring enterTop(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
@@ -342,6 +397,10 @@ public class AnimationUtil {
         return s;
     }
 
+    /*********************************************************************************
+     * This method handles the entry of a animation from the left side of the screen *
+     *********************************************************************************/
+
     public static void enterLeft(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -357,6 +416,10 @@ public class AnimationUtil {
         }, time);
 
     }
+
+    /**********************************************************************************
+     * This method handles the entry of a animation from the right side of the screen *
+     **********************************************************************************/
 
     public static void enterRight(final View v, final int time) {
         v.setVisibility(View.INVISIBLE);
@@ -374,6 +437,10 @@ public class AnimationUtil {
 
     }
 
+    /******************************************************************
+     * This method makes sure the animation enter the screen as a pop *
+     ******************************************************************/
+
     public static void popIn(final View v, int time) {
         v.setVisibility(View.VISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -387,6 +454,11 @@ public class AnimationUtil {
             }
         }, time);
     }
+
+    /********************************************************************************
+     * This method makes sure the animation exits the screen without too much delay *
+     ********************************************************************************/
+
     public static void popInGone(final View v, int time) {
         v.setVisibility(View.VISIBLE);
         final Spring s = SpringSystem.create().createSpring();
@@ -401,6 +473,10 @@ public class AnimationUtil {
             }
         }, time);
     }
+
+    /******************************************************************
+     * This method makes sure the animation exits the screen as a pop *
+     ******************************************************************/
 
     public static void popOut(final View v, int time) {
         v.setVisibility(View.INVISIBLE);
@@ -417,6 +493,9 @@ public class AnimationUtil {
         }, time);
     }
 
+    /*************************************************
+     * This method handles scale out of a animation  *
+     *************************************************/
 
     public static Spring getscaleOut(final View v, final int count) {
         v.setVisibility(View.INVISIBLE);
@@ -433,6 +512,10 @@ public class AnimationUtil {
         }, 0);
         return s;
     }
+
+    /*****************************************************************************
+     * This method makes sure the animation has round corners for the sake of UI *
+     *****************************************************************************/
 
     public static Spring makeRoundCorner(final View v, final int color, final int radius, int time) {
         final Spring s = SpringSystem.create().createSpring();
@@ -460,6 +543,9 @@ public class AnimationUtil {
         return s;
     }
 
+    /*****************************************************************************
+     * This method makes sure the animation has round corners for the sake of UI *
+     *****************************************************************************/
 
     private static void makeRoundCorner(int bgcolor, int radius, View v, int strokeWidth, int strokeColor) {
 
@@ -470,6 +556,9 @@ public class AnimationUtil {
         v.setBackgroundDrawable(gdDefault);
     }
 
+    /*****************************************************
+     * This method changes the boundaries of a animation *
+     *****************************************************/
 
     public static Spring changeBound(final Context context, final View v, final int width, int time) {
         final Spring sw = SpringSystem.create().createSpring();
@@ -535,6 +624,11 @@ public class AnimationUtil {
         }, time);
         return sw;
     }
+
+    /************************************************************
+     * This method changes the height boundaries of a animation *
+     ************************************************************/
+
     public static Spring changeBoundHeight(final Context context, final View v, final int width, int time) {
         final Spring sw = SpringSystem.create().createSpring();
         sw.setSpringConfig(SpringConfig.fromBouncinessAndSpeed(15, 55));

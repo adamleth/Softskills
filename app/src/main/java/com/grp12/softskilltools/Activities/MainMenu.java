@@ -119,6 +119,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]", "_"));
         mConditionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User newUser = dataSnapshot.getValue(User.class);
@@ -158,14 +160,12 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+    }
 
 
-
-
-
-
-
-}
+    /*********************************************
+     * This method gets a user from the database *
+     *********************************************/
 
     public void databaseCall(String email){
         DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(email.replaceAll("[\\.:;&@]", "_"));
@@ -197,6 +197,10 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
     }
+
+    /******************************************************************
+     * This method initializes the menu which works as the controller *
+     ******************************************************************/
 
     public void initialize(int i) {
 
@@ -257,6 +261,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         }
     }
+
+    /*****************************************************************************************
+     * This method loads the menu depending on whether you are a normal user or a consultant *
+     *****************************************************************************************/
+
     public void loadMenu(Boolean administrativ) {
         menu = navView.getMenu();
         titel1 = menu.findItem(R.id.grp1);
@@ -281,6 +290,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         new updateUser().execute();
     }
 
+
+
+    /********************************************
+     * This method updates the user information *
+     ********************************************/
 
     public class updateUser extends AsyncTask<String, Void, String>{
 
@@ -315,6 +329,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
 
 
+    /*****************************************************************
+     * This method updates the user information without an AsyncTask *
+     *****************************************************************/
 
     public void updateUser1(){
         String nøgle = getUser().getEmail().replaceAll("[\\.:;&@]","_");
@@ -341,9 +358,19 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         }
     }
 
+
+    /********************************
+     * This method creates the user *
+     ********************************/
+
     public void createUser(String email, String name, String lastName, String phone){
         this.user = new User(name,lastName,email,phone );
     }
+
+
+    /****************************************************
+     * This method returns an instance of the main menu *
+     ****************************************************/
 
     public static MainMenu getInstance() {
         return sMainMenu;
@@ -353,6 +380,9 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
+    /********************************************
+     * This method handles onClick for the menu *
+     ********************************************/
 
     public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -421,6 +451,10 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
+    /*******************************************************************
+     * This method shows the tutorial IF the user is a firstTimeRunner *
+     *******************************************************************/
+
     public void replaceTutorialFragment() {
         final IndicatorOptions indicatorOptions = IndicatorOptions.newBuilder(this)
                 .build();
@@ -440,6 +474,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 .replace(R.id.article_fragment, tutorialFragment)
                 .commit();
     }
+
+
+    /************************************************************
+     * This method creates the different pages for the tutorial *
+     ************************************************************/
 
     private static final class TutorialPagesProvider implements TutorialPageOptionsProvider {
 
@@ -500,6 +539,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
+
+    /*******************************************************
+     * This method handles the skip button in the tutorial *
+     *******************************************************/
+
     private final class OnSkipClickListener implements View.OnClickListener {
 
         @NonNull
@@ -531,6 +575,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             return super.onOptionsItemSelected(item);
         }
 
+
+    /********************************************************************************************************
+     * This method handles the change in the menu if a user wants to turn on the administrative environment *
+     ********************************************************************************************************/
+
     public void ChangeMenu(Boolean administrativ){
         if (administrativ == true) {
             navView.getMenu().setGroupVisible(R.id.grp2, administrativ);
@@ -544,6 +593,11 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
+
+
+    /*********************************************
+     * This method handles the sign out function *
+     *********************************************/
 
     private void signOut() {
         mAuth.signOut();

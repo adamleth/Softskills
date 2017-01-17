@@ -52,10 +52,10 @@
                     android:layout_height="match_parent"
                     app:srcCompat="@color/Dominant"
                     android:id="@+id/imageView6"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2.8" />
 
                 <TextView
-                    android:text="Dominant:"
+                    android:text="Dominerende:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1.8"
@@ -63,7 +63,8 @@
                     android:textSize="20dp"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="5dp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:id="@+id/popDom" />
 
                 <TextView
                     android:text="TextView"
@@ -71,7 +72,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/domText"
                     android:textSize="20dp"
-                    android:layout_weight="1"
+                    android:layout_weight="1.4"
                     android:gravity="center_vertical"
                     android:textColor="@color/white"/>
             </LinearLayout>
@@ -93,13 +94,13 @@
                     android:layout_height="match_parent"
                     app:srcCompat="@color/Influential"
                     android:id="@+id/imageView7"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2.8" />
 
                 <TextView
-                    android:text="Influential:"
+                    android:text="Influerende:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/textView26"
+                    android:id="@+id/popInf"
                     android:layout_weight="1.8"
                     android:textStyle="normal|bold"
                     android:gravity="center_vertical"
@@ -113,7 +114,7 @@
                     android:layout_height="match_parent"
                     android:textSize="20dp"
                     android:id="@+id/infText"
-                    android:layout_weight="1"
+                    android:layout_weight="1.4"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
@@ -134,13 +135,13 @@
                     android:layout_height="match_parent"
                     app:srcCompat="@color/Stable"
                     android:id="@+id/imageView8"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2.8" />
 
                 <TextView
-                    android:text="Stabile:"
+                    android:text="Stabil:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/textView28"
+                    android:id="@+id/popSta"
                     android:layout_weight="1.8"
                     android:textStyle="normal|bold"
                     android:textSize="20dp"
@@ -154,7 +155,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/staText"
                     android:textSize="20dp"
-                    android:layout_weight="1"
+                    android:layout_weight="1.4"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
@@ -175,13 +176,13 @@
                     android:layout_height="match_parent"
                     app:srcCompat="@color/Compliant"
                     android:id="@+id/imageView9"
-                    android:layout_weight="2.5" />
+                    android:layout_weight="2.8" />
 
                 <TextView
-                    android:text="Compliant:"
+                    android:text="Tilpassende:"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/textView30"
+                    android:id="@+id/popCom"
                     android:layout_weight="1.8"
                     android:textStyle="normal|bold"
                     android:textSize="20dp"
@@ -195,7 +196,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/comText"
                     android:textSize="20dp"
-                    android:layout_weight="1"
+                    android:layout_weight="1.4"
                     android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>

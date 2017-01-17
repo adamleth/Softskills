@@ -48,6 +48,8 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.frag_belbin_test, container, false);
@@ -205,6 +207,10 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    /************************************************
+     * This method resets all colors of the buttons *
+     ************************************************/
+
     public void resetButtonColors(){
         B1.setBackgroundResource(R.drawable.button_profile_std);B2.setBackgroundResource(R.drawable.button_profile_std);
         B3.setBackgroundResource(R.drawable.button_profile_std);B4.setBackgroundResource(R.drawable.button_profile_std);
@@ -267,14 +273,26 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    /************************************
+     * This method updates the question *
+     ************************************/
+
     public void update(Question question, int score){
         test.setQuestionAnswered(question);
         test.setScore(question,score);
     }
 
+    /*********************************
+     * This method resets the scores *
+     *********************************/
+
     public void resetScores(){
         q1 = q2 = q3= q4 = q5 = q6 = q7 = q8 = q9 = q10 = 0;
     }
+
+    /**********************************************************
+     * This method loads the next question in the BELBIN-test *
+     **********************************************************/
 
     public Question loadQuestion(TextView placeHolder) {
         current = test.QUEUELOGIC();
@@ -294,6 +312,10 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
     static class viewHolder{
         TextView question1, question2, question3, question4, question5, question6, question7, question8,question9,question10;
     }
+
+    /*************************************************************************
+     * This method handles the onClick on all the buttons in the BELBIN-test *
+     *************************************************************************/
 
     @Override
     public void onClick(View v) {

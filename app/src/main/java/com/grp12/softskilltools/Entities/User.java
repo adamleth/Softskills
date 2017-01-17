@@ -133,6 +133,7 @@ public class User {
     public void setfullName(){
         this.fullName = name + " " + surName;
     }
+
     /******************************************
      * This method gets the results of a user *
      ******************************************/

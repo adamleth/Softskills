@@ -125,6 +125,10 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    /********************************************
+     * This method shows the progress on screen *
+     ********************************************/
+
     public void setProgressOnScreen(Question question){
         int currentQuestion = test.getQuestionNumber(question);
         holder.progress.setText("Side "+currentQuestion/2+" af " + test.totalQuestions/2);
@@ -170,6 +174,10 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     static class viewHolder {
         TextView question1,question2, alert, progress;
     }
+
+    /************************************************
+     * This method resets all colors of the buttons *
+     ************************************************/
 
     public void resetButtonColors(){
 //        B10.setBackgroundResource(R.drawable.button_profile_std);

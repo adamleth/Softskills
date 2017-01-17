@@ -65,9 +65,9 @@ public abstract class AbstractItem implements Serializable {
         return owner;
     }
 
-    /****************************************
-     * This method sets the owner of a test *
-     ****************************************/
+    /******************************************
+     * This method sets the name of the owner *
+     ******************************************/
 
     public void setOwner(String owner) {
 
@@ -75,7 +75,7 @@ public abstract class AbstractItem implements Serializable {
     }
 
     /******************************************
-     * This method sets the name of the owner *
+     * This method sets the name of the product *
      ******************************************/
 
     public void setName(String name) {

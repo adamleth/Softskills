@@ -18,6 +18,10 @@ public class Page_3 extends PageFragment {
         return R.layout.fragment_page_third;
     }
 
+    /*******************************************************
+     * This method handles the third page of the coachMark *
+     *******************************************************/
+
     @NonNull
     @Override
     protected TransformItem[] getTransformItems() {

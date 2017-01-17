@@ -44,7 +44,7 @@
                                             android:text="Idémand:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textIdemand"
+                                            android:id="@+id/popIde"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -53,7 +53,7 @@
                                             android:text="Kontaktskaber:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textKontaktskaber"
+                                            android:id="@+id/popKon"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -62,7 +62,7 @@
                                             android:text="Koordinator:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textKoordinator"
+                                            android:id="@+id/popKoo"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -71,7 +71,7 @@
                                             android:text="Opstarter:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textOpstarter"
+                                            android:id="@+id/popOps"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -80,7 +80,7 @@
                                             android:text="Analytiker:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textAnalytiker"
+                                            android:id="@+id/popAna"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -167,7 +167,7 @@
                                             android:text="Formidler:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textFormidler"
+                                            android:id="@+id/popFor"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -176,7 +176,7 @@
                                             android:text="Organisator:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textOrganisator"
+                                            android:id="@+id/popOrg"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -185,7 +185,7 @@
                                             android:text="Afslutter:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textAfslutter"
+                                            android:id="@+id/popAfs"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
@@ -194,7 +194,7 @@
                                             android:text="Specialist:"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:id="@+id/textSpecialist"
+                                            android:id="@+id/popSpe"
                                             android:layout_weight="1"
                                             android:textColor="@color/white"
                                             android:textStyle="bold" />
