@@ -20,6 +20,10 @@ import com.galgespil.stvhendeop.menuapp.R;
  * Created by Mathias R. Larsen on 07-01-2017.
  */
 
+/************************************************
+ * This class handles the design of the pop-ups *
+ ************************************************/
+
 public class PopUp extends Activity implements View.OnClickListener {
 
     public Button knap;

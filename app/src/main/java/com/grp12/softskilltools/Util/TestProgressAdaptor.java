@@ -20,6 +20,10 @@ import java.util.List;
  * Created by mathiaslarsen on 22/11/2016.
  */
 
+/**************************************************************************************
+ * This class handles progress of the different bought and possibly half-filled tests *
+ **************************************************************************************/
+
 public class TestProgressAdaptor extends BaseAdapter {
 
     private static List<AbstractItem> products;
