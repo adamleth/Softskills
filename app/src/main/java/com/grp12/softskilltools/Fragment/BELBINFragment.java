@@ -16,6 +16,7 @@ import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.BELBIN;
 import com.grp12.softskilltools.Entities.Question;
+import com.squareup.haha.perflib.Main;
 
 /**
  * Created by Mathias R. Larsen on 03-01-2017.
@@ -161,11 +162,11 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
         ACTION = (Button) myView.findViewById(R.id.button27);ACTION.setOnClickListener(this);
 
-        this.currentQuestion1 = loadQuestion(holder.question1);this.currentQuestion2 = loadQuestion(holder.question2);
-        this.currentQuestion3 = loadQuestion(holder.question3);this.currentQuestion4 = loadQuestion(holder.question4);
-        this.currentQuestion5 = loadQuestion(holder.question5);this.currentQuestion6 = loadQuestion(holder.question6);
-        this.currentQuestion7 = loadQuestion(holder.question7);this.currentQuestion8 = loadQuestion(holder.question8);
-        this.currentQuestion9 = loadQuestion(holder.question9);this.currentQuestion10 = loadQuestion(holder.question10);
+        this.currentQuestion1 = loadQuestion(holder.question1,0);this.currentQuestion2 = loadQuestion(holder.question2,1);
+        this.currentQuestion3 = loadQuestion(holder.question3,2);this.currentQuestion4 = loadQuestion(holder.question4,3);
+        this.currentQuestion5 = loadQuestion(holder.question5,4);this.currentQuestion6 = loadQuestion(holder.question6,5);
+        this.currentQuestion7 = loadQuestion(holder.question7,6);this.currentQuestion8 = loadQuestion(holder.question8,7);
+        this.currentQuestion9 = loadQuestion(holder.question9,8);this.currentQuestion10 = loadQuestion(holder.question10,9);
 
         resetButtonColors();
 
@@ -178,26 +179,26 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
     public void next(){
         if (q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 == 10){
-            update(currentQuestion1,q1);
-            update(currentQuestion2,q2);
-            update(currentQuestion3,q3);
-            update(currentQuestion4,q4);
-            update(currentQuestion5,q5);
-            update(currentQuestion6,q6);
-            update(currentQuestion7,q7);
-            update(currentQuestion8,q8);
-            update(currentQuestion9,q9);
-            update(currentQuestion10,q10);
-            currentQuestion1 = loadQuestion(holder.question1);
-            currentQuestion2 = loadQuestion(holder.question2);
-            currentQuestion3 = loadQuestion(holder.question3);
-            currentQuestion4 = loadQuestion(holder.question4);
-            currentQuestion5 = loadQuestion(holder.question5);
-            currentQuestion6 = loadQuestion(holder.question6);
-            currentQuestion7 = loadQuestion(holder.question7);
-            currentQuestion8 = loadQuestion(holder.question8);
-            currentQuestion9 = loadQuestion(holder.question9);
-            currentQuestion10 = loadQuestion(holder.question10);
+            update(0,q1,currentQuestion1);
+            update(0,q2,currentQuestion2);
+            update(0,q3,currentQuestion3);
+            update(0,q4,currentQuestion4);
+            update(0,q5,currentQuestion5);
+            update(0,q6,currentQuestion6);
+            update(0,q7,currentQuestion7);
+            update(0,q8,currentQuestion8);
+            update(0,q9,currentQuestion9);
+            update(0,q10,currentQuestion10);
+            currentQuestion1 = loadQuestion(holder.question1,0);
+            currentQuestion2 = loadQuestion(holder.question2,1);
+            currentQuestion3 = loadQuestion(holder.question3,2);
+            currentQuestion4 = loadQuestion(holder.question4,3);
+            currentQuestion5 = loadQuestion(holder.question5,4);
+            currentQuestion6 = loadQuestion(holder.question6,5);
+            currentQuestion7 = loadQuestion(holder.question7,6);
+            currentQuestion8 = loadQuestion(holder.question8,7);
+            currentQuestion9 = loadQuestion(holder.question9,8);
+            currentQuestion10 = loadQuestion(holder.question10,9);
             resetScores();
             resetButtonColors();
         }
@@ -277,8 +278,9 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
      * This method updates the question *
      ************************************/
 
-    public void update(Question question, int score){
-        test.setQuestionAnswered(question);
+    public void update(int index, int score, Question question) {
+
+        test.setQuestionAnswered2(index);
         test.setScore(question,score);
     }
 
@@ -294,8 +296,8 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
      * This method loads the next question in the BELBIN-test *
      **********************************************************/
 
-    public Question loadQuestion(TextView placeHolder) {
-        current = test.QUEUELOGIC();
+    public Question loadQuestion(TextView placeHolder, int index) {
+        current = test.QUEUELOGIC2(index);
         if (current == null) {
             ACTION.setText("Se resultat");
             finished = true;
@@ -311,6 +313,12 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
     static class viewHolder{
         TextView question1, question2, question3, question4, question5, question6, question7, question8,question9,question10;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MainMenu.getInstance().runUpdate();
     }
 
     /*************************************************************************

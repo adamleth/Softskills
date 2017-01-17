@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class BELBIN extends AbstractItem {
     public final int totalQuestions = 70;
     private int PL,RI,CO,SH,ME,TW,IMP,CF,SP,DROP;
-    public int Complete;
     public static ArrayList<Question> questions;
+    public static ArrayList<Question> oldQuestions;
     public static Question[] usedQuestions;
     public Question nextQuestion;
     private User user = MainMenu.getInstance().getUser();
@@ -36,7 +36,6 @@ public class BELBIN extends AbstractItem {
         CF = 0;
         SP = 0;
         DROP = 0;
-        this.Complete = 0;
         initialize();
         convertQuestions();
     }
@@ -53,7 +52,7 @@ public class BELBIN extends AbstractItem {
         CF = 0;
         SP = 0;
         DROP = 0;
-        this.Complete = 0;
+        this.Complete = getCompletion();
         initialize();
         convertQuestions();
     }
@@ -160,6 +159,7 @@ public class BELBIN extends AbstractItem {
 
     public void initialize(){
 
+        oldQuestions = new ArrayList<>();
         questions = new ArrayList<>();
         for (int i = 0; i < totalQuestions; i++){
             questions.add(i,new Question(BELBIN_Data.BelbinWord_Data[i],BELBIN_Data.QuestionNo_DATA[i],BELBIN_Data.BELBINTYPE_Data[i]));
@@ -191,6 +191,15 @@ public class BELBIN extends AbstractItem {
 
 
         return nextQuestion;
+    }
+
+    public Question QUEUELOGIC2(int index){
+        if (!questions.isEmpty()){
+            return questions.get(index);
+        }
+        else {
+            return null;
+        }
     }
 
     /**********************************************************
@@ -255,6 +264,14 @@ public class BELBIN extends AbstractItem {
         calculateCompletion(totalQuestions,question.getQuestionNo());
         getCompletion();
     }
+    public void setQuestionAnswered2(int index){
+        questions.get(index).setAnswered(true);
+        oldQuestions.add(questions.get(index));
+        questions.remove(index);
+        int size = oldQuestions.size();
+        calculateCompletion(totalQuestions,oldQuestions.get(size-1).getQuestionNo());
+        getCompletion();
+    }
 
     /***************************************************
      * This method calculates the completion of a test *
@@ -289,6 +306,9 @@ public class BELBIN extends AbstractItem {
         int position = getQuestionPosition(question);
         return usedQuestions[position].getQuestionNo();
 
+    }
+    public int getQuestionNumber2(Question question){
+        return question.getQuestionNo();
     }
 
 
