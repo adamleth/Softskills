@@ -21,6 +21,8 @@
         <activity android:name="com.grp12.softskilltools.Activities.LoginPromptActivity"/>
         <activity android:name="com.grp12.softskilltools.Util.PopUp"
             android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity android:name="com.grp12.softskilltools.Util.DISC_popup"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
         <activity android:name="com.grp12.softskilltools.Util.Store_popup"
             android:theme="@style/AppTheme.CustomTheme">
             
