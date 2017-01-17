@@ -111,9 +111,9 @@ public class DISC extends AbstractItem {
         }
     }
 
-    /*************************************************************
-     * This method will	get the next question from the questions *
-     *************************************************************/
+    /*********************************************************************
+     * This method will	get the next question from the list of questions *
+     *********************************************************************/
 
     public Question QUEUELOGIC() {
 
@@ -207,6 +207,11 @@ public class DISC extends AbstractItem {
         return number;
 
     }
+
+    /**************************************************
+     * This method will	get the number of a questions *
+     **************************************************/
+
     public int getQuestionNumber(Question question){
         int position = getQuestionPosition(question);
         return usedQuestions[position].getQuestionNo();

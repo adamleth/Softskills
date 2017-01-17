@@ -12,6 +12,10 @@ public class THREESIXTY extends AbstractItem {
 
     }
 
+    /********
+     * Hygge*
+     ********/
+
     public THREESIXTY(double cost, boolean isUsed, String productName, String description, testType type) {
         super(cost, isUsed, productName, description, type);
         this.name = name;

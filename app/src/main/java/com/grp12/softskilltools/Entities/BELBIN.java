@@ -153,11 +153,12 @@ public class BELBIN extends AbstractItem {
         return DROP;
     }
 
-    public void initialize(){
 
-        /********************************
-         * The Belbin-test logic begins *
-         *******************************/
+    /********************************
+     * The Belbin-test logic begins *
+     *******************************/
+
+    public void initialize(){
 
         questions = new ArrayList<>();
         for (int i = 0; i < totalQuestions; i++){
@@ -168,13 +169,12 @@ public class BELBIN extends AbstractItem {
 
 
 
-
+    /**********************************************************************
+     * This method will get the next question from the stack of questions *
+     **********************************************************************/
 
     public Question QUEUELOGIC(){
 
-        /**********************************************************************
-         * This method will get the next question from the stack of questions *
-         **********************************************************************/
 
         this.nextQuestion = usedQuestions[0];
         if (!nextQuestion.getAnswered()) {
@@ -235,9 +235,9 @@ public class BELBIN extends AbstractItem {
         }
     }
 
-    /***************************************
-     * This method will	get the completion *
-     ***************************************/
+    /**********************************************************
+     * This method returns the completion of the current test *
+     **********************************************************/
 
     public int getCompletion(){
 
@@ -256,10 +256,9 @@ public class BELBIN extends AbstractItem {
         getCompletion();
     }
 
-    /*************************************************************
-     * This method will	calculate if the result is in line with the
-     * current question number and the total amount of questions *
-     *************************************************************/
+    /***************************************************
+     * This method calculates the completion of a test *
+     ***************************************************/
 
     public void calculateCompletion(int totalQuestions, int currentQuestionNo ) {
         super.calculateCompletion(totalQuestions,currentQuestionNo);
@@ -289,10 +288,13 @@ public class BELBIN extends AbstractItem {
 
         int position = getQuestionPosition(question);
         return usedQuestions[position].getQuestionNo();
-        /****************************
-         * The Belbin-test logic ends *
-         ****************************/
+
     }
+
+
+    /******************************************
+     * This method return the question number *
+     ******************************************/
 
     public void convertQuestions(){
         usedQuestions = new Question[totalQuestions];
@@ -301,6 +303,9 @@ public class BELBIN extends AbstractItem {
         }
     }
 
+    /****************************
+     * The Belbin-test logic ends *
+     ****************************/
 
     @Override
     public String toString() {
