@@ -59,14 +59,14 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
      *************************************************************************************/
 
     public void checkAdministrativ(){
-        if (user.getAdministrativ() == true){
+        if (user.getAdministrativ() == false){
             administrativ.setChecked(true);
         }
-        else if(user.getAdministrativ() == false){
+        else if(user.getAdministrativ() == true){
             administrativ.setChecked(false);
-
         }
     }
+
     public void checkInverter(){
         if (user.getInverter() == true){
             inverter.setChecked(true);
