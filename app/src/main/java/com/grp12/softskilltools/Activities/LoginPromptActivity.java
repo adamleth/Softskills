@@ -51,36 +51,37 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
         warning = (TextView) findViewById(R.id.textView11);
 
 
-            mAuth = FirebaseAuth.getInstance();
-            mAuthListener = new FirebaseAuth.AuthStateListener() {
-                @Override
-                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                    if (user != null) {
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
 
-                        Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                        System.out.println("BrugerUID " + user.getUid());
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    System.out.println("BrugerUID " + user.getUid());
 
-                        Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
-                        i.putExtra("UserEmail", user.getEmail());
+                    Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
+                    i.putExtra("UserEmail", user.getEmail());
 
 
-                        startActivity(i);
-                    } else {
-                        // User is signed out
-                        Log.d(TAG, "onAuthStateChanged:signed_out");
-                    }
-                    // ...
+                    startActivity(i);
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-            };
-        if(checkInternetConnection() == false){
-            login.setText("INGEN INtERNETFORBINDELSE");
+                // ...
+            }
+        };
+
+        if (checkInternetConnection() == false) {
             login.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             login.setClickable(false);
-            forgot.setClickable(false);
-            forgot.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+            login.setText("Vi kunne ikke logge dig ind. Tjek din internetforbindelse");
+            forgot.setVisibility(View.GONE);
+            Toast.makeText(this, "Netværk ikke tilgængeligt", Toast.LENGTH_LONG).show();
+            // ...
         }
-        // ...
     }
 
     // [START on_start_add_listener]

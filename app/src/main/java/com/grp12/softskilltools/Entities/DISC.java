@@ -12,7 +12,6 @@ import java.util.Date;
 public class DISC extends AbstractItem {
     private int Dom,Inf,Sta,Com;
     public boolean isUsed;
-    public int Complete;
     public final int totalQuestions = 72;
     public static ArrayList<Question> questions;
     public static Question[] usedQuestions;

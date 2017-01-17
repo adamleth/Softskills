@@ -28,9 +28,17 @@ public class FirstFragment extends Fragment {
         surName.setText(getArguments().getString("surName"));
         email.setText(getArguments().getString("email"));
         phone.setText(getArguments().getString("phone"));
+        email.setActivated(false);
+        password.setActivated(false);
+        email.setFocusable(false);
+        password.setFocusable(false);
 
 
         return v;
+    }
+
+    public void update(String name, String surName, String email, String password, String phone){
+
     }
 
     public static FirstFragment newInstance(String name, String surName, String email, String phone) {

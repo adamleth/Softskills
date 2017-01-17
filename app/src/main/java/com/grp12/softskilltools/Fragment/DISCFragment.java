@@ -1,8 +1,10 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,9 @@ import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.Question;
+import com.grp12.softskilltools.Entities.Safe;
 import com.grp12.softskilltools.Util.AnimationUtil;
+import com.squareup.haha.perflib.Main;
 
 /**
  * Created by mathiaslarsen on 27/11/2016.
@@ -116,6 +120,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         else{
             holder.progress.setVisibility(View.GONE);
             holder.alert.setVisibility(View.VISIBLE);
+            Vibrator vibrator = (Vibrator) this.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(500);
         }
     }
 
@@ -194,6 +200,13 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
 
 
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Safe.getInstance().runUpdate();
 
     }
 

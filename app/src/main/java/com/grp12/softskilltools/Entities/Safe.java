@@ -31,14 +31,17 @@ public class Safe {
 
 
 
-
+    public static Safe sSafe;
     private List<AbstractItem> unusedItems = new ArrayList<>();
     private List<AbstractItem> usedItems = new ArrayList<>();
 
 
     /** Nødvendigt med konsteruktør uden parametre for at objektet kan instantieres fra JSON */
     public Safe() {
+        sSafe=this;
     }
+
+
 
     /**********************************
      * The logic of this class begins *
@@ -120,7 +123,9 @@ public class Safe {
                 unusedThreeSixtyItems.add((THREESIXTY)item);
         }
     }
-
+    public static Safe getInstance(){
+        return sSafe;
+    }
 
     /**********************************************
      * This method filters out the answered tests *
@@ -143,7 +148,7 @@ public class Safe {
                 break;
         }
         removeItemFromSafe(item);
-        new updateUser().execute();
+        runUpdate();
 
     }
 
@@ -235,6 +240,10 @@ public class Safe {
 
     public int getSafeSize(){
         return læsUnusedItems().size();
+    }
+
+    public void runUpdate(){
+        new updateUser().execute();
     }
 
 

@@ -185,6 +185,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                     if(ButtonPressed != true) {
                         SafeFragment.getInstance().Update();
                     }
+                    loadMenu(user.getAdministrativ());
                 }
 
             }
@@ -252,7 +253,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                             , new SafeFragment())
                     .commit();
             mToolbar.setTitle("Dine profiler");
-            loadMenu(user.getAdministrativ());
+
 
         }
     }
@@ -276,6 +277,10 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         }
     }
 
+    public void runUpdate(){
+        new updateUser().execute();
+    }
+
 
     public class updateUser extends AsyncTask<String, Void, String>{
 
@@ -297,9 +302,13 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
             }
 
         }
-        protected void onPostExecute() {
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
             SafeFragment.getInstance().Update();
         }
+
 
     }
 

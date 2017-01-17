@@ -1,7 +1,9 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,6 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
 
         BELBIN test;
-        ScrollView exView;
         boolean finished = false;
         Question currentQuestion1,currentQuestion2,currentQuestion3,
                 currentQuestion4,currentQuestion5,currentQuestion6,
@@ -197,8 +198,10 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             currentQuestion10 = loadQuestion(holder.question10);
             resetScores();
             resetButtonColors();
-            
-
+        }
+        else {
+            Vibrator vibrator = (Vibrator) this.getContext().getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(500);
         }
     }
 

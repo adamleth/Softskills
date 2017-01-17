@@ -18,6 +18,7 @@ public class ServiceManager extends ContextWrapper {
     public boolean isNetworkAvailable() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        //Tjek for null også, da flytilstand er null
         if (networkInfo != null && networkInfo.isConnected()) {
             return true;
         }
