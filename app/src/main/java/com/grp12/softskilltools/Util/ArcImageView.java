@@ -27,9 +27,14 @@ public class ArcImageView extends CircleImageView {
     Spring s, r;
     boolean is_animate = true;
 
+
     public boolean isEnableRotation() {
         return enableRotation;
     }
+
+    /*********************************************************************
+     * This method makes sure you can not rotate the screen to landscape *
+     *********************************************************************/
 
     public void setEnableRotation(boolean enableRotation) {
         this.enableRotation = enableRotation;
@@ -104,6 +109,7 @@ public class ArcImageView extends CircleImageView {
         // setBorderOverlay(true);
     }
 
+
     @Override
     public void onDraw(final Canvas canvas) {
         super.onDraw(canvas);
@@ -129,12 +135,20 @@ public class ArcImageView extends CircleImageView {
 
     }
 
+    /********************************************
+     * This method sets the color of the border *
+     ********************************************/
+
     @Override
     public void setBorderColor(@ColorInt int borderColor) {
         //super.setBorderColor(borderColor);
         mStrockColor = borderColor;
         invalidate();
     }
+
+    /********************************************
+     * This method sets the width of the border *
+     ********************************************/
 
     @Override
     public void setBorderWidth(int borderWidth) {

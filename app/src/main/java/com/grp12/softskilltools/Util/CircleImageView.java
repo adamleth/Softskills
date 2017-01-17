@@ -27,6 +27,10 @@ import com.galgespil.stvhendeop.menuapp.R;
  * Created by mathiaslarsen on 08/01/2017.
  */
 
+/********************************************************************************************************************
+ * This class handles everything about the little image the user manually can change under 'My profile' in the menu *
+ ********************************************************************************************************************/
+
 public class CircleImageView extends ImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
