@@ -47,7 +47,7 @@
                     android:hint="Email"
                     android:background="@drawable/textedit_custom"
                     android:layout_marginTop="40dp"
-                    android:text="test@test.dk" />
+                    android:text="test@kontoen.dk" />
 
             </LinearLayout>
 
@@ -69,7 +69,7 @@
                     android:background="@drawable/textedit_custom"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="30dp"
-                    android:text="testtest" />
+                    android:text="1234567890" />
             </LinearLayout>
 
             <LinearLayout

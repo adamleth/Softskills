@@ -60,10 +60,10 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
     public void checkAdministrativ(){
         if (user.getAdministrativ() == false){
-            administrativ.setChecked(true);
+            administrativ.setChecked(false);
         }
         else if(user.getAdministrativ() == true){
-            administrativ.setChecked(false);
+            administrativ.setChecked(true);
         }
     }
 
@@ -106,18 +106,18 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button21:
-                MainMenu.getInstance().updateUser1();
+                MainMenu.getInstance().runUpdate();
                 break;
             case R.id.checkbox_administrativ:
                 if (administrativ.isChecked() == true){
                     user.setAdministrativ(true);
                     MainMenu.getInstance().ChangeMenu(true);
-                    MainMenu.getInstance().updateUser1();
+                    MainMenu.getInstance().runUpdate();
                 }
                 if(administrativ.isChecked() == false){
                     user.setAdministrativ(false);
                     MainMenu.getInstance().ChangeMenu(false);
-                    MainMenu.getInstance().updateUser1();
+                    MainMenu.getInstance().runUpdate();
                 }
                 break;
         }
