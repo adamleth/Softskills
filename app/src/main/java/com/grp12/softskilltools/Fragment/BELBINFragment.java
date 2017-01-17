@@ -1,6 +1,8 @@
 package com.grp12.softskilltools.Fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -170,7 +172,16 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
         resetButtonColors();
 
+
         return myView;
+    }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser) {
+            Activity a = getActivity();
+            if(a != null) a.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 
     /******************************************************

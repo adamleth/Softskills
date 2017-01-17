@@ -3,6 +3,7 @@ package com.grp12.softskilltools.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.AsyncTask;
 import android.support.annotation.LayoutRes;
@@ -392,6 +393,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
 
         switch (id){
             case R.id.navigation_remind:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 fragmentManager.beginTransaction()
                         .replace(R.id.article_fragment
                                 , new RemindFragment())
@@ -399,6 +401,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 mToolbar.setTitle("Opfølgning");
                 break;
             case R.id.navigation_test:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 fragmentManager.beginTransaction()
                         .replace(R.id.article_fragment
                                 , new SafeFragment())
@@ -406,6 +409,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 mToolbar.setTitle("Dine profiler");
                 break;
             case R.id.navigation_results:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 fragmentManager.beginTransaction()
                         .replace(R.id.article_fragment
                                 , new ResultListFragment())
@@ -414,6 +418,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
             case R.id.navigation_invite:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 fragmentManager.beginTransaction()
                         .replace(R.id.article_fragment
                                 , new InviteFragment())
@@ -422,6 +427,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
             case R.id.navigation_settings:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 fragmentManager.beginTransaction()
                         .replace(R.id.article_fragment
                                 , new PrefFragment())
@@ -430,6 +436,7 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
             case R.id.navigation_store:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 fragmentManager.beginTransaction()
                         .replace(R.id.article_fragment
                                 , new StoreFragment())
@@ -473,6 +480,17 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
                 .beginTransaction()
                 .replace(R.id.article_fragment, tutorialFragment)
                 .commit();
+    }
+
+    public void setScreenRotaionLock(int i){
+        switch (i){
+            case 1:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                break;
+            case 2:
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+                break;
+        }
     }
 
 

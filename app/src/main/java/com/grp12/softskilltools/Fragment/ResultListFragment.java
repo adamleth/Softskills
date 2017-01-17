@@ -13,6 +13,7 @@ import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.AbstractItem;
 import com.grp12.softskilltools.Util.ResultListAdaptor;
+import com.squareup.haha.perflib.Main;
 
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class ResultListFragment extends Fragment implements AdapterView.OnItemCl
         System.out.println(position);
         AbstractItem tempItem = testResults.get(position);
         Bundle bundle = new Bundle();
+        MainMenu.getInstance().setScreenRotaionLock(1);
         switch (tempItem.getTestType()){
             case DISC:
                 DISCResultFragment discFrag= new DISCResultFragment();

@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/logo_burned"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -39,7 +39,6 @@
             
         </activity>
         <activity android:name="com.grp12.softskilltools.Activities.MainMenu" />
-        <activity android:name="com.grp12.softskilltools.Fragment.PrefFragment" />
         <activity android:name="com.grp12.softskilltools.Activities.MainActivity">
         </activity>
     </application>
