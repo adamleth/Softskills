@@ -163,9 +163,9 @@ public class User {
 
         safe.addToResults(item);
     }
-    public void setFirstRun(Boolean firstRun){
-        this.firstRun = firstRun;
-    }
+
+
+    public void setFirstRun(Boolean firstRun){this.firstRun = firstRun;}
     public boolean getFirstRun(){
         return firstRun;
     }

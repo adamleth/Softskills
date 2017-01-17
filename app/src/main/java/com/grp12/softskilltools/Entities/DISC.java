@@ -2,8 +2,10 @@ package com.grp12.softskilltools.Entities;
 
 import com.grp12.softskilltools.resources.DISC_Data;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 /**
  * Created by mathiaslarsen on 18/11/2016.
@@ -14,20 +16,19 @@ public class DISC extends AbstractItem {
     public boolean isUsed;
     public final int totalQuestions = 72;
     public static ArrayList<Question> questions;
+    public static ArrayList<Question> oldQuestions;
     public static Question[] usedQuestions;
 
     public Question nextQuestion;
 
-
-
-        public DISC(){
-            Dom = 0;
-            Inf = 0;
-            Sta = 0;
-            Com = 0;
-            initialize();
-            convertQuestions();
-        }
+    public DISC(){
+        Dom = 0;
+        Inf = 0;
+        Sta = 0;
+        Com = 0;
+        initialize();
+        convertQuestions();
+    }
 
     public DISC(double cost, boolean isUsed, String productName, String description, testType type ) {
         super(cost, isUsed, productName, description, type);
@@ -38,16 +39,10 @@ public class DISC extends AbstractItem {
         this.Complete =  getCompletion();
         initialize();
         convertQuestions();
-
     }
 
-    public void setQuestions(ArrayList<Question> questions){
-        this.questions = questions;
-    }
 
-    public ArrayList<Question> getQuestions(){
-        return this.questions;
-    }
+
 
     public void convertQuestions(){
         usedQuestions = new Question[totalQuestions];
@@ -55,6 +50,7 @@ public class DISC extends AbstractItem {
             usedQuestions[i] = questions.get(i);
         }
     }
+
 
     public int getDom() {
 
@@ -96,6 +92,23 @@ public class DISC extends AbstractItem {
         this.Com += com;
     }
 
+    public void setQuestions(ArrayList<Question> questions){
+        this.questions = questions;
+    }
+
+    public ArrayList<Question> getQuestions(){
+        return this.questions;
+    }
+
+    public void setOldQuestions(ArrayList<Question> oldQuestions) {
+        this.oldQuestions = oldQuestions;
+    }
+
+    public ArrayList<Question> getOldQuestions() {
+        return this.oldQuestions;
+    }
+
+
 
 
     /**********************************************
@@ -104,6 +117,7 @@ public class DISC extends AbstractItem {
 
     private void initialize(){
 
+        oldQuestions = new ArrayList<>();
         questions = new ArrayList<>();
         for (int i = 0; i < totalQuestions; i++){
             questions.add(i,new Question(DISC_Data.DISCWord_Data[i],DISC_Data.QuestionNo_DATA[i],DISC_Data.DISCTYPE_Data[i]));
@@ -132,6 +146,21 @@ public class DISC extends AbstractItem {
         System.out.println(Inf + " "+ Com + " " +Sta + " " +Dom);
             return nextQuestion;
         }
+
+    public Question QUEUELOGIC2(int index){
+        Question temp = questions.get(index);
+        if (!temp.getAnswered()){
+            return temp;
+        }
+        else {
+            return null;
+        }
+
+
+    }
+
+
+    public static Question[] removedQuestions;
 
     /**********************************
      * This method will	set the score *
@@ -172,6 +201,13 @@ public class DISC extends AbstractItem {
         int position = getQuestionPosition(question);
         usedQuestions[position].setAnswered(true);
         calculateCompletion(totalQuestions,question.getQuestionNo());
+        getCompletion();
+    }
+    public void setQuestionAnswered2(int index){
+        questions.get(index).setAnswered(true);
+        oldQuestions.add(questions.get(index));
+        questions.remove(index);
+        calculateCompletion(totalQuestions,questions.get(index).getQuestionNo());
         getCompletion();
     }
 
@@ -215,6 +251,9 @@ public class DISC extends AbstractItem {
         int position = getQuestionPosition(question);
         return usedQuestions[position].getQuestionNo();
 
+    }
+    public int getQuestionNumber2(Question question){
+        return question.getQuestionNo();
     }
 
     /****************************

@@ -13,6 +13,8 @@ import java.util.Date;
 
 public abstract class AbstractItem implements Serializable {
     public double cost;
+
+
     public enum testType{DISC,BELBIN,THREESIXTY};
     public boolean isUsed;
     public testType type;

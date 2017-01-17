@@ -90,8 +90,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         B24.setOnClickListener(this);
         B25.setOnClickListener(this);
         Next.setOnClickListener(this);
-        this.currentQuestion1 = loadQuestion(holder.question1);
-        this.currentQuestion2 = loadQuestion(holder.question2);
+        this.currentQuestion1 = loadQuestion(holder.question1,0);
+        this.currentQuestion2 = loadQuestion(holder.question2,1);
         setProgressOnScreen(currentQuestion2);
         resetButtonColors();
         return myView;
@@ -105,10 +105,10 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
         if (q1 + q2 == 5) {
             resetButtonColors();
-            update(currentQuestion1,q1);
-            update(currentQuestion2,q2);
-            currentQuestion1 = loadQuestion(holder.question1);
-            currentQuestion2 = loadQuestion(holder.question2);
+            update(0,q1,currentQuestion1);
+            update(1,q2,currentQuestion2);
+            currentQuestion1 = loadQuestion(holder.question1,0);
+            currentQuestion2 = loadQuestion(holder.question2,1);
             holder.alert.setVisibility(View.GONE);
             holder.progress.setVisibility(View.VISIBLE);
             q1 = 0;
@@ -130,7 +130,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
      ********************************************/
 
     public void setProgressOnScreen(Question question){
-        int currentQuestion = test.getQuestionNumber(question);
+        int currentQuestion = test.getQuestionNumber2(question);
         holder.progress.setText("Side "+currentQuestion/2+" af " + test.totalQuestions/2);
     }
 
@@ -138,9 +138,9 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
      * This method updates the question and score *
      **********************************************/
 
-    public void update(Question question, int score) {
+    public void update(int index, int score, Question question) {
 
-        test.setQuestionAnswered(question);
+        test.setQuestionAnswered2(index);
         test.setScore(question,score);
     }
 
@@ -148,9 +148,9 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
      * This method loads the next question *
      ***************************************/
 
-    public Question loadQuestion(TextView placeHolder) {
+    public Question loadQuestion(TextView placeHolder, int index) {
 
-        current = test.QUEUELOGIC();
+        current = test.QUEUELOGIC2(index);
 
             if (current == null) {
 
@@ -214,7 +214,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onPause() {
         super.onPause();
-        SafeFragment.getInstance().Update();
+        System.out.println("onPause blev kaldt");
+        MainMenu.getInstance().runUpdate();
 
     }
 
