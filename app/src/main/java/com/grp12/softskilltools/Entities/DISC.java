@@ -36,7 +36,7 @@ public class DISC extends AbstractItem {
         Inf = 0;
         Sta = 0;
         Com = 0;
-        this.Complete =  getCompletion();
+        this.Complete = getCompletion();
         initialize();
         convertQuestions();
     }
@@ -145,7 +145,7 @@ public class DISC extends AbstractItem {
 
         System.out.println(Inf + " "+ Com + " " +Sta + " " +Dom);
             return nextQuestion;
-        }
+    }
 
     public Question QUEUELOGIC2(int index){
         Question temp = questions.get(index);
@@ -158,9 +158,6 @@ public class DISC extends AbstractItem {
 
 
     }
-
-
-    public static Question[] removedQuestions;
 
     /**********************************
      * This method will	set the score *

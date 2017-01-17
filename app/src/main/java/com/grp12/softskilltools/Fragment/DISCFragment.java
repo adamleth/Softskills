@@ -151,9 +151,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     public Question loadQuestion(TextView placeHolder, int index) {
 
         current = test.QUEUELOGIC2(index);
-
             if (current == null) {
-
                 AnimationUtil.popIn(Next,100);
                 Next.setText("Se resultat");
                 AnimationUtil.popOut(Next,300);
