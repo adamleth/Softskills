@@ -23,6 +23,11 @@ import java.text.DecimalFormat;
  * Created by mathiaslarsen on 16/01/2017.
  */
 
+/****************************************************************************************
+ * This class handles the pop-up in the store. This pop-up works as an extra confirmation
+ * of the deal. The user can also choose to buy X amout of the chosen test
+ ****************************************************************************************/
+
 public class Store_popup extends Activity implements View.OnClickListener {
 
     Button accept, decline, plus, minus;

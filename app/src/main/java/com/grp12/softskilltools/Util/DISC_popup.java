@@ -15,6 +15,10 @@ import com.galgespil.stvhendeop.menuapp.R;
  * Created by Ejer on 16-01-2017.
  */
 
+/*****************************************************************
+ * This class handles all of the pop-ups on the DISC-result page *
+ *****************************************************************/
+
 public class DISC_popup extends Activity implements View.OnClickListener {
 
     TextView discPopTitle, discPopText;

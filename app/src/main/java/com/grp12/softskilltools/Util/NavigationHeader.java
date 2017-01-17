@@ -12,6 +12,10 @@ import com.galgespil.stvhendeop.menuapp.R;
  * Created by mathiaslarsen on 15/11/2016.
  */
 
+/*****************************************************************************
+ * This class handles the button in the top left corner which opens the menu *
+ *****************************************************************************/
+
 public class NavigationHeader extends AppCompatActivity implements View.OnClickListener {
 
     private ArcImageView user;

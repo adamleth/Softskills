@@ -12,6 +12,10 @@ import android.os.Vibrator;
  * Created by mathiaslarsen on 16/01/2017.
  */
 
+/*********************************************
+ * This class handles the network connection *
+ *********************************************/
+
 public class NetworkChangeReciever extends BroadcastReceiver {
 
     @Override
