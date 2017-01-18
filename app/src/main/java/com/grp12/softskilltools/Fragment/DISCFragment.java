@@ -1,6 +1,7 @@
 package com.grp12.softskilltools.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.grp12.softskilltools.Entities.DISC;
 import com.grp12.softskilltools.Entities.Question;
 import com.grp12.softskilltools.Entities.Safe;
 import com.grp12.softskilltools.Util.AnimationUtil;
+import com.grp12.softskilltools.Util.DISC_popup;
 import com.squareup.haha.perflib.Main;
 
 /**
@@ -48,6 +50,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         holder = new viewHolder();
         this.currentQuestion1 = null;
         this.currentQuestion2 = null;
+
 
 
     }
@@ -94,6 +97,14 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         this.currentQuestion2 = loadQuestion(holder.question2,1);
         setProgressOnScreen(currentQuestion2);
         resetButtonColors();
+
+        if (test.firstRun){
+            Intent i = new Intent(this.getContext(), DISC_popup.class);
+            i.putExtra("antal",2);
+            i.putExtra("overskrift",getResources().getString(R.string.DISCVejledning2));
+            i.putExtra("brødtekst",getResources().getString(R.string.DISCVejledning));
+            startActivity(i);
+        }
         return myView;
     }
 
@@ -123,6 +134,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
             Vibrator vibrator = (Vibrator) this.getContext().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(500);
         }
+        test.setFirst(false);
     }
 
     /********************************************

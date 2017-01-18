@@ -16,7 +16,7 @@ public abstract class AbstractItem implements Serializable {
 
 
     public enum testType{DISC,BELBIN,THREESIXTY};
-    public boolean isUsed;
+    public boolean isUsed, firstRun;
     public testType type;
     public String owner;
     public String productName, description;
@@ -37,9 +37,16 @@ public abstract class AbstractItem implements Serializable {
         this.finishedDate = "00/00/0000";
         this.expirationDate = "00/00/0000";
         this.Complete = 0;
+        this.firstRun = true;
 
     }
 
+    public boolean getFirst(){
+        return firstRun;
+    }
+    public void setFirst(Boolean firstRun){
+        this.firstRun = firstRun;
+    }
 
     /***********************************************
      * This method checks for the type of the test *

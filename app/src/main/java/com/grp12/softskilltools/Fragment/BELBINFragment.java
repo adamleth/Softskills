@@ -2,6 +2,7 @@ package com.grp12.softskilltools.Fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.galgespil.stvhendeop.menuapp.R;
 import com.grp12.softskilltools.Activities.MainMenu;
 import com.grp12.softskilltools.Entities.BELBIN;
 import com.grp12.softskilltools.Entities.Question;
+import com.grp12.softskilltools.Util.DISC_popup;
 import com.squareup.haha.perflib.Main;
 
 /**
@@ -174,6 +176,14 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
         resetButtonColors();
 
+        if (test.firstRun){
+            Intent i = new Intent(this.getContext(), DISC_popup.class);
+            i.putExtra("antal",2);
+            i.putExtra("overskrift",getResources().getString(R.string.DISCVejledning2));
+            i.putExtra("brødtekst",getResources().getString(R.string.DISCVejledning));
+            startActivity(i);
+        }
+
 
         return myView;
     }
@@ -221,6 +231,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             Vibrator vibrator = (Vibrator) this.getContext().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(500);
         }
+        test.setFirst(false);
     }
 
     /************************************************
