@@ -40,6 +40,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
                 B75,B76,B77,B78,B79,B80,B81,B82,B83,B84,B85,B86,B87,B88,B89,B90,B91,B92,
                 B93,B94,B95,B96,B97,B98,B99,B100,B101,B102,B103,B104,B105,B106,B107,B108,B109,B110, ACTION;
         private Question current;
+        private TextView alert;
         int q1,q2,q3,q4,q5,q6,q7,q8,q9,q10;
         viewHolder holder;
         View myView;
@@ -68,7 +69,8 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
         holder.question9 = (TextView) myView.findViewById(R.id.textView22);
         holder.question10 = (TextView) myView.findViewById(R.id.textView23);
 
-
+        alert = (TextView) myView.findViewById(R.id.Alert2);
+        alert.setVisibility(View.GONE);
         B1 = (Button) myView.findViewById(R.id.button150);B2 = (Button) myView.findViewById(R.id.button48);
         B3 = (Button) myView.findViewById(R.id.button47);B4 = (Button) myView.findViewById(R.id.button30);
         B5 = (Button) myView.findViewById(R.id.button31);B6 = (Button) myView.findViewById(R.id.button41);
@@ -212,8 +214,10 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             currentQuestion10 = loadQuestion(holder.question10,9);
             resetScores();
             resetButtonColors();
+            alert.setVisibility(View.GONE);
         }
         else {
+            alert.setVisibility(View.VISIBLE);
             Vibrator vibrator = (Vibrator) this.getContext().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(500);
         }
