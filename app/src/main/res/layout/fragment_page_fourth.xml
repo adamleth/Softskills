@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    android:id="@+id/rootFirstPage"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ContentDescription"
+    tools:background="@android:color/holo_orange_dark">
+
+    <ImageView
+        android:id="@+id/ivFirstImage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_marginLeftPercent="25%"
+        app:layout_marginTopPercent="20%"
+
+
+
+        android:src="@mipmap/flaticon1484749185"
+
+        app:layout_heightPercent="35%"
+        app:layout_widthPercent="50%"/>
+
+
+    <ImageView
+        android:id="@+id/ivThirdImage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/flaticon1484749199"
+
+        app:layout_heightPercent="25%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="33%"
+        app:layout_widthPercent="30%"/>
+
+    <ImageView
+        android:id="@+id/ivFourthImage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/flaticon1484749024"
+
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="10%"
+        app:layout_marginTopPercent="18%"
+        app:layout_widthPercent="20%"/>
+
+    <ImageView
+        android:id="@+id/ivEighthImage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/flaticon1484749090"
+
+        app:layout_heightPercent="12%"
+        app:layout_marginLeftPercent="77%"
+        app:layout_marginTopPercent="20%"
+        app:layout_widthPercent="12%"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+        android:gravity="center"
+
+        android:text="Aktiver det administrative miljø, for at invitere brugere og holde øje med deres fremskridt."
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+
+        app:layout_heightPercent="25%"
+        app:layout_marginBottomPercent="5%"
+        app:layout_widthPercent="90%"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+
+        android:text="Inviter og følg op på gennemførsler"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_large"
+
+        app:layout_heightPercent="15%"
+        app:layout_marginBottomPercent="30%"
+        app:layout_widthPercent="70%"
+        android:layout_below="@+id/ivFirstImage"
+        android:layout_centerHorizontal="true" />
+</android.support.percent.PercentRelativeLayout>

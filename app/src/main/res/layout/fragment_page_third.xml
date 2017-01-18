@@ -29,13 +29,11 @@
 
         android:alpha=".5"
 
-        android:src="@mipmap/s_2_2"
+        android:src="@mipmap/flaticon1484748828"
 
-        app:layout_heightPercent="27%"
-        app:layout_marginLeftPercent="20%"
-        app:layout_marginRightPercent="12%"
-        app:layout_marginTopPercent="39%"
-        app:layout_widthPercent="75%"/>
+        app:layout_heightPercent="50%"
+        app:layout_marginTopPercent="50%"
+        app:layout_widthPercent="100%"/>
 
     <ImageView
         android:id="@+id/ivFirstImage"
@@ -45,10 +43,10 @@
         app:layout_marginLeftPercent="20%"
         app:layout_marginTopPercent="20%"
 
-        android:src="@mipmap/s_2_1"
+        android:src="@mipmap/flaticon1484748791"
 
-        app:layout_heightPercent="18%"
-        app:layout_widthPercent="55%"/>
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="60%"/>
 
 
     <ImageView
@@ -57,25 +55,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:src="@mipmap/s_2_6"
+        android:src="@mipmap/flaticon1484749096"
 
-        app:layout_heightPercent="7%"
+        app:layout_heightPercent="17%"
         app:layout_marginLeftPercent="57%"
-        app:layout_marginTopPercent="12%"
-        app:layout_widthPercent="14%"/>
-
-    <ImageView
-        android:id="@+id/ivSeventhImage"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:src="@mipmap/s_2_7"
-
-        app:layout_heightPercent="15%"
-        app:layout_marginLeftPercent="74%"
-        app:layout_marginTopPercent="25%"
-        app:layout_widthPercent="25%"/>
+        app:layout_marginTopPercent="7%"
+        app:layout_widthPercent="21%"/>
 
     <ImageView
         android:id="@+id/ivFifthImage"
@@ -120,4 +105,21 @@
         app:layout_heightPercent="39%"
         app:layout_marginBottomPercent="7%"
         app:layout_widthPercent="90%"/>
+
+    <ImageView
+        android:id="@+id/ivSeventhImage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/flaticon1484748986"
+
+        app:layout_heightPercent="15%"
+        app:layout_marginLeftPercent="1%"
+        app:layout_marginTopPercent="4%"
+        app:layout_widthPercent="25%"
+        android:layout_marginStart="12dp"
+        android:layout_alignBottom="@+id/ivFifthImage"
+        android:layout_alignStart="@+id/ivFirstImage"
+        android:layout_marginBottom="18dp" />
 </android.support.percent.PercentRelativeLayout>

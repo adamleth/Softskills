@@ -32,9 +32,9 @@
 
         android:alpha=".5"
 
-        android:src="@mipmap/s_1_2"
+        android:src="@mipmap/flaticon1484748755"
 
-        app:layout_heightPercent="6%"
+        app:layout_heightPercent="12%"
         app:layout_marginRightPercent="14%"
         app:layout_marginTopPercent="15%"
         app:layout_widthPercent="19%"/>
@@ -46,12 +46,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:src="@mipmap/s_1_3"
+        android:src="@mipmap/flaticon1484748914"
 
-        app:layout_heightPercent="8%"
+        app:layout_heightPercent="12%"
         app:layout_marginLeftPercent="72%"
         app:layout_marginTopPercent="33%"
-        app:layout_widthPercent="15%"/>
+        app:layout_widthPercent="19%"/>
 
     <ImageView
         android:id="@+id/ivFourthImage"
@@ -59,12 +59,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:src="@mipmap/s_1_4"
+        android:src="@mipmap/flaticon1484748983"
 
-        app:layout_heightPercent="10%"
+        app:layout_heightPercent="15%"
         app:layout_marginLeftPercent="55%"
         app:layout_marginTopPercent="42%"
-        app:layout_widthPercent="13%"/>
+        app:layout_widthPercent="19%"/>
 
     <ImageView
         android:id="@+id/ivSixthImage"
@@ -72,9 +72,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:src="@mipmap/s_1_6"
+        android:src="@mipmap/flaticon1484748665"
 
-        app:layout_heightPercent="7%"
+        app:layout_heightPercent="10%"
         app:layout_marginLeftPercent="4%"
         app:layout_marginTopPercent="25%"
         app:layout_widthPercent="20%"/>
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:src="@mipmap/s_1_7"
+        android:src="@mipmap/s_0_4"
 
         app:layout_heightPercent="8%"
         app:layout_marginLeftPercent="72%"
@@ -99,24 +99,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
 
-        android:src="@mipmap/s_1_5"
+        android:src="@mipmap/flaticon1484752011"
 
         app:layout_heightPercent="10%"
         app:layout_marginTopPercent="11%"
         app:layout_widthPercent="15%"/>
-
-    <ImageView
-        android:id="@+id/ivEighthImage"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-
-        android:src="@mipmap/s_1_8"
-
-        app:layout_heightPercent="10%"
-        app:layout_marginTopPercent="22%"
-        app:layout_widthPercent="25%"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -148,4 +135,20 @@
         app:layout_heightPercent="25%"
         app:layout_marginBottomPercent="9%"
         app:layout_widthPercent="90%"/>
+
+    <ImageView
+        android:id="@+id/ivEighthImage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@mipmap/s_1_8"
+
+        app:layout_heightPercent="10%"
+        app:layout_marginTopPercent="22%"
+        app:layout_widthPercent="25%"
+        android:layout_alignBottom="@+id/ivFifthImage"
+        android:layout_toStartOf="@+id/ivFifthImage"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="11dp" />
 </android.support.percent.PercentRelativeLayout>
