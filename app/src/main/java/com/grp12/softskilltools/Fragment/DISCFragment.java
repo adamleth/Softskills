@@ -98,7 +98,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         setProgressOnScreen(currentQuestion2);
         resetButtonColors();
 
-        if (test.firstRun){
+        if (test.getFirst1()){
             Intent i = new Intent(this.getContext(), DISC_popup.class);
             i.putExtra("antal",2);
             i.putExtra("overskrift",getResources().getString(R.string.DISCVejledning2));
@@ -117,7 +117,8 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
         if (q1 + q2 == 5) {
             resetButtonColors();
             update(0,q1,currentQuestion1);
-            update(1,q2,currentQuestion2);
+            update(0,q2,currentQuestion2);
+
             currentQuestion1 = loadQuestion(holder.question1,0);
             currentQuestion2 = loadQuestion(holder.question2,1);
             holder.alert.setVisibility(View.GONE);
@@ -134,7 +135,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
             Vibrator vibrator = (Vibrator) this.getContext().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(500);
         }
-        test.setFirst(false);
+        test.setFirst1(false);
     }
 
     /********************************************
@@ -152,6 +153,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
     public void update(int index, int score, Question question) {
 
+
         test.setQuestionAnswered2(index);
         test.setScore(question,score);
     }
@@ -162,8 +164,9 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
     public Question loadQuestion(TextView placeHolder, int index) {
 
-        current = test.QUEUELOGIC2(index);
-            if (current == null) {
+
+            if (test.getQuestions().isEmpty()) {
+                System.out.println(current);
                 AnimationUtil.popIn(Next,100);
                 Next.setText("Se resultat");
                 AnimationUtil.popOut(Next,300);
@@ -172,7 +175,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
 
 
             } else {
-
+                current = test.QUEUELOGIC2(index);
                 placeHolder.setText(current.getQuestion());
 
             }
@@ -225,7 +228,7 @@ public class DISCFragment extends Fragment implements View.OnClickListener {
     public void onPause() {
         super.onPause();
         System.out.println("onPause blev kaldt");
-        MainMenu.getInstance().runUpdate();
+        MainMenu.getInstance().updateUser1();
 
     }
 

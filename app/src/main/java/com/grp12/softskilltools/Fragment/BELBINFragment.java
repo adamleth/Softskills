@@ -176,7 +176,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
 
         resetButtonColors();
 
-        if (test.firstRun){
+        if (test.getFirst1()){
             Intent i = new Intent(this.getContext(), DISC_popup.class);
             i.putExtra("antal",2);
             i.putExtra("overskrift",getResources().getString(R.string.DISCVejledning2));
@@ -231,7 +231,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
             Vibrator vibrator = (Vibrator) this.getContext().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(500);
         }
-        test.setFirst(false);
+        test.setFirst1(false);
     }
 
     /************************************************
@@ -344,7 +344,7 @@ public class BELBINFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onPause() {
         super.onPause();
-        MainMenu.getInstance().runUpdate();
+        MainMenu.getInstance().updateUser1();
     }
 
     /*************************************************************************

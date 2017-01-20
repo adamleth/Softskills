@@ -23,6 +23,7 @@ public class BELBIN extends AbstractItem {
     private User user = MainMenu.getInstance().getUser();
     private DatabaseReference mRootDataRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference mConditionRef = mRootDataRef.child("Brugere").child(user.getEmail().replaceAll("[\\.:;&@]","_"));
+    public boolean first1;
 
 
     public BELBIN(){
@@ -55,6 +56,12 @@ public class BELBIN extends AbstractItem {
         this.Complete = getCompletion();
         initialize();
         convertQuestions();
+    }
+    public void setFirst1(boolean first){
+        this.first1 = first;
+    }
+    public boolean getFirst1(){
+        return first1;
     }
 
     public void setQuestions(ArrayList<Question> questions){
@@ -265,11 +272,14 @@ public class BELBIN extends AbstractItem {
         getCompletion();
     }
     public void setQuestionAnswered2(int index){
+
+
+
         questions.get(index).setAnswered(true);
         oldQuestions.add(questions.get(index));
         questions.remove(index);
-        int size = oldQuestions.size();
-        calculateCompletion(totalQuestions,oldQuestions.get(size-1).getQuestionNo());
+
+        calculateCompletion(totalQuestions, oldQuestions.get(oldQuestions.size()-1).getQuestionNo());
         getCompletion();
     }
 
