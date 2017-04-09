@@ -18,6 +18,7 @@ public class DISC extends AbstractItem {
     public static ArrayList<Question> questions;
     public static ArrayList<Question> oldQuestions;
     public static Question[] usedQuestions;
+    public boolean first;
 
     public Question nextQuestion;
 
@@ -40,6 +41,13 @@ public class DISC extends AbstractItem {
         initialize();
         convertQuestions();
     }
+    public void setFirst1(boolean first){
+        this.first= first;
+    }
+    public boolean getFirst1(){
+        return this.first;
+    }
+
 
 
 
@@ -201,12 +209,17 @@ public class DISC extends AbstractItem {
         getCompletion();
     }
     public void setQuestionAnswered2(int index){
+
+
+
         questions.get(index).setAnswered(true);
         oldQuestions.add(questions.get(index));
         questions.remove(index);
-        calculateCompletion(totalQuestions,questions.get(index).getQuestionNo());
-        getCompletion();
-    }
+
+            calculateCompletion(totalQuestions, oldQuestions.get(oldQuestions.size()-1).getQuestionNo());
+            getCompletion();
+        }
+
 
     /***************************************
      * This method will	get the completion *
