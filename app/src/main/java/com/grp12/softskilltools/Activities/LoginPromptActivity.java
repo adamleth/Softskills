@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.grp12.softskilltools.SOAP.IWsdl2CodeEvents;
+import com.grp12.softskilltools.SOAP.ServermanagerService;
 import com.grp12.softskilltools.Util.NetworkChangeReciever;
 
 import org.ksoap2.SoapEnvelope;
@@ -33,7 +35,7 @@ import org.ksoap2.transport.HttpTransportSE;
  * Created by mathiaslarsen on 23/11/2016.
  */
 
-public class LoginPromptActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginPromptActivity extends AppCompatActivity implements View.OnClickListener, IWsdl2CodeEvents {
 
 
     EditText email;
@@ -130,34 +132,33 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
                 });
 
     }
-    public void Login(String email, String password){
-    new CallWebService();
+    public void Login(final String email, final String password){
+        System.out.println("Start på login");
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                callWeb(email,password);
+                System.out.println("WSDL er kaldt");
+                Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
+                i.putExtra("UserEmail", email);
+                return null;
+            }
+        }.execute();
         Toast toast = Toast.makeText(this,"Login forsøges",Toast.LENGTH_LONG);
         toast.show();
 
 
 
+
+
     }
-    class CallWebService extends AsyncTask<String, Void, String> {
 
-        final String URL = "http://ubuntu4.javabog.dk:9959/softskills?WSDL";
-        final String NAMESPACE = "http://Service/";
-        final String SOAP_ACTION = "http://Softskills-server.Service/softskills";
-        final String METHOD_NAME = "login";
-        @Override
-        protected void onPostExecute(String s) {
-
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            String result = "";
-
-            SoapObject soapObject = new SoapObject(NAMESPACE, METHOD_NAME);
-
-            return result;
-        }
+    public void callWeb(String arg1, String arg2){
+        ServermanagerService service = new ServermanagerService();
+        service.setUrl("http://ubuntu4.javabog.dk:9959/softskills?WSDL");
+        service.login(arg1,arg2);
     }
+
     public void udskrivFejl(String fejl){
         warning.setText(fejl);
         warning.setVisibility(View.VISIBLE);
@@ -179,7 +180,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
             }
             else {
                 Login(email.getText().toString(), kodeord.getText().toString());
-                logInd(email.getText().toString(), kodeord.getText().toString());
+                //logInd(email.getText().toString(), kodeord.getText().toString());
                 warning.setVisibility(View.GONE);
             }
         }
@@ -187,5 +188,26 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
             Toast toast = Toast.makeText(this,"Denne funktion er ikke implementeret",Toast.LENGTH_LONG);
             toast.show();
         }
+    }
+
+    @Override
+    public void Wsdl2CodeStartedRequest() {
+        Log.e("Wsdl2Code", "Wsdl2CodeStartedRequest");
+
+    }
+    @Override
+    public void Wsdl2CodeFinished(String methodName, Object Data) {
+        Log.e("Wsdl2Code", "Wsdl2CodeFinished");
+        Log.e("Wsdl2Code",methodName);
+
+    }
+    @Override
+    public void Wsdl2CodeFinishedWithException(Exception ex) {
+        Log.e("Wsdl2Code", "Wsdl2CodeFinishedWithException");
+
+    }
+    @Override
+    public void Wsdl2CodeEndedRequest() {
+        Log.e("Wsdl2Code", "Wsdl2CodeEndedRequest");
     }
 }

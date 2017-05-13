@@ -20,7 +20,7 @@ public class ServermanagerService {
     
     public String NAMESPACE ="http://Service/";
     public String url="";
-    public int timeOut = 180;
+    public int timeOut = 1800;
     public IWsdl2CodeEvents eventHandler;
     public SoapProtocolVersion soapVersion;
     
