@@ -1,6 +1,8 @@
 package com.grp12.softskilltools.Activities;
 
+import android.app.Service;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.grp12.softskilltools.Util.NetworkChangeReciever;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+
 
 /**
  * Created by mathiaslarsen on 23/11/2016.
@@ -120,6 +130,34 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
                 });
 
     }
+    public void Login(String email, String password){
+    new CallWebService();
+        Toast toast = Toast.makeText(this,"Login forsøges",Toast.LENGTH_LONG);
+        toast.show();
+
+
+
+    }
+    class CallWebService extends AsyncTask<String, Void, String> {
+
+        final String URL = "http://ubuntu4.javabog.dk:9959/softskills?WSDL";
+        final String NAMESPACE = "http://Service/";
+        final String SOAP_ACTION = "http://Softskills-server.Service/softskills";
+        final String METHOD_NAME = "login";
+        @Override
+        protected void onPostExecute(String s) {
+
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String result = "";
+
+            SoapObject soapObject = new SoapObject(NAMESPACE, METHOD_NAME);
+
+            return result;
+        }
+    }
     public void udskrivFejl(String fejl){
         warning.setText(fejl);
         warning.setVisibility(View.VISIBLE);
@@ -140,6 +178,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
                 warning.setVisibility(View.VISIBLE);
             }
             else {
+                Login(email.getText().toString(), kodeord.getText().toString());
                 logInd(email.getText().toString(), kodeord.getText().toString());
                 warning.setVisibility(View.GONE);
             }

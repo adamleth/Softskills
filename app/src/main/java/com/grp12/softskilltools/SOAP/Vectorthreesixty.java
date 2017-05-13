@@ -18,7 +18,7 @@ import java.util.Hashtable;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 import java.util.Vector;
-import com.Wsdl2Code.WebServices.ServermanagerService.threesixty;
+import com.grp12.softskilltools.SOAP.threesixty;
 
 public class Vectorthreesixty extends Vector<threesixty> implements KvmSerializable {
     
@@ -57,13 +57,13 @@ public class Vectorthreesixty extends Vector<threesixty> implements KvmSerializa
         info.type = threesixty.class;
     }
     
-    @Override
+
     public String getInnerText() {
         return null;
     }
     
     
-    @Override
+
     public void setInnerText(String s) {
     }
     
