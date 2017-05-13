@@ -90,9 +90,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setNotifikationerRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setNotifikationerRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setNotifikationerRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setNotifikationerRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -144,9 +144,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setInverterRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setInverterRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setInverterRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setInverterRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -196,9 +196,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getNameRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getNameRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getNameRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getNameRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -272,9 +272,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setNameRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setNameRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setNameRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setNameRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -332,9 +332,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/addProductToUserRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/addProductToUserRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/addProductToUserRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/addProductToUserRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -391,9 +391,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/addToResultsRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/addToResultsRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/addToResultsRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/addToResultsRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -443,9 +443,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getSurNameRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getSurNameRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getSurNameRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getSurNameRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -518,9 +518,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setEmailRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setEmailRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setEmailRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setEmailRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -570,9 +570,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getEmailRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getEmailRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getEmailRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getEmailRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -645,9 +645,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setRetningRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setRetningRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setRetningRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setRetningRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -697,9 +697,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getRetningRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getRetningRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getRetningRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getRetningRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -770,9 +770,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/retrieveSafeObjectsRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/retrieveSafeObjectsRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/retrieveSafeObjectsRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/retrieveSafeObjectsRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -838,9 +838,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getSafeRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getSafeRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getSafeRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getSafeRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -907,9 +907,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getSafeSizeRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getSafeSizeRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getSafeSizeRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getSafeSizeRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -983,9 +983,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setSafeRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setSafeRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setSafeRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setSafeRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -1036,9 +1036,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setfullNameRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setfullNameRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setfullNameRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setfullNameRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -1088,9 +1088,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/hentResultsRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/hentResultsRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/hentResultsRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/hentResultsRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1156,9 +1156,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getFullNameRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getFullNameRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getFullNameRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getFullNameRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1235,9 +1235,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/addToSafeRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/addToSafeRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/addToSafeRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/addToSafeRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -1290,9 +1290,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setFirstRunRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setFirstRunRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setFirstRunRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setFirstRunRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -1342,9 +1342,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getFirstRunRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getFirstRunRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getFirstRunRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getFirstRunRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1415,9 +1415,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getAdministrativRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getAdministrativRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getAdministrativRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getAdministrativRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1488,9 +1488,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getNotifikationerRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getNotifikationerRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getNotifikationerRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getNotifikationerRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1561,9 +1561,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getInverterRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getInverterRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getInverterRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getInverterRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1636,9 +1636,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/setAdministrativRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/setAdministrativRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/setAdministrativRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/setAdministrativRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -1688,9 +1688,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/CheckConnectionRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/CheckConnectionRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/CheckConnectionRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/CheckConnectionRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1840,9 +1840,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/createGroupRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/createGroupRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/createGroupRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/createGroupRequest\"", soapEnvelope);
             }
         }catch (Exception e) {
             if (eventHandler != null)
@@ -1893,9 +1893,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getGroupRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getGroupRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getGroupRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getGroupRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1963,9 +1963,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/deleteGroupRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/deleteGroupRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/deleteGroupRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/deleteGroupRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -2036,9 +2036,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/getAllUsersRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/getAllUsersRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/getAllUsersRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/getAllUsersRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){

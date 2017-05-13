@@ -1,6 +1,5 @@
 package com.grp12.softskilltools.Activities;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,13 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.grp12.softskilltools.SOAP.IWsdl2CodeEvents;
 import com.grp12.softskilltools.SOAP.ServermanagerService;
 import com.grp12.softskilltools.Util.NetworkChangeReciever;
-
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
 
 
 /**
