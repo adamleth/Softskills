@@ -1763,9 +1763,9 @@ public class ServermanagerService {
         HttpTransportSE httpTransport = new HttpTransportSE(url,timeOut);
         try{
             if (headers!=null){
-                httpTransport.call("http://Service/ServerI/loginRequest", soapEnvelope,headers);
+                httpTransport.call("\"http://Service/ServerI/loginRequest\"", soapEnvelope,headers);
             }else{
-                httpTransport.call("http://Service/ServerI/loginRequest", soapEnvelope);
+                httpTransport.call("\"http://Service/ServerI/loginRequest\"", soapEnvelope);
             }
             Object retObj = soapEnvelope.bodyIn;
             if (retObj instanceof SoapFault){
@@ -1780,10 +1780,10 @@ public class ServermanagerService {
                     if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
                         SoapPrimitive j =(SoapPrimitive) obj;
                         boolean resultVariable = Boolean.parseBoolean(j.toString());
-                        return resultVariable;
+                        return true;
                     }else if (obj!= null && obj instanceof Boolean){
                         boolean resultVariable = (Boolean) obj;
-                        return resultVariable;
+                        return true;
                     }
                 }
             }

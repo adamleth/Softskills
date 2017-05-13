@@ -63,7 +63,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
         warning = (TextView) findViewById(R.id.textView11);
 
 
-        mAuth = FirebaseAuth.getInstance();
+       /* mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -84,7 +84,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
                 }
                 // ...
             }
-        };
+        };*/
 
         if (checkInternetConnection() == false) {
             login.setBackgroundColor(getResources().getColor(R.color.colorAccent));
@@ -96,7 +96,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    // [START on_start_add_listener]
+   /* // [START on_start_add_listener]
     @Override
     public void onStart() {
         super.onStart();
@@ -111,7 +111,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
-    }
+    }*/
 
     public void logInd(final String email, String kodeord) {
         mAuth.signInWithEmailAndPassword(email, kodeord)
@@ -139,8 +139,7 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
             protected Void doInBackground(Void... params) {
                 callWeb(email,password);
                 System.out.println("WSDL er kaldt");
-                Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
-                i.putExtra("UserEmail", email);
+
                 return null;
             }
         }.execute();
@@ -156,7 +155,14 @@ public class LoginPromptActivity extends AppCompatActivity implements View.OnCli
     public void callWeb(String arg1, String arg2){
         ServermanagerService service = new ServermanagerService();
         service.setUrl("http://ubuntu4.javabog.dk:9959/softskills?WSDL");
-        service.login(arg1,arg2);
+        boolean correct = service.login(arg1,arg2);
+        System.out.println("Login udført med status: " + correct);
+        if(correct == true){
+            Intent i = new Intent(LoginPromptActivity.this, MainMenu.class);
+            i.putExtra("UserEmail", arg1);
+            startActivity(i);
+            System.out.println("Skifter til menu");
+        }
     }
 
     public void udskrivFejl(String fejl){
