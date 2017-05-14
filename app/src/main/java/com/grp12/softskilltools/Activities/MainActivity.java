@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.galgespil.stvhendeop.menuapp.R;
@@ -108,8 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }
         else if (v == register){
-            Intent i = new Intent(MainActivity.this,RegisterActivity.class);
-            startActivity(i);
+            //Intent i = new Intent(MainActivity.this,RegisterActivity.class);
+            //startActivity(i);
+            Toast toast = Toast.makeText(this,"Deaktiveret - Ikke understøttet af javabog.",Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 }
